@@ -40,6 +40,32 @@ jelenleg. További hátrány, hogy mind a katalógus, mind a kölcsönzési nyil
 ## 4. A rendszerre vonatkozó pályázat, törvények, rendeletek, szabványok és ajánlások felsorolása
 
 ## 5. Jelenlegi üzleti folyamatok modellje
+Üzleti szereplők: 	
+-	kölcsönző (olvasó)
+Üzleti munkatárs: 	
+-	könyvtáros
+Üzleti entitások: 		
+-	cédula
+-	könyv
+-	olvasójegy
+Üzleti folyamatok: 	
+-	szépirodalmi katalógus rendszer karbantartása: könyvtáros a katalogizálandó könyv cédulájára felírja 
+a könyv adatait (cutter, raktári szám, a szerző(k), a mű címe, kiadó neve, kiadás éve, oldalak száma, ISBN száma, 
+beszerzési ára, tárgyszavak) => céduláról másolatot készít => cédulát a szépirodalmi katalógus fiókba helyezi 
+cím szerinti ábécé sorrendben => cetli másolatát a könyv hátuljába teszi,
+-	szakirodalmi katalógus rendszer karbantartása: könyvtáros a katalogizálandó könyv cédulájára felírja a 
+könyv adatait (ETO jelzet, cutter, raktári szám, a szerző(k), a mű címe, kiadó neve, kiadás éve, oldalak száma, 
+ISBN száma, beszerzési ára) => céduláról másolatot készít => cédulát a szakirodalmi katalógus fiókba helyezi 
+ETO szakjelzet szerinti sorrendben => cetli másolatát a könyv hátuljába teszi,
+-	szépirodalmi könyv keresése: kölcsönző szépirodalmi katalógus fiókhoz megy => cím vagy tárgyszavak 
+szerint cédulát megkeresi => a megtalált cédulán szereplő helyről a könyvet leveszi => elviszi a könyvet a 
+könyvtáros pulthoz,
+-	szakirodalmi könyv keresése: kölcsönző szakirodalmi katalógus fiókhoz megy => ETO szakjelzés szerint cédulát 
+megkeresi => a megtalált cédulán szereplő helyről a könyvet leveszi => elviszi a könyvet a könyvtáros pulthoz,
+-	kölcsönzés: könyvtáros a könyvből kiveszi a cédulát => cédula hátulján lévő táblázatban rögzíti a kölcsönző 
+személy olvasójegyének azonosítóját => cetlit a kölcsönzőhöz tartozó kartotékba helyezi kölcsönzésének lejárati 
+határideje szerint rendezve => a könyvtáros rögzíti a kölcsönzött könyvek számát és a kölcsönzési határidőt a 
+kölcsönző személy olvasójegyében.
 
 ## 6. Igényelt üzleti folyamatok modellje
 
