@@ -49,15 +49,19 @@ A fenti technológiai igényeknek megfelelően a megvalósítás MySql, Php, HTM
 
 ## 4. A rendszerre vonatkozó pályázat, törvények, rendeletek, szabványok és ajánlások felsorolása
 
+
 ## 5. Jelenlegi üzleti folyamatok modellje
 Üzleti szereplők: 	
 -	kölcsönző (olvasó)
+
 Üzleti munkatárs: 	
 -	könyvtáros
+
 Üzleti entitások: 		
 -	cédula
 -	könyv
 -	olvasójegy
+
 Üzleti folyamatok: 	
 -	szépirodalmi katalógus rendszer karbantartása: könyvtáros a katalogizálandó könyv cédulájára felírja 
 a könyv adatait (cutter, raktári szám, a szerző(k), a mű címe, kiadó neve, kiadás éve, oldalak száma, ISBN száma, 
