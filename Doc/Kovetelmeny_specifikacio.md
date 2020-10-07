@@ -61,25 +61,18 @@ A fenti technológiai igényeknek megfelelően a megvalósítás MySql, Php, HTM
 -	cédula
 -	könyv
 -	olvasójegy
+-	kartoték
+-	selejtezési jegyzőkönyv
 
 Üzleti folyamatok: 	
--	szépirodalmi katalógus rendszer karbantartása: könyvtáros a katalogizálandó könyv cédulájára felírja 
-a könyv adatait (cutter, raktári szám, a szerző(k), a mű címe, kiadó neve, kiadás éve, oldalak száma, ISBN száma, 
-beszerzési ára, tárgyszavak) => céduláról másolatot készít => cédulát a szépirodalmi katalógus fiókba helyezi 
-cím szerinti ábécé sorrendben => cetli másolatát a könyv hátuljába teszi,
--	szakirodalmi katalógus rendszer karbantartása: könyvtáros a katalogizálandó könyv cédulájára felírja a 
-könyv adatait (ETO jelzet, cutter, raktári szám, a szerző(k), a mű címe, kiadó neve, kiadás éve, oldalak száma, 
-ISBN száma, beszerzési ára) => céduláról másolatot készít => cédulát a szakirodalmi katalógus fiókba helyezi 
-ETO szakjelzet szerinti sorrendben => cetli másolatát a könyv hátuljába teszi,
--	szépirodalmi könyv keresése: kölcsönző szépirodalmi katalógus fiókhoz megy => cím vagy tárgyszavak 
-szerint cédulát megkeresi => a megtalált cédulán szereplő helyről a könyvet leveszi => elviszi a könyvet a 
-könyvtáros pulthoz,
--	szakirodalmi könyv keresése: kölcsönző szakirodalmi katalógus fiókhoz megy => ETO szakjelzés szerint cédulát 
-megkeresi => a megtalált cédulán szereplő helyről a könyvet leveszi => elviszi a könyvet a könyvtáros pulthoz,
--	kölcsönzés: könyvtáros a könyvből kiveszi a cédulát => cédula hátulján lévő táblázatban rögzíti a kölcsönző 
-személy olvasójegyének azonosítóját => cetlit a kölcsönzőhöz tartozó kartotékba helyezi kölcsönzésének lejárati 
-határideje szerint rendezve => a könyvtáros rögzíti a kölcsönzött könyvek számát és a kölcsönzési határidőt a 
-kölcsönző személy olvasójegyében.
+-	Új szépirodalmi könyv felvétele a katalógusba: könyvtáros a katalogizálandó könyv cédulájára felírja a könyv adatait (cutter, raktári szám, a szerző(k), a mű címe, kiadó neve, kiadás éve, oldalak száma, ISBN száma, beszerzési ára, tárgyszavak) => céduláról másolatot készít => cédulát a szépirodalmi katalógus fiókba helyezi szerző és cím szerinti ábécé sorrendben => cetli másolatát a könyv hátuljába teszi.
+-	Új szakirodalmi könyv felvétele a katalógusba: könyvtáros a katalogizálandó könyv cédulájára felírja a könyv adatait (ETO jelzet, cutter, raktári szám, a szerző(k), a mű címe, kiadó neve, kiadás éve, oldalak száma, ISBN száma, beszerzési ára) => céduláról másolatot készít => cédulát a szakirodalmi katalógus fiókba helyezi ETO szakjelzet szerinti sorrendben => cetli másolatát a könyv hátuljába teszi.
+-	Új kölcsönző regisztrálása: könyvtáros az új kölcsönző adataival kitölt egy új kartotékot => kartotékot kartoték rendezőbe helyezi név szerinti ábécé sorrendben => új olvasókártyát kitölti a személy adataival és átadja a kölcsönzőnek.
+-	Szépirodalmi könyv keresése: kölcsönző szépirodalmi katalógus fiókhoz megy => szerző és cím szerint cédulát megkeresi => a megtalált cédulán szereplő helyről a könyvet leveszi => elviszi a könyvet a könyvtáros pulthoz.
+-	Szakirodalmi könyv keresése: kölcsönző szakirodalmi katalógus fiókhoz megy => ETO szakjelzés szerint cédulát megkeresi => a megtalált cédulán szereplő helyről a könyvet leveszi => elviszi a könyvet a könyvtáros pulthoz.
+-	Kölcsönzés – könyv kivétele: könyvtáros a könyvből kiveszi a cédulát => cédula hátulján lévő táblázatban rögzíti a kölcsönző személy olvasójegyének azonosítóját => cetlit a kölcsönzőhöz tartozó kartotékba helyezi kölcsönzésének lejárati határideje szerint rendezve => a könyvtáros rögzíti a kölcsönzött könyvek számát és a kölcsönzési határidőt a kölcsönző személy olvasójegyében.
+-	Kölcsönzés - könyv visszavétele: kölcsönző átadja a könyvet és az olvasójegyet a könyvtárosnak => könyvtáros az olvasójegyen regisztrálja a visszavétel tényét és a jegyet visszaadja a kölcsönzőnek => a kölcsönző kartotékjából a könyvhöz tartozó cetlit (kiveszi és rögzíti rajta a visszavételt) = > cetlit visszahelyezi a könyv hátuljába => könyvet elhelyezi a "polcra visszahelyezendő" feliratú gyűjtőkosárba.
+-	Selejtezés: könyvtáros kitölti a selejtezésre váró könyvről a selejtezési jegyzőkönyvet => jegyzőkönyvhöz csatolja a könyv mindkét céduláját => könyvet elhelyezi a selejt tárolóba => jegyzőkönyvet továbbítja iktatásra.
 
 ## 6. Igényelt üzleti folyamatok modellje
 
