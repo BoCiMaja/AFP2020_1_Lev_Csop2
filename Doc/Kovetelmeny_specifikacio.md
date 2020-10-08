@@ -75,6 +75,25 @@ A fenti technológiai igényeknek megfelelően a megvalósítás MySql, Php, HTM
 -	Selejtezés: könyvtáros kitölti a selejtezésre váró könyvről a selejtezési jegyzőkönyvet => jegyzőkönyvhöz csatolja a könyv mindkét céduláját => könyvet elhelyezi a selejt tárolóba => jegyzőkönyvet továbbítja iktatásra.
 
 ## 6. Igényelt üzleti folyamatok modellje
+Üzleti folyamatok:
+
+Online folyamatok könyvtárosok számára:
+- Kölcsönző regisztrálása: könyvtáros adminisztrátori jogosultsággal belépés => adminisztráció menü => kölcsönző regisztrálása menüpont => adatok megadása => véglegesítés.
+- Kölcsönző törlése: könyvtáros adminisztrátori jogosultsággal belépés => adminisztráció menü => kölcsönző törlése menüpont => adatok megadása => véglegesítés.
+- Új könyv regisztrálása: könyvtáros adminisztrátori jogosultsággal belépés => adminisztráció menü => új könyv regisztrálása menüpont => adatok megadása => véglegesítés.
+- Könyv törlése: könyvtáros adminisztrátori jogosultsággal belépés => adminisztráció menü => könyv törlése menüpont => adatok megadása => véglegesítés => selejtezési jegyzőkönyv nyomtatása.
+- Kölcsönzés - könyv kiadása: könyvtáros adminisztrátori jogosultsággal belépés => kölcsönzés menü => könyv kiadása menüpont => kölcsönző olvasójegyén lévő vonalkód beolvasása => könyv vonalkód beolvasása => véglegesítés.
+- Kölcsönzés - könyv visszavétele: könyvtáros adminisztrátori jogosultsággal belépés => kölcsönzés menü => könyv visszavétele menüpont => kölcsönző olvasójegyén lévő vonalkód beolvasása => könyv vonalkód beolvasása => véglegesítés.
+- Lekérdezés (listák, kimutatások): könyvtáros adminisztrátori jogosultsággal belépés => lekérdezés menü => kívánt lekérdezés kiválasztása => adatok megadása => lekérdezés megjelenítése
+
+Online folyamatok felhasználók számára:
+- Keresés: felhasználó a keresés mezőbe beírja a keresett kulcsszavakat => keresés gomb => kulcsszavak szerinti találat(ok) megjelenítése.
+- Részletes keresés: felhasználó a részletes keresés linkre kattint => keresési adatok megadása => megadott adatok szerinti könyv(ek) megjelenítése.
+- Bejelentkezés: bejelentkezés menü => felhasználó név és jelszó megadása => bejelentkezési oldal megjelenése
+- Személyes adatok módosítása: regisztrált olvasói jogosultsággal belépés => profil menü => adatok módosítása menüpont => adat módosítása => megerősítés
+- Kölcsönzött könyvek listázása: regisztrált olvasói jogosultsággal belépés => profil menü => kölcsönzött könyvek menü => lista megjelenítése
+- Lekérdezés (listák, kimutatások): regisztrált olvasói jogosultsággal belépés => lekérdezés menü => kívánt lekérdezés kiválasztása => adatok megadása => lekérdezés megjelenítése
+
 
 ## 7. Követelménylista
 
