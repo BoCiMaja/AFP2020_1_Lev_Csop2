@@ -156,6 +156,17 @@ Online folyamatok felhasználók számára:
 
 
 ## 7. Követelménylista
+ID|Verzió|Név|Kifejtés
+--|------|---|--------
+K01|V1.0|Kölcsönzők adminisztrációja|Kölcsönzők regisztrálása, törlése az igényelt üzleti folyamatokban leírtak szerint.  
+K02|V1.0|Könyvek adminisztrációja|könyvek regisztrálása, törlése az igényelt üzleti folyamatokban leírtak szerint.
+K03|V1.0|Felhasználói fiókok kezelése|Bejelentkezés, felhasználói adatok módosítása, listák és kimutatások készítése az igényelt üzleti folyamatokban leírtak szerint.  
+K04|V1.0|Egyszerűen használható kezelőfelület|A legelterjedtebb internet böngészőkből használható felhasználói felület megvalósítása, oly módon, hogy a könyvtárosok számára az új rendszerre való átállás a lehető legegyszerűbb legyen.
+K05|V1.0|Online elérhető nyilvános katalógus|Bárki számára elérhető online felület készítése, amin keresztül elérhető, böngészhető és kereshető a könyvtárkatalógus tartalma.
+K06|V1.0|Platformfüggetlen, robusztus működés|Szabványos, az iparágban régóta bevált, operációs rendszertől független technológiák használata: Php, Apache HTTP szerver, MySQL.   
+K07|V1.0|Költséghatékony üzemeltetés|A szabványos és elterjedt technológiák használata biztosítja. 
+K08|V1.0|Bővíthetőség|A kezelt adatok mennyiségének, valamint a felhasználók számának bővíthetősége és utólag újabb funkciók hozzáadásának lehetőségének biztosítása.
+K09|V1.0|Rendszer migrálásának lehetősége|Amennyiben szükséges a rendszer rövid idő alatt bevezethető más könyvtárakban is.
 
 ## 8. Irányított és szabad szöveges riportok szövege
 
