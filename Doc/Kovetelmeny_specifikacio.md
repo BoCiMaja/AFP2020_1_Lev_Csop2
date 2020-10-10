@@ -1,4 +1,4 @@
-#Követelményspecifikáció
+# Követelményspecifikáció
 
 ## 1. Vezetői összefoglaló
 
