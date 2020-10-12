@@ -38,8 +38,8 @@ jelenleg. További hátrány, hogy mind a katalógus, mind a kölcsönzési nyil
 ## 3. Vágyálomrendszer leírása
 A cél a könyvtárban jelenleg papír alapon, manuálisan vezetett katalógus- és kölcsönzési nyilvántartó rendszer számítógépes nyilvántartásra történő lecserélésére, az előforduló munkafolyamatok hatékonyabb működésének elérése.
 A kifejlesztésre kerülő informatikai rendszerben meg kell oldani a könyvek, könyvtárosok és a beiratkozott olvasók nyílvántartását, a nyilvántartásokban keresések végzését, valamint a kölcsönzések folyamatának kezelését.
-A könyvtár dolgozói az azonosításukhoz szükséges bejelentkezés után tudjanak könyveket, beiratkozásokat felvinni a rendszerbe, vagy azokat törölni onnan, illetve legyen lehetőség a kölcsönzés és visszavétel műveletének lebonyolítására, úgy, hogy a könyveken és az olvasójegyeken elhelyezett vonalkódok leolvasásával lehessen azonosítani a kölcsönzött műveket és az olvasókat.
-A katalógusban tárolt könyvek és az adatbázisban rögzített könyvtárosok, valamint olvasók esetén legyen lehetőség keresések, szűrések elvégzésére, illetve listák, kimutatások készítésére is.     
+A könyvtár dolgozói az azonosításukhoz szükséges bejelentkezés után tudjanak könyveket, beiratkozásokat felvinni a rendszerbe, vagy azokat törölni onnan, illetve legyen lehetőség a kölcsönzés és visszavétel műveletének lebonyolítására, úgy, hogy a könyveken és az olvasójegyeken elhelyezett vonalkódok leolvasásával lehessen azonosítani a kölcsönzött műveket és az olvasókat. A felhasználók esetén meg kell valósítani a különböző jogosultságok kezelését, azaz az olvasók, könyvtárosok és adminisztrátorok eltérő műveleteket végezhetnek a rendszerben.
+A katalógusban tárolt könyvek és az adatbázisban rögzített könyvtárosok, valamint olvasók esetén legyen lehetőség keresések, szűrések elvégzésére, illetve listák, kimutatások készítésére is.
 A könyvtári katalógusnak ezen kívül interneten keresztül online elérhetőnek kell lennie bárki számára, ebben bejelentkezés nélkül lehessen listázni, keresni a könyvtári műveket. 
 A rendszer felhasználói felülete legyen egyszerűen kezelhető, könnyen tanulható, a folyamatok kezelése az eddig megszokott munkafolyamatokhoz közel álló módon működjön, azért, hogy a könyvtárosoknak minél kevesebb nehézséget okozzon az új rendszerre történő átállás.
 A költséghatékony üzemeltetést szem elött tatrva lényeges szempont a platformfüggetlen működés, az operációs rendszertől való függetlenség megléte.
@@ -161,7 +161,7 @@ ID|Verzió|Név|Kifejtés
 K01|V1.0|Kölcsönzők adminisztrációja|Kölcsönzők regisztrálása, törlése az igényelt üzleti folyamatokban leírtak szerint.  
 K02|V1.0|Könyvek adminisztrációja|Könyvek regisztrálása, törlése az igényelt üzleti folyamatokban leírtak szerint.
 K03|V1.0|Kölcsönzés adminisztrációja|Kölcsönzések folyamatának kezelése az igényelt üzleti folyamatokban leírtak szerint.
-K04|V1.0|Felhasználói fiókok kezelése|Bejelentkezés, felhasználói adatok módosítása, listák és kimutatások készítése az igényelt üzleti folyamatokban leírtak szerint.  
+K04|V1.0|Felhasználói fiókok kezelése|Bejelentkezés, felhasználói adatok módosítása, könyvtárosok, olvasók rögzítése az adatbázisban, listák és kimutatások készítése az igényelt üzleti folyamatokban leírtak szerint.  
 K05|V1.0|Egyszerűen használható kezelőfelület|A legelterjedtebb internet böngészőkből használható felhasználói felület megvalósítása, oly módon, hogy a könyvtárosok számára az új rendszerre való átállás a lehető legegyszerűbb legyen.
 K06|V1.0|Online elérhető nyilvános katalógus|Bárki számára elérhető online felület készítése, amin keresztül elérhető, böngészhető és kereshető a könyvtárkatalógus tartalma.
 K07|V1.0|Platformfüggetlen, robusztus működés|Szabványos, az iparágban régóta bevált, operációs rendszertől független technológiák használata: Php, Apache HTTP szerver, MySQL.   
