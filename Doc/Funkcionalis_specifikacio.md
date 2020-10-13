@@ -22,7 +22,7 @@ Előfeltételek:
 *	adminisztrátorok és könyvtárosok részére a rendszer használatához jogosultság, azaz jelszó szükséges
 *	olvasóknak a kölcsönzéshez regisztráció szükséges
 
-![usecase_dia](Doc/image/usecasedia.jpg)
+![usecase_dia](https://github.com/beresgabor76/AFP2020_1_Lev_Csop2/blob/main/Doc/image/usecasedia.jpg)
 ## 3. Megfeleltetés, hogyan fedik le a használati esetek a követelményeket
 
 ## 4. Képernyőtervek
