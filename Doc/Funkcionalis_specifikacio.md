@@ -27,6 +27,16 @@ Előfeltételek:
 
 ## 4. Képernyőtervek
 
+* [Kezdőoldal](https://github.com/beresgabor76/AFP2020_1_Lev_Csop2/blob/main/Doc/prototype/kezdolap.html) 
+amely minden felhasználó számára először jelenik meg.
+
+* [Olvasó belépve](https://github.com/beresgabor76/AFP2020_1_Lev_Csop2/blob/main/Doc/prototype/belepve_olvaso.html)
+amely az olvasó bejelentkezése után érhető el.
+
+* [Adminisztátor könyvtáros belépve](https://github.com/beresgabor76/AFP2020_1_Lev_Csop2/blob/main/Doc/prototype/belepve.html)
+amely az adminisztrátor könyvtáros bejelentkezése után jelenik meg. Ez a kezdőoldal *Belépés* menüpontján keresztül elérhető.
+
+
 ## 5. Forgatókönyvek
 
 ## 6. Funkció–követelmény megfeleltetés
