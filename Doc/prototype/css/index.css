@@ -1,0 +1,120 @@
+
+header {
+    margin: 20px 30px 0px 30px;
+	border: none;        
+	padding: 30px;
+	text-align: center;
+    min-width: 990px;
+    background-image: url(../images/header_bkg.jpg);    
+    font-family: Verdana;
+    font-size: 42pt; 
+    color: white;
+}
+nav {
+    margin: 0px 30px;    
+    min-width: 1000px;
+}     
+ul.topnav {    
+    margin: 5px 0px 10px 0px;
+    background-color: #3d4393;    
+}
+ul.topnav li { 
+    display: inline-block;
+    list-style-type: none;    
+    position: relative;    
+}
+ul.topnav li#user {
+    float: right;
+}
+ul.topnav a { 
+    display: inline-block;    
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;      
+    font-family: Arial;
+    font-size: 12pt;             
+}            
+ul.topnav a:hover, ul.subnav a:hover {
+    background-color: #55d1a8;	
+    color: #3d4393;
+}
+ul.subnav a.disabled:hover {
+    background-color: #ccc;	
+    color: #eee;
+}
+ul.subnav { 	
+    display: none;    
+    position: absolute;        
+    left: 0px;    
+    width: 150px;
+    height: auto;
+    margin: 0px;
+    background-color: #6973ff;
+}
+ul.subnav li {
+    float: none;
+    display: block;
+    list-style: none;    
+    margin-left: -40px;	
+}
+ul.subnav a { 
+    display: block;
+    color: #white;
+    text-align: left;
+    padding: 14px 16px;
+    text-decoration: none;      
+    font-family: Arial;
+    font-size: 12pt;             
+}
+li.dropdown:hover ul.subnav {
+    display: block;
+	z-index: 5;
+}
+article {
+	background-image: url(../images/abstract_bkg.jpg);	
+	background-size: cover;
+	margin: 0px 30px 0px 30px;
+	padding: 10px 0px 10px 0px;
+}
+div.basicdata {
+	z-index: -1;
+	float: left;
+	margin: 20px 30px 20px 30px;
+	padding: 10px;
+	font-family: Arial;
+    font-size: 12pt;
+	color: white;
+	background-color: #3d4393;
+}
+ul.leftsidelist {
+	display: block;
+	list-style: none;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+ul.leftsidelist li {	
+	padding-top: 10px;
+}
+div.newsblock {	
+	padding: 10px;
+	padding-right: 30px;
+	padding-bottom: 300px;
+	font-family: Verdana;
+    font-size: 12pt;	
+	text-align: center;
+}
+div.newsblock h1, div.news h3 {
+	color: green;
+}
+div.news p {
+	text-align: left;
+}
+div.gdpr {
+	padding-left: 30px;
+	padding-right: 30px;
+	font-family: Verdana;
+	font-size: 10pt;
+	color: black;
+}
+

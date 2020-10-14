@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Könyvtár</title>        
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+		<link rel="stylesheet" type="text/css" href="css/urlap2.css">
+		<link rel="stylesheet" type="text/css" href="css/lista4.css">
+    </head>
+    <body>        
+        <header>
+			Városi Könyvtár Jászberény
+        </header>        
+        <nav>         
+            <ul class="topnav">
+                <li><a href="kezdolap.html">Kezdőlap</a></li>
+				<li><a href="tajekoztato.html">Tájékoztató</a></li>
+				<li class="dropdown"><a href="#">Katalógus</a>
+                    <ul class="subnav">
+                        <li><a href="konyvkeresesesz_anonim.html">Egyszerű keresés</a></li>
+						<li><a href="konyvkereses_anonim.html">Részletes keresés</a></li>
+                    </ul>
+                </li>								   
+				<li><a href="belepes.html">Belépés</a></li>
+            </ul>        
+        </nav>
+        <article>
+			<form method="POST" action="konyvfelvetel_sikeres.html">
+                <div class="container"> 
+					<div class="column">
+						<label for="szerzo">Szerző(k):</label>
+						<input type="text" id="szerzo" name="szerzo" tabindex="1" value="Franzen, Jonathan" disabled><br/>
+						<label for="kiado">Kiadó:</label>
+						<input type="text" id="kiado" name="kiado" tabindex="3" value="Európa" disabled><br/>
+						<label for="isbn_szam">ISBN száma:</label>
+						<input type="text" id="isbn_szam" name="isbn_szam" tabindex="5" value="978-963-07-9509-8" disabled><br/>
+						<label for="cutter">Cutter:</label>
+						<input type="text" id="cutter" name="cutter" tabindex="7" value="F 90" disabled><br/>
+						<label for="targy_szavak">Tárgyszavak:</label>
+						<input type="text" id="targy_szavak" name="targy_szavak" tabindex="9" value="amerikai családregény" disabled><br/>												
+					</div>
+					<div class="column">	
+						<label for="cim">Cím:</label>
+						<input type="text" id="cim" name="cim" tabindex="2" value="Javítások" disabled><br/>
+						<label for="kiadasi_ev">Kiadási év:</label>
+						<input type="number" id="kiadasi_ev" name="kiadasi_ev" tabindex="4" value="2012" disabled><br/>
+						<label for="oldal_szam">Oldalak száma:</label>
+						<input type="number" id="oldal_szam" name="oldal_szam" tabindex="6" value="629" disabled><br/>												
+						<label for="eto">ETO jelzet:</label>
+						<input type="text" id="eto" name="eto" tabindex="8" value="" disabled><br/>						
+					</div>                    
+                </div>
+				<div class="container"> 
+					<table>
+						<tr>
+							<th class="bookid">Példány azonosító</th><th class="available">Kölcsönzési információ</th>
+						</tr>
+						<tr>						
+							<td class="bookid">10203456</a></td>
+							<td class="available">kölcsönözhető</td>
+						</tr>						
+							<td class="bookid">23105631</td>
+							<td class="available">kiadva: 2020.11.05-ig</td>							
+						</tr>
+					</table>				
+				</div>
+            </form>			
+        </article>
+    </body>
+</html>
+

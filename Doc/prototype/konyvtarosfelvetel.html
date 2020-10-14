@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Könyvtár</title>        
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+		<link rel="stylesheet" type="text/css" href="css/urlap2.css">
+    </head>
+    <body>        
+        <header>
+			Városi Könyvtár Jászberény
+        </header>        
+        <nav>         
+            <ul class="topnav">
+                <li><a href="belepve.html">Kezdőlap</a></li>               
+                <li class="dropdown"><a href="#">Olvasó</a>
+                    <ul class="subnav">
+						<li><a href="olvasofelvetel.html">Beiratkozás</a></li>
+						<li><a href="olvasoadatok.html">Adatok módosítása</a></li>
+						<li><a href="tagsagrendezes.html">Tagság rendezése</a></li>
+                        <li><a href="olvasotorles.html">Kiiratkozás</a></li>
+						<li><a href="lejarttagsag.html">Lejárt tagságok</a></li>                        
+                    </ul>
+                </li>
+				<li class="dropdown"><a href="#">Könyvtáros</a>
+                    <ul class="subnav">
+                        <li><a href="konyvtarosfelvetel.html">Regisztráció</a></li>
+						<li><a href="konyvtarosadatok.html">Adatok módosítása</a></li>
+                        <li><a href="konyvtarostorles.html">Törlés</a></li>						
+                    </ul>
+                </li>
+				<li class="dropdown"><a href="#">Katalógus</a>
+                    <ul class="subnav">
+                        <li><a href="konyvkeresesesz.html">Egyszerű keresés</a></li>
+                        <li><a href="konyvkereses.html">Részletes keresés</a></li>
+						<li><a href="konyvfelvetel.html">Új könyv felvétele</a></li>
+                        <li><a href="konyvtorles.html">Könyv leselejtezése</a></li>
+                        <li><a href="lejartkonyvek.html">Lejárt határidős könyvek</a></li>
+						<li><a href="leltarinditas.html">Teljes leltár indítása</a></li>
+						<li><a href="leltarbavetel.html">Teljes leltár folytatása</a></li>
+						<li><a href="leltarvege.html">Teljes leltár vége</a></li>
+                    </ul>
+                </li>
+				<li class="dropdown"><a href="#">Kölcsönzés</a>
+                    <ul class="subnav">
+                        <li><a href="konyvkiadas.html">Könyv kiadása</a></li>
+                        <li><a href="konyvvisszavet.html">Könyv visszavétele</a></li>						                        
+						<li><a href="hosszabbitas.html">Hosszabbítás</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown" id="user"><a href="#">Belépve: marika</a>
+                    <ul class="subnav">
+                        <li><a href="szemelyesadatok.html">Személyes adatok</a></li>
+						<li><a href="jelszocsere.html">Jelszó csere</a></li>
+                        <li><a href="kezdolap.html">Kijelentkezés</a>                        
+                    </ul>
+                </li>
+            </ul>        
+        </nav>
+        <article>
+			<form method="POST" action="konyvtarosfelvetel_sikeres.html">
+                <div class="container">                    
+					<div class="column">
+						<label for="username">Felhasználó név:</label>
+						<input type="text" id="username" name="username" tabindex="1"><br/>
+						<label for="csaladinev">Családi név:</label>
+						<input type="text" id="csaladinev" name="csaladinev" tabindex="3"><br/>						
+						<label for="szul_csaladinev">Születési családi név:</label>
+						<input type="text" id="szul_csaladinev" name="szul_csaladinev" tabindex="5"><br/>												
+						<label for="szul_hely">Születési hely:</label>
+						<input type="text" id="szul_hely" name="szul_hely" tabindex="7"><br/>						
+						<label for="anya_csaladinev">Anyja születési családi neve:</label>
+						<input type="text" id="anya_csaladinev" name="anya_csaladinev" tabindex="9"><br/>		
+						<label for="irszam">Lakcím, irányítószám:</label>
+						<input type="number" id="irszam" name="irszam" tabindex="11"><br/>						
+						<label for="utca">Lakcím, utca:</label>
+						<input type="text" id="utca" name="utca" tabindex="13"><br/>
+						<label for="telefon">Telefonszám:</label>
+						<input type="number" id="telefon" name="telefon" tabindex="15"><br/>
+						<input type="checkbox" id="admin" name="admin" value="">
+						<label for="admin">Adminisztári joggal rendelkezzen</label>
+					</div>
+					<div class="column">
+						<label for="password">Jelszó:</label>
+						<input type="text" id="password" name="username" tabindex="2"><br/>
+						<label for="utonev">Utónév:</label>
+						<input type="text" id="utonev" name="utonev" tabindex="4"><br/>						
+						<label for="szul_utonev">Születési utónév:</label>
+						<input type="text" id="szul_utonev" name="szul_utonev" tabindex="6"><br/>						
+						<label for="szul_datum">Születési dátum:</label>
+						<input type="text" id="szul_datum" name="szul_datum" tabindex="8"><br/>
+						<label for="anya_utonev">Anyja születési utóneve:</label>
+						<input type="text" id="anya_utonev" name="anya_utonev" tabindex="10"><br/>					
+						<label for="varos">Lakcím, város:</label>
+						<input type="text" id="varos" name="varos" tabindex="12"><br/>
+						<label for="hazszam">Lakcím, házszám:</label>
+						<input type="text" id="hazszam" name="hazszam" tabindex="14"><br/>								
+						<label for="email">E-mail cím:</label>
+						<input type="email" id="email" name="email" tabindex="16"><br/>
+					</div>
+                    <input type="submit" name="submit" value="Könyvtáros felvétele nyilvántartásba" tabindex="17">
+                </div>
+            </form>			
+        </article>
+    </body>
+</html>
+

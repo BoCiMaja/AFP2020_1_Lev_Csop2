@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Könyvtár</title>        
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+		<link rel="stylesheet" type="text/css" href="css/lista1.css">
+    </head>
+    <body>        
+        <header>
+			Városi Könyvtár Jászberény
+        </header>        
+        <nav>         
+            <ul class="topnav">
+                <li><a href="kezdolap.html">Kezdőlap</a></li>
+				<li><a href="tajekoztato.html">Tájékoztató</a></li>
+				<li class="dropdown"><a href="#">Katalógus</a>
+                    <ul class="subnav">
+                        <li><a href="konyvkeresesesz_anonim.html">Egyszerű keresés</a></li>
+						<li><a href="konyvkereses_anonim.html">Részletes keresés</a></li>
+                    </ul>
+                </li>								   
+				<li><a href="belepes.html">Belépés</a></li>
+            </ul>        
+        </nav>
+        <article>
+			<form method="POST" action="">
+                <div class="container">
+					<table>
+					<tr>
+						<th class="book">Könyv találati lista</th><th class="published">Kiadási év</th><th class="copies">Példány</th>
+					</tr>
+					<tr>						
+						<td class="book"><a href="konyvadatok.html">Franzen, Jonathan: Javítások</a></td>
+						<td class="published">2012</td>
+						<td class="copies">2</td>
+					</tr>						
+						<td class="book"><a href="">Franzen, Jonathan: Szabadság</a></td>
+						<td class="published">2014</td>
+						<td class="copies">1</td>
+					</tr>
+					</table>
+                </div>
+            </form>
+        </article>
+    </body>
+</html>
+

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Könyvtár</title>        
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+		<link rel="stylesheet" type="text/css" href="css/lista3.css">
+    </head>
+    <body>        
+        <header>
+			Városi Könyvtár Jászberény
+        </header>        
+        <nav>         
+            <ul class="topnav">
+                <li><a href="belepve.html">Kezdőlap</a></li>               
+                <li class="dropdown"><a href="#">Olvasó</a>
+                    <ul class="subnav">
+						<li><a href="olvasofelvetel.html">Beiratkozás</a></li>
+						<li><a href="olvasoadatok.html">Adatok módosítása</a></li>
+						<li><a href="tagsagrendezes.html">Tagság rendezése</a></li>
+                        <li><a href="olvasotorles.html">Kiiratkozás</a></li>
+						<li><a href="lejarttagsag.html">Lejárt tagságok</a></li>                        
+                    </ul>
+                </li>
+				<li class="dropdown"><a href="#">Könyvtáros</a>
+                    <ul class="subnav">
+                        <li><a href="konyvtarosfelvetel.html">Regisztráció</a></li>
+						<li><a href="konyvtarosadatok.html">Adatok módosítása</a></li>
+                        <li><a href="konyvtarostorles.html">Törlés</a></li>						
+                    </ul>
+                </li>
+				<li class="dropdown"><a href="#">Katalógus</a>
+                    <ul class="subnav">
+						<li><a href="konyvkeresesesz.html">Egyszerű keresés</a></li>
+                        <li><a href="konyvkereses.html">Részletes keresés</a></li>
+						<li><a href="konyvfelvetel.html">Új könyv felvétele</a></li>
+                        <li><a href="konyvtorles.html">Könyv leselejtezése</a></li>
+                        <li><a href="lejartkonyvek.html">Lejárt határidős könyvek</a></li>
+						<li><a href="leltarinditas.html">Teljes leltár indítása</a></li>
+						<li><a href="leltarbavetel.html">Teljes leltár folytatása</a></li>
+						<li><a href="leltarvege.html">Teljes leltár vége</a></li>
+                    </ul>
+                </li>
+				<li class="dropdown"><a href="#">Kölcsönzés</a>
+                    <ul class="subnav">
+                        <li><a href="konyvkiadas.html">Könyv kiadása</a></li>
+                        <li><a href="konyvvisszavet.html">Könyv visszavétele</a></li>						                        
+						<li><a href="hosszabbitas.html">Hosszabbítás</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown" id="user"><a href="#">Belépve: marika</a>
+                    <ul class="subnav">
+                        <li><a href="szemelyesadatok.html">Személyes adatok</a></li>
+						<li><a href="jelszocsere.html">Jelszó csere</a></li>
+                        <li><a href="kezdolap.html">Kijelentkezés</a>                        
+                    </ul>
+                </li>
+            </ul>        
+        </nav>
+        <article>
+			<form method="POST" action="">
+                <div class="container">
+					<table>
+					<tr>
+						<th></th><th class="book">Leltárban nem szereplő katalogizált könyvek</th><th class="bookid">Azonosító</th>
+					</tr>
+					<tr>
+						<td><input type="checkbox" id="konyv1" name="konyv1_azonosito" value=""></td>
+						<td class="book">Mikszáth, Kálmán: Beszterce ostroma</td>
+						<td class="bookid">10203450</td>						
+					</tr>
+						<td><input type="checkbox" id="konyv2" name="konyv2_azonosito" value=""></td>
+						<td class="book">Balzac, Honoré de: Szamárbőr</td>
+						<td class="bookid">31203450</td>						
+					</tr>
+					<tr>
+						<td><input type="checkbox" id="konyv3" name="konyv3_azonosito" value=""></td>
+						<td class="book">Karinthy, Frigyes: Tanár úr kérem</td>
+						<td class="bookid">45203453</td>						
+					</tr>
+					</table>					
+					<input type="submit" class="halfwidth" name="delete" value="Kijelölt könyvek törlése a katalógusból">
+                </div>
+            </form>
+        </article>
+    </body>
+</html>
+

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Könyvtár</title>        
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+		<link rel="stylesheet" type="text/css" href="css/urlap2.css">
+    </head>
+    <body>        
+        <header>
+			Városi Könyvtár Jászberény
+        </header>        
+        <nav>         
+            <ul class="topnav">
+                <li><a href="belepve.html">Kezdőlap</a></li>               
+                <li><a href="tajekoztato.html">Tájékoztató</a></li>
+				<li class="dropdown"><a href="#">Katalógus</a>
+                    <ul class="subnav">
+                        <li><a href="konyvkeresesesz_olvaso.html">Egyszerű keresés</a></li>
+						<li><a href="konyvkereses_olvaso.html">Részletes keresés</a></li>
+                    </ul>
+                </li>
+				<li><a href="konyveim.html">Könyveim</a></li>				
+                <li class="dropdown" id="user"><a href="#">Belépve: gábor</a>
+                    <ul class="subnav">
+                        <li><a href="#">Személyes adatok</a></li>
+						<li><a href="jelszocsere_olvaso.html">Jelszó csere</a></li>
+                        <li><a href="kezdolap.html">Kijelentkezés</a>                        
+                    </ul>
+                </li>
+            </ul>        
+        </nav>
+        <article>
+			<form method="POST" action="">
+                <div class="container">                    
+					<div class="column">						
+						<label for="csaladinev">Családi név:</label>
+						<input type="text" id="csaladinev" name="csaladinev" tabindex="1" value="Béres" disabled><br/>						
+						<label for="szul_csaladinev">Születési családi név:</label>
+						<input type="text" id="szul_csaladinev" name="szul_csaladinev" tabindex="3" disabled><br/>												
+						<label for="szul_hely">Születési hely:</label>
+						<input type="text" id="szul_hely" name="szul_hely" tabindex="5" value="Jászberény" disabled><br/>						
+						<label for="anya_csaladinev">Anyja születési családi neve:</label>
+						<input type="text" id="anya_csaladinev" name="anya_csaladinev" tabindex="7" value="Farkas" disabled><br/>		
+						<label for="irszam">Lakcím, irányítószám:</label>
+						<input type="number" id="irszam" name="irszam" tabindex="9" value="5100" disabled><br/>						
+						<label for="utca">Lakcím, utca:</label>
+						<input type="text" id="utca" name="utca" tabindex="11" value="Futrinka utca" disabled><br/>
+						<label for="telefon">Telefonszám:</label>
+						<input type="number" id="telefon" name="telefon" tabindex="13" value="06201002000"><br/>						
+					</div>
+					<div class="column">						
+						<label for="utonev">Utónév:</label>
+						<input type="text" id="utonev" name="utonev" tabindex="2"  value="Gábor" disabled><br/>						
+						<label for="szul_utonev">Születési utónév:</label>
+						<input type="text" id="szul_utonev" name="szul_utonev" tabindex="4" value="" disabled><br/>						
+						<label for="szul_datum">Születési dátum:</label>
+						<input type="text" id="szul_datum" name="szul_datum" tabindex="6" value="1976.02.18." disabled><br/>
+						<label for="anya_utonev">Anyja születési utóneve:</label>
+						<input type="text" id="anya_utonev" name="anya_utonev" tabindex="8" value="Julianna" disabled><br/>					
+						<label for="varos">Lakcím, város:</label>
+						<input type="text" id="varos" name="varos" tabindex="10" value="Jászberény" disabled><br/>
+						<label for="hazszam">Lakcím, házszám:</label>
+						<input type="text" id="hazszam" name="hazszam" tabindex="12" value="28." disabled><br/>								
+						<label for="email">E-mail cím:</label>
+						<input type="email" id="email" name="email" tabindex="14" value="gabor76@gmail.com"><br/>						
+					</div>
+                    <input type="submit" name="submit" value="Telefonszám vagy e-mail cím módosítása" tabindex="15">
+                </div>
+            </form>			
+        </article>
+    </body>
+</html>
+
