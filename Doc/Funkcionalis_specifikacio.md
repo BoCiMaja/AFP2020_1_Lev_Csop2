@@ -23,7 +23,16 @@ Előfeltételek:
 *	olvasóknak a kölcsönzéshez regisztráció szükséges
 
 ![usecase_dia](https://github.com/beresgabor76/AFP2020_1_Lev_Csop2/blob/main/Doc/image/usecasedia.jpg)
+
 ## 3. Megfeleltetés, hogyan fedik le a használati esetek a követelményeket
+* K01, K02, K03: Az alkalmazást úgy hozzuk létre, hogy tartalmazza a kölcsönzők, könyvek és a kölcsönzés adminisztrációját, melyet a könyvtárosok felhasználó név/jelszó megadásával a rendszerbe belépve fognak elérni. Ezek fogják adni a rendszer fő funkcióit.
+* K04: Különböző jogosultsági szinteket fogunk kialakítani. Az adminisztrátori jogosultsággal rendelkező könyvtárosok minden funkcióhoz hozzá fognak férni, felhasználói (könyvtáros/olvasó) fiókokat tudnak létrehozni/törölni. Könyvtárosok és az olvasó is jogosultságuk függvényében a rendszerbe belépve listákat és kimutatásokat tudnak lekérni.
+* K05: A felhasználói felületet úgy alakítjuk ki, amely egy általános weboldal képét fogja nyújtani, az egyes funkciók egyértelmű elnevezést kapnak, és könnyen elérhetők lesznek.
+* K06: A web alkalmazást úgy hozzuk létre, hogy rendszerbe való belépés nélkül is az online felületen keresztül is lehessen keresni könyveket az adatbázisban. 
+* K07: A rendszer elkészítésekor ügyelünk a platformfüggetlen, robosztus működés kialakítására, ezért ellenőrizzük kódunk helyességét, hogy egy adott HTML elemet támogatják-e a böngészők, fontosabb alkalmazások és kisegítő technológiák. A HTML vizsgálathoz beleértjük a CSS vizsgálatot is. A teszteléseket elvégezzük Firefox, Chrome, Explorer, Opera, Safari böngészőkön, ill. Windows, Linux, iOs operációs rendszeren is.
+* K08: A szabványos és elterjedt technológiák használata biztosítja. 
+* K09: A kezelt adatokat MYSQL adatbázisban fogjuk tárolni. Az adatbázis használatával biztosítjuk az adatok bővíthetőségét. A applikációt PHP objektum orientált módon valósítjuk meg, amellyel új funkciókat könnyedén tudunk utólag hozzáadni a rendszerhez.
+* K10: Azonos könyvtári folyamatok esetén a migrálás könnyedén megvalósítható, esetleges bővítések a K09 ponthoz írtak alapján gyorsan elérhetők. 
 
 ## 4. Képernyőtervek
 
