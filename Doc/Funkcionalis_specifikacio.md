@@ -61,4 +61,81 @@ a prototípus hiányosságának, azonban a keresési folyamatot így is demonstr
 
 ## 5. Forgatókönyvek
 
+A *Kezdőlap* statikus oldal jelenik meg minden felhasználó számára legelőször, tartalmazza a könyvtár nyitvatartására, 
+elérhetőségeire vonatkozó legfontosabb információkat valamint a könyvtárban tartott havi rendezvényeket. 
+A navigációs sáv a *Kezdőlap*, *Tájékoztató*, *Katalógus* és *Belépés* menüpontokat tartalmazza, ezek a rendszerbe való
+belépés előtt minden esetben megjelennek, a felhasználó bármelyik megjelenített oldalon kezdeményezheti az alább részletezett 
+műveleteket vagy oldalak megjelenítését.  
+- A *Tájékoztató* egy statikus oldal a kölcsönzőkre vonatkozó általános, a beiratkozással és az adatkezelési szabályokkal (GDPR) kapcsolatos 
+tájékoztatást tartalmaz.  
+- A *Katalógus* menüpont választása esetén lehetőség van anonim (belépés nélküli) könyvkeresésre. A felhasználó két lehetőség 
+közül választhat, az egyszerű keresés esetén kulcsszavak, a részletes keresés esetén a könyvre vonatkozó részletes adatok
+alapján tájékozódhat a felhasználó. Mindkét keresés esetén vagy egy találati lista vagy "Nincs a keresési feltételeknek megfelelő
+könyv." üzenet az eredmény.  
+- A *Belépés*-t választva olvasóként, könyvtárosként, illetve adminisztrátor könyvtárosként lehet belépni a rendszerbe. Hibás felhasználó név 
+vagy jelszó megadása esetén újból meg kell adni az adatokat.  
+
+Amennyiben a felhasználó **_adminisztrátori jogosultsággal rendelkező_ könyvtárosként** lép be a weboldalra, 
+a *Kezdőlap* menüpont mellett az *Olvasó*, *Könyvtáros*, *Katalógus*, *Kölcsönzés* opciók jelennek meg mint legördülő menüpontok.
+Bármely pontot is választja a felhasználó, ezek a menüpontok továbbra is elérhetők. Emellett a navigációs sáv jobb oldalán megjelenik 
+a belépett felhasználó neve (pl. *Belépve: marika*), melyre rákattintva a *Személyes adatok*, *Jelszó csere*, *Kijelentkezés* pontok 
+közül tud választani. A *Személyes adatok* űrlapon a felhasználó csak a telefonszámát és e-mail címét tudja módosítani, de ennek értelemszerűen 
+csak abban az esetben van jelentősége, ha a felhasználó *olvasó vagy adminisztátori jogosultsággal nem rendelkező könyvtáros*.  
+
+**_Adminisztrátori jogosultsággal nem rendelkező_ könyvtárosként** a fenti navigációs sávból hiányzik a *Könyvtáros* menüpont,
+tehát ő nem vehet fel új könyvtárost, vagy módosíthatja adatait ill. törölheti a rendszerből.
+
+Alábbiakban az adminisztrátori jogosultsággal rendelkező könyvtárosként ill. könyvtárosként végezhető műveleteket ismertetem.  
+Az **_Olvasó_** menüponton belül az alábbi műveletek végzésére van lehetőség:  
+- A *Beíratkozás* funkció használatával lehetőség van új tag felvételére a könyvtárba, az űrlap nem megfelelő kitöltése esetén - mely
+	lehet egy hibás adatformátum bevitele, vagy ha már beíratkozott olvasót próbál felvenni a nyilvántartásba a könyvtáros - 
+	hibaüzenetet kap, de a begépelt adatok nem vesznek el, tehát csak a hibás mezők módosítására van szükség.  
+- Az *Adatok módosítása* pontot választva az olvasók minden személyes adatának változtatására mód van könyvtárosként, természetesen
+    a szükséges dokumentumok (személyi igazolvány, lakcímkártya) bemutatását követően.  
+- A *Tagság rendezése* nyomógomb segítségével lehet meghosszabítani a könyvtári tagságot, mely az aktuális dátumtól számított egy évre szól.  
+- A *Kiíratkozás* menüpont értelemszerűen a tagság megszüntetését teszi lehetővé.  
+- A *Lejárt tagságok* menüpont választása esetén a rendszer kilistázza a több, mint öt éve tagdíjat nem fizető könyvtári tagokat, 
+	egyúttal lehetőséget biztosít ezek törlésére. E műveletek végrehajtását jelzi a rendszer egy rövid szöveges üzenetben.  
+A **_Könyvtáros_** menüponton belül     
+- a *Regisztráció* menüpont segítségével lehet elérni az új könyvtáros felvétele oldalt. Az adminisztrátor könyvtárosnak a 
+	könyvtároshoz képest plusz funkcióként jelentkezik, hogy lehetősége van új könvtárost felvenni, vagy törölni a rendszerből.  
+- Az *Adatok módosítása*, a könyvtárosok adatainak módosítását teszi lehetővé,  
+- a	*Törlés* funkció pedig a könyvtáros rendszerből történő törlését. Ezeket szintén csak adminisztrátori jogkörrel rendelkező 
+	könyvtárosok végezhetik el. E műveletek elvégzéséről is visszajelzést ad a rendszer.  
+A **_Katalógus_** ponton keresztül    
+- az *Egyszerű keresés* kulcsszavakon keresztüli keresést, míg  
+- a *Részletes keresés* a könyv adatainak pontosabb ismerete alapján ad lehetőséget a katalógusban való keresésre.   
+- Az *Új könyv felvétele* a könyvre vonatkozó adatok megadása alapján biztosít lehetőséget a katalógusba történő felvételre. 
+Ha a könyvből több példányt is fel kell venni, a visszajelző üzenet lehetőséget biztosít a könyv másod(harmad...)példányának 
+felvételére, az előzőleg kitöltött űrlapon már csak a könyv azonosítójául szolgáló vonalkód matricát kell leolvasni.  
+- A *Könyv leselejtezése* lehetőséget biztosít megrongálódott könyvek katalógusból való törlésére. A művelet sikerességéről 
+ebben az esetben is visszaigazolást ad a rendszer.  
+- A *Lejárt határidős könyvek* funkció kilistázza a határidőn túl nem visszahozott könyveket. Lehetőség van figyelmeztető
+	e-mail	küldésére, illetve a könyv törlésére a katalógusból.  
+- A *Teljes leltár indítása* funkció segítségével indítható a leltározási folyamat, mely során a könyvtárban a polcokon 
+elhelyezett könyvek vonalkódos azonosítójának leolvasása, és ezt követően a könyv adatainak ellenőrzés céljából történő lekérését 
+követően a rendszer a katalógusban szereplő könyvpéldányhoz egy leltárba vételi dátumot rendel.
+- A *Teljes leltár folytatása* menüpont az elindított leltározás közben végzett más műveletek esetén biztosítja a leltározási 
+folyamat folytatását, könyvek leltárba vételét.  
+- A *Teljes leltár vége* menüpont lehetőséget biztosít az aktuálisan leltárba vett könyvek között nem szereplő, nem kikölcsönzött, 
+valószínűleg elveszett könyvek törlésére.  
+A **_Kölcsönzés_** menüponton belül  
+- a *Könyv kiadása* menüpontot választva először a könyvtárba beíratkozott tag azonosítására van szükség olvasójegye vonalkódjának 
+leolvasása után, ennek hiánya esetén név megadását követően a személyes adatok alapján történő kiválasztására. Ezt követően a könyv 
+vonalkódjának leolvasása, opcionálisan adatainak ellenőrzése után van lehetőség a könyv kiadására. A könyvek kölcsönzési határideje 
+minden esetben az aktuális dátumtól számított 1 hónap, mely megjelenik az űrlapon. Ezt a dátumot valamint a kikölcsönzött könyvek 
+számát a könyvtáros bejegyzi a kölcsönző olvasójegyébe.  
+- A *Könyv visszavétele* menüpontnál szintén szükséges az olvasó azonosítása, majd a könyv megadása után visszavehető a mű, ebben 
+az esetben szintén szükséges a könyvpéldány vonalkódos azonosítása.	Szükség esetén késedelmi díjat automatikusan számít a rendszer, 
+erről tájékoztatja a felhasználót.  
+- A	*Hosszabbítás* funkciónál a kölcsönző azonosítása az előzőekkel analóg, az aktuálisan kikölcsönzött könyveket a rendszer 
+automatikusan kilistázza, ezután megoldható az egy hónapig történő hosszabbítás. Az új kölcsönzési határidőről visszaigazolást 
+ad a rendszer, melyet a könyvtáros az olvasójegybe beír vagy szóban közöl az olvasóval telefonos megkeresés esetén.  
+	
+**Olvasó**-ként történő belépés esetén a felhasználó navigációs sávjában a *Kezdőlap*, *Katalógus* valamint szintén a felhasználó név
+látható. Lehetőség van a kezdőlapra visszatérni, továbbá a *Katalógus*-ra történő navigáció a könyvtároséval megegyező egyszerű és 
+részletes keresésre van lehetőség. A *Könyveim* menüpontra klikkelve az aktuálisan kikölcsönzött művek listázhatóak. A navigációs sáv 
+jobb oldalán megjelenő felhasználó név (pl. *Belépve: gábor*) egy fentiekben már részletezett menüpont, melyek almenüi és azok 
+funkciói teljesen megegyeznek a többi felhasználóéval.
+
 ## 6. Funkció–követelmény megfeleltetés
