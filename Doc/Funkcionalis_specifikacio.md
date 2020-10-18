@@ -96,12 +96,14 @@ Az **_Olvasó_** menüponton belül az alábbi műveletek végzésére van lehet
 - A *Kiíratkozás* menüpont értelemszerűen a tagság megszüntetését teszi lehetővé.  
 - A *Lejárt tagságok* menüpont választása esetén a rendszer kilistázza a több, mint öt éve tagdíjat nem fizető könyvtári tagokat, 
 	egyúttal lehetőséget biztosít ezek törlésére. E műveletek végrehajtását jelzi a rendszer egy rövid szöveges üzenetben.  
+	
 A **_Könyvtáros_** menüponton belül     
 - a *Regisztráció* menüpont segítségével lehet elérni az új könyvtáros felvétele oldalt. Az adminisztrátor könyvtárosnak a 
 	könyvtároshoz képest plusz funkcióként jelentkezik, hogy lehetősége van új könvtárost felvenni, vagy törölni a rendszerből.  
 - Az *Adatok módosítása*, a könyvtárosok adatainak módosítását teszi lehetővé,  
 - a	*Törlés* funkció pedig a könyvtáros rendszerből történő törlését. Ezeket szintén csak adminisztrátori jogkörrel rendelkező 
 	könyvtárosok végezhetik el. E műveletek elvégzéséről is visszajelzést ad a rendszer.  
+	
 A **_Katalógus_** ponton keresztül    
 - az *Egyszerű keresés* kulcsszavakon keresztüli keresést, míg  
 - a *Részletes keresés* a könyv adatainak pontosabb ismerete alapján ad lehetőséget a katalógusban való keresésre.   
@@ -119,6 +121,7 @@ követően a rendszer a katalógusban szereplő könyvpéldányhoz egy leltárba
 folyamat folytatását, könyvek leltárba vételét.  
 - A *Teljes leltár vége* menüpont lehetőséget biztosít az aktuálisan leltárba vett könyvek között nem szereplő, nem kikölcsönzött, 
 valószínűleg elveszett könyvek törlésére.  
+
 A **_Kölcsönzés_** menüponton belül  
 - a *Könyv kiadása* menüpontot választva először a könyvtárba beíratkozott tag azonosítására van szükség olvasójegye vonalkódjának 
 leolvasása után, ennek hiánya esetén név megadását követően a személyes adatok alapján történő kiválasztására. Ezt követően a könyv 
