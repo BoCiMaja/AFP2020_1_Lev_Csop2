@@ -53,3 +53,13 @@ a prototípus hiányosságának, azonban a keresési folyamatot így is demonstr
 ## 5. Forgatókönyvek
 
 ## 6. Funkció–követelmény megfeleltetés
+ID|Verzió|Követelmény|Funkció
+--|------|---|--------
+K01|V1.0|Kölcsönzők adminisztrációja|Olvasók regisztrálása, törlése és adataik módosítása, amit a könyvtárosok végezhetnek a használati esetekben leírtak szerint.  
+K02|V1.0|Könyvek adminisztrációja|Könyvek regisztrálása és törlése, amit a könyvtárosok végezhetnek a használati esetekben leírtak szerint.
+K03|V1.0|Kölcsönzés adminisztrációja|Könyvek kezeresése, kiadása, visszavétele, amit a könyvtárosok végezhetnek a használati esetekben leírtak szerint.
+K04|V1.0|Felhasználói fiókok kezelése|A felhasználók bejelentkezésének kezelése és a felhasználói adatok módosításának lehetőségének biztosítása. Könyvtárosok regisztrálása, törlése és adataik módosítása, amit az adminisztrátorok végezhetnek a használati esetekben leírtak szerint.  
+K05|V1.0|Egyszerűen használható kezelőfelület|A felhasználói felület megvalósítása szabványos html, css és javascript technológiák felhasználásval. 
+K06|V1.0|Online elérhető nyilvános katalógus|A honlapon elérhető és kereshető lesz a könyvtár katalógusa bejelentkezés nélkül a látogatók számára is.  
+
+
