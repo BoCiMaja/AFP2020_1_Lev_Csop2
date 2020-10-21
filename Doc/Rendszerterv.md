@@ -22,11 +22,11 @@
 
 ## 4. Követelmények
 
-### 4.4 Funkcionális követelmények 
+### 4.1 Funkcionális követelmények 
 
-### 4.5 Nemfunkcionális követelmények 
+### 4.2 Nemfunkcionális követelmények 
 
-### 4.6 Törvényi előírások, szabványok 
+### 4.3 Törvényi előírások, szabványok 
 
 ## 5. Funkcionális terv
 
