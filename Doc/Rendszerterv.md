@@ -56,7 +56,7 @@ A rendszerbe való bejelentkezés előtt *Kezdőlap, Tájékoztató, Katalógus*
 Ezek közül egyedül a Katalógus tartalmaz lenyíló menüt, lehetővé téve az *Egyszerű keresés* valamint a *Részletes keresés* műveletek 
 kezdeményezését a könyvtári katalógusban a honlap látogatói számára.  
 
-**Bármilyen felhasználóként - olvasóként, könyvtárosként vagy könyvtáros adminisztrátorként - **belépve a rendszerbe a navigációs sáv jobb oldalán 
+**Bármilyen felhasználóként** - olvasóként, könyvtárosként vagy könyvtáros adminisztrátorként - belépve a rendszerbe a navigációs sáv jobb oldalán 
 helyezkedik el a *Belépve: felhasználónév* menüpont, kiemelve ezzel, hogy adott pillanatban ki használja a rendszert az adott böngészőből. 
 A menüpont egy lenyíló menüt tartalmaz, mely a *Jelszócsere, Személyes adatok* és *Kilépés* menüpontokból áll. Ez egységes minden felhasználó esetén, 
 a személyes adatok mindegyike megtekinthető, azonban csak a telefonszám és e-mail cím módosítható.
