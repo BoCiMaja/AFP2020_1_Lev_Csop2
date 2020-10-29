@@ -86,7 +86,35 @@ első és második helyen.
 lenyíló menü a *Regisztráció, Adatok módosítása, Törlés* menüpontokat tartalmazza. Ezek elkülönítését már csak az a szempont is indokolta, hogy ezek
 a műveletek csak az erre jogosult könyvtárosoknak állnak rendelkezésére.
 
-### 5.5 Képernyőtervek 
+### 5.5 Képernyőtervek  
+
+A képernyőtervek egy html/css kód használatával megírt prototípus weboldal formájában állnak rendelkezésre, melyeket a leendő
+felhasználók számára készítettünk el a funkcionális specifikáció részeként, és mivel pozitív fogadtatásra talált, ezért 
+a rendszerterv része is lett. A forrás fájlok a 
+[prototype](https://github.com/beresgabor76/AFP2020_1_Lev_Csop2/tree/main/Doc/prototype/) GitHub mappából tölthetőek le, ezt
+követően lehet megjeleníteni az oldalakat böngészőben. A prototípus nem fed le minden forgatókönyvet, az űrlapok mezői
+általában adatok nélkül szerepelnek, néhány esetben demonstratív jelleggel ki van töltve. Visszajelző üzenetek is csak az 
+újonnan felvett olvasók, könyvtárosok és könyvek, valamint jelszómódosítás esetén vannak. Azonban a menürendszerből minden 
+funkcióhoz tartozó képernyőterv - beviteli űrlapok, listák(demo adatokkal) - elérhetőek.
+
+Főbb oldalak:
+- **kezdolap.html**, amely minden felhasználó számára először jelenik meg. 
+[Kezdőlap](https://github.com/beresgabor76/AFP2020_1_Lev_Csop2/blob/main/Doc/prototype/kezdolap.html)
+
+- **belepve_olvaso.html**, amely az olvasó bejelentkezése után érhető el, ez jelenleg nem érhető el a kezdőlapon keresztül.  
+[Olvasó belépett](https://github.com/beresgabor76/AFP2020_1_Lev_Csop2/blob/main/Doc/prototype/belepve_olvaso.html)
+
+- **belepve.html**, amely az adminisztrátor könyvtáros bejelentkezése után jelenik meg. Ez a kezdőoldal *Belépés* menüpontján 
+keresztül elérhető.  
+[Adminisztrátor könyvtáros belépett](https://github.com/beresgabor76/AFP2020_1_Lev_Csop2/blob/main/Doc/prototype/belepve.html)
+
+**Megjegyzések:**  
+- Adminisztrátori jogosultsággal nem rendelkező könyvtáros menürendszere annyiban tér el a fentitől, hogy a *Könyvtáros* menüpont 
+nem szerepel az oldalán, mint az a Menühierarchia fejezetben is ismertetésre került.
+
+- Az *Egyszerű keresés* és az *Részletes keresés* oldalak elérhetők a kezdőlapról és belépést követően is,
+azonban a keresés eredménye oldalak a kezdőlapra visznek vissza, megváltozik a menürendszer, ez tekinthető
+a prototípus hiányosságának, azonban a keresési folyamatot így is demonstrálja a weboldal.  
 
 ## 6. Fizikai környezet
 
