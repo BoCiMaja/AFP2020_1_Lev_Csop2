@@ -36,6 +36,18 @@
 
 ### 5.3 Határ osztályok 
 
+#### Az olvasó felhasználói tevékenységeihez kapcsolódó határosztályok
+![olvaso_dia](https://github.com/beresgabor76/AFP2020_1_Lev_Csop2/blob/main/Doc/image/olvaso_hatarosztalyai.png)
+
+#### A könyvtáros felhasználói tevékenységeihez kapcsolódó határosztályok
+![konyvtaros_dia](https://github.com/beresgabor76/AFP2020_1_Lev_Csop2/blob/main/Doc/image/konyvtaros_hatarosztalyai.png)
+
+#### A könyvtáros adminisztáros kiegészítő felhasználói tevékenységeihez kapcsolódó határosztályok
+![admin_dia](https://github.com/beresgabor76/AFP2020_1_Lev_Csop2/blob/main/Doc/image/konyvtaros_adminisztrator_hatarosztalyai.png)
+
+#### A könyvtáros felhasználó könyvkölcsönzési tevékenységeihez kapcsolódó határosztályok
+![kolcsonzes_dia](https://github.com/beresgabor76/AFP2020_1_Lev_Csop2/blob/main/Doc/image/konyvkolcsonzes_hatarosztalyai.png)
+
 ### 5.4 Menühierarchiák 
 
 ### 5.5 Képernyőtervek 
