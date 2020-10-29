@@ -1,6 +1,14 @@
 # Funkcionális specifikáció
 
 ## 1. A rendszer céljai és nem céljai
+A fejlesztés célja informatikai rendszer készítése a városi könyvtár számára, amely hatékonyabbá teszi a kölcsönzések folyamatának kezelését, az ehhez szükséges adatok tárolását és azok feldolgozását.
+Annak érdekében, hogy a könyvtárosok számára minél könyebb legyen az átállás az új rendszer használatára, az általuk jelenleg használt manuális eszközökkel kezelt nyilvántartási rendszerhez hasonló módon kell működnie a megvalósított új informatikai rendszernek is.
+A rendszer különböző feladatkörrel rendelkező felhasználói különböző jogosultságokkal rendelkeznek azzal kapcsolatban, hogy milyen műveleteket végezhetnek, ezeknek a kezelésének a megvalósítása felhasználói fiókok adminisztrációján keresztűl történik.
+Meg kell valósítani a könyvtár katalógusának nyílvántartását, amely a kölcsönzésre rendelkezésre álló könyv példányokat tartalmazza, ennek a katalógusnak kereshetőnek, valamint bővíthetőnek kell lennie.
+A könyvtárosok lesznek a rendszer fő felhasználói, ők végezik a katalógus karbantartását, az olvasók adminisztrációját, valalmint kezelik a kölcsönzésekhez szükséges műveleteket, ezért fontos, hogy az általuk használt funkciók ergonomiája minél jobb legyen, a lehető legjobban támogassák a hatékony munkavégzést. 
+Azért, hogy a könyvtár kínálatát minél szélesebb körben megismerhessék, a fejlesztett rendszer része lesz egy, az interneten keresztűl elérhető nyílvános honlap is, amin keresztűl a könyvtár katalógusa regisztráció nélkül is kereshető lesz minden látogató számára.
+A fejlesztés első ütemében a fő funkciók (felhasználók nyilvántartása és kezelése, könyvkatalógus nyilvántartása és adminisztrációja, kölcsönzési műveletek kezelése) megbízható működésének megvalósítása a célja, de nem cél a rendszer általánosabb felhasználásra történő felkészítése, mint pl. a könyveken kívűl más kölcsönözhető tételek kezelésének lehetősége.
+Nem cél továbbá az sem, hogy a telepített rendszer központosított módon több könyvtárat is ki tudjon szolgálni, amennyiben a jövőben más könyvtárakban is kívánják a szovfvert használni, úgy mindegyikben külön kell telepíteni azt a helyi igények kiszolgálására.
 
 ## 2. Használati esetek
 A rendszer használói a következők:
@@ -142,3 +150,16 @@ jobb oldalán megjelenő felhasználó név (pl. *Belépve: gábor*) egy fentiek
 funkciói teljesen megegyeznek a többi felhasználóéval.
 
 ## 6. Funkció–követelmény megfeleltetés
+ID|Verzió|Követelmény|Funkció
+--|------|---|--------
+K01|V1.0|Olvasók adminisztrációja|Olvasók regisztrálása, törlése és adataik módosítása, amit a könyvtárosok végezhetnek a használati esetekben leírtak szerint.  
+K02|V1.0|Könyvek adminisztrációja|Könyvek regisztrálása és törlése, amit a könyvtárosok végezhetnek a használati esetekben leírtak szerint.
+K03|V1.0|Kölcsönzés adminisztrációja|Könyvek kezeresése, kiadása, visszavétele, amit a könyvtárosok végezhetnek a használati esetekben leírtak szerint.
+K04|V1.0|Felhasználói fiókok kezelése|A felhasználók bejelentkezésének kezelése és a felhasználói adatok módosításának lehetőségének biztosítása. Könyvtárosok regisztrálása, törlése és adataik módosítása, amit az adminisztrátorok végezhetnek a használati esetekben leírtak szerint.  
+K05|V1.0|Egyszerűen használható kezelőfelület|A felhasználói felület megvalósítása szabványos html, css és javascript technológiák felhasználásával, a képernyőtervek fejezetben láthatóan módon szerint. 
+K06|V1.0|Online elérhető nyilvános katalógus|A honlapon elérhető és kereshető lesz a könyvtár katalógusa a látogatók számára bejelentkezés nélkül is.  
+K07,K08|V1.0|Platformfüggetlen, robosztus működés és költséghatékony üzemeltetés| Szabványos, elterjedt paltformfüggetlen technológiák használata.
+K09|V1.0|Bővíthetőség|Adatbáziskezelő rendszer használata, a tervezésnél figyelembe vesszük a későbbi bővítési igényeket.
+K10|V1.0|Rendszer migrálása|A rendszer rövid időn belül bevezethető más könyvtárakban is ha a kezelni kívánt könyvtári feladatok ugyanazok.  
+
+
