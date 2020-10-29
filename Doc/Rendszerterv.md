@@ -99,14 +99,12 @@ funkcióhoz tartozó képernyőterv - beviteli űrlapok, listák(demo adatokkal)
 
 Főbb oldalak:
 - **kezdolap.html**, amely minden felhasználó számára először jelenik meg. 
-[Kezdőlap](https://github.com/beresgabor76/AFP2020_1_Lev_Csop2/blob/main/Doc/prototype/kezdolap.html)
+![Kezdőlap](https://github.com/beresgabor76/AFP2020_1_Lev_Csop2/blob/main/Doc/prototype/kezdolap.html)  
 
-- **belepve_olvaso.html**, amely az olvasó bejelentkezése után érhető el, ez jelenleg nem érhető el a kezdőlapon keresztül.  
-[Olvasó belépett](https://github.com/beresgabor76/AFP2020_1_Lev_Csop2/blob/main/Doc/prototype/belepve_olvaso.html)
+- **belepve_olvaso.html**, amely az olvasó bejelentkezése után érhető el, ez jelenleg nem érhető el a kezdőlapon keresztül.    
 
 - **belepve.html**, amely az adminisztrátor könyvtáros bejelentkezése után jelenik meg. Ez a kezdőoldal *Belépés* menüpontján 
 keresztül elérhető.  
-[Adminisztrátor könyvtáros belépett](https://github.com/beresgabor76/AFP2020_1_Lev_Csop2/blob/main/Doc/prototype/belepve.html)
 
 **Megjegyzések:**  
 - Adminisztrátori jogosultsággal nem rendelkező könyvtáros menürendszere annyiban tér el a fentitől, hogy a *Könyvtáros* menüpont 
