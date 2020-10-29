@@ -98,8 +98,7 @@ követően lehet megjeleníteni az oldalakat böngészőben. A prototípus nem f
 funkcióhoz tartozó képernyőterv - beviteli űrlapok, listák(demo adatokkal) - elérhetőek.
 
 Főbb oldalak:
-- **kezdolap.html**, amely minden felhasználó számára először jelenik meg. 
-![Kezdőlap](https://github.com/beresgabor76/AFP2020_1_Lev_Csop2/blob/main/Doc/prototype/kezdolap.html)  
+- **kezdolap.html**, amely minden felhasználó számára először jelenik meg.  
 
 - **belepve_olvaso.html**, amely az olvasó bejelentkezése után érhető el, ez jelenleg nem érhető el a kezdőlapon keresztül.    
 
