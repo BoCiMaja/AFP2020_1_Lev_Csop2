@@ -39,7 +39,8 @@
 #### Az olvasó felhasználói tevékenységeihez kapcsolódó határosztályok
 ![olvaso_dia](https://github.com/beresgabor76/AFP2020_1_Lev_Csop2/blob/main/Doc/image/olvaso_hatarosztalyai.png)
 
-#### A könyvtáros felhasználói tevékenységeihez kapcsolódó határosztályok
+#### A könyvtáros felhasználói tevékenységeihez kapcsolódó határosztályok  
+Megjegyzés: A könyvkeresések eredményét leíró határosztályokat a fenti diagram tartalmazza
 ![konyvtaros_dia](https://github.com/beresgabor76/AFP2020_1_Lev_Csop2/blob/main/Doc/image/konyvtaros_hatarosztalyai.png)
 
 #### A könyvtáros felhasználó könyvkölcsönzési tevékenységeihez kapcsolódó határosztályok
@@ -68,7 +69,7 @@ könyveket listázza ki az olvasó számára.
 **Könyvtárosként** belépve a rendszerbe a *Kezdőlap, Olvasó, Katalógus, Kölcsönzés* menüpontok találhatók a navigációs sávban, melyek mindegyike a 
 Kezdőlaptól eltekintve lenyíló menürendszer. A főmenü felosztása az különböző adminisztratív funkciókhoz kapcsolódik, úm. olvasó nyilvántartás, 
 könyv katalógus műveletek, és kölcsönzési adminisztráció.  
-Az *Olvasó* menü tartalmazza az *Beíratkozás, Adatok módosítása, Tagság rendezése, Kiíratkozás,* valamint a *Lejárt tagságok* menüpontokat, 
+Az *Olvasó* menü tartalmazza az *Beiratkozás, Adatok módosítása, Tagság rendezése, Kiiratkozás,* valamint a *Lejárt tagságok* menüpontokat, 
 melyek mindegyike a nevében szereplő műveletek végzéséhez szükséges képernyőket jeleníti meg, melyek a Lejárt tagságok kivételével - mely egy lista - 
 egy olvasói adatokat tartalmazó űrlap.  
 A *Katalógus* lenyíló menü tartalmazza a katalógusban való kereséshez és a könyvek katalogizálásához szükséges műveletek menüpontjait, 
