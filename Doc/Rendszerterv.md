@@ -40,7 +40,8 @@
 ![olvaso_dia](https://github.com/beresgabor76/AFP2020_1_Lev_Csop2/blob/main/Doc/image/olvaso_hatarosztalyai.png)
 
 #### A könyvtáros felhasználói tevékenységeihez kapcsolódó határosztályok  
-Megjegyzés: A könyvkeresések eredményét leíró határosztályokat a fenti diagram tartalmazza
+Megjegyzés: A könyvkeresések eredményét leíró határosztályokat a fenti diagram tartalmazza  
+
 ![konyvtaros_dia](https://github.com/beresgabor76/AFP2020_1_Lev_Csop2/blob/main/Doc/image/konyvtaros_hatarosztalyai.png)
 
 #### A könyvtáros felhasználó könyvkölcsönzési tevékenységeihez kapcsolódó határosztályok
