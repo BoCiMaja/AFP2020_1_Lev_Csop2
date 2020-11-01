@@ -14,9 +14,11 @@
 
 ## 3. Üzleti folyamatok modellje
 
-### 3.1 Üzleti szereplők 
+### 3.1 Üzleti szereplők
+A rendszert regisztrálás nélkül is lehet használni. Ekkor a látogató csak a kezdőlapot tudja elérni, azon belül csak a keresés és részletes keresés menüpontokhoz van hozzáférése.
+Regisztrált üzleti szereplők az olvasó, könyvtáros és az adminisztrátori jogosultsággal rendelkező könyvtáros. Munkaidőben jelenlevő könyvtárosok munkaidejük elején be tudnak jelentkezni a rendszerbe és bejelentkezve maradhatnak munkaidejük alatt.
 
-### 3.2 Üzleti folyamatok 
+### 3.2 Üzleti folyamatok
 
 ### 3.3 Üzleti entitások 
 
@@ -30,7 +32,7 @@
 
 ## 5. Funkcionális terv
 
-### 5.1 Rendszerszereplők 
+### 5.1 Rendszerszereplők
 
 ### 5.2 Rendszerhasználati esetek és lefutásaik 
 
@@ -164,5 +166,6 @@ a prototípus hiányosságának, azonban a keresési folyamatot így is demonstr
 ## 11. Tesztterv 
 
 ## 12. Telepítési terv
+
 
 
