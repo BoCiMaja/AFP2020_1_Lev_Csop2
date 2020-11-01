@@ -19,6 +19,112 @@ A rendszert regisztrálás nélkül is lehet használni. Ekkor a látogató csak
 Regisztrált üzleti szereplők az olvasó, könyvtáros és az adminisztrátori jogosultsággal rendelkező könyvtáros. Munkaidőben jelenlevő könyvtárosok munkaidejük elején be tudnak jelentkezni a rendszerbe és bejelentkezve maradhatnak munkaidejük alatt.
 
 ### 3.2 Üzleti folyamatok
+Bejelentkezés mindenki számára ugyanolyan lefutású:
+A ’Belépés’ menüpontra kattintva megjelenik a ’Felhasználó név’ és ’Jelszó’ beviteli űrlap. A mezők kitöltése után a ’Belépés’ gombra kattint a felhasználó. Ha az azonosítás sikeres, akkor a felhasználó belépett és megjelenik a jogosultságának megfelelő menüsor.
+Ha nem sikerül az azonosítás, hibaüzenet jelenik meg.
+
+#### Üzleti folyamatok könyvtárosok számára:
+- Olvasó regisztrálása a rendszerben: 
+A még nem regisztrált olvasó felkeresi a könyvtárban a rendszereléréssel rendelkező könyvtárost. A könyvtáros az ‘Olvasó’ menü, ‘Beiratkozás’ menüpontjára kattintva elkezdi a regisztrációt. A megjelenő űrlapon az olvasótól elkért, alábbi táblázat szerinti adatokat felviszi. A könyvtáros előkészít egy üres olvasójegyet. A ‘Beiratkozás’ űrlap ‘Olvasójegy azonosító’ mezőjébe belekattint,   és a vonalkód olvasóval beolvassa az olvasójegyen lévő vonalkódot. Ha befejezte az adatok felvitelét az ‘Olvasó felvétele a nyilvántartásba‘ gombra kattint. A rendszer ellenőrzi az adatok helyességét és ha megfelelőek, akkor az olvasót felveszi az adatbázisba. (Az olvasójegyet kézzel is kitölti az olvasó adataival.)
+
+||Megnevezés||
+|-|---------|-|
+||Felhasználó név||
+||Családi név||
+||Születési családi név||
+||Születési hely||
+||Anyja születési családi neve||
+||Lakcím, irányítószám||
+||Lakcím, utca||
+||Telefonszám||
+||Olvasójegy azonosító||
+||Jelszó||
+||Utónév||
+||Születési utónév||
+||Születési dátum||
+||Anyja születési utóneve||
+||Lakcím, város||
+||Lakcím, házszám||
+||E-mail cím||
+
+- Olvasó törlése a rendszerből:
+A könyvtáros az ‘Olvasó‘ menü ‘Kiiratkozás‘ menüpontjára kattint. 
+1) Ha megvan az olvasó olvasójegye, akkor a könyvtáros belekattint az űrlap ‘Olvasójegy azonosító‘ mezőbe és beolvassa az olvasójegyen lévő vonalkódot. Az olvasójegy azonosítója alapján csak egy felhasználó lehet az adatbázisban.
+2) Ha nincs meg az olvasójegy, akkor a könyvtáros kitölti az űrlap mezőit, amennyi információ a rendelkezésre áll. Ha a megadott adatok alapján több olvasót talált a rendszer az adatbázisban, akkor megjelenik egy hibaüzenet: „Több felhasználó egyezik a megadott adatokkal. Kérem adjon meg több adatot.”
+A fenti adatok megadása után az ’Adatok lekérése’ gombra kattint. Ha az adatbázisban a lekérés megtalálta a keresett olvasót, az adatai megjelennek az űrlapon. A könyvtáros a ‘Tagság megszüntetése‘ gombra kattint és véglegesíti a törlést. A rendszer kitörli az adatbázisból az olvasót.
+
+- Új könyv regisztrálása: 
+A könyvtáros a ‘Katalógus‘ menü ‘Új könyv felvétele‘ menüpontra kattint és elkezdi a regisztrációt. A megjelenő űrlapon a könyv alábbi táblázatban szereplő adatait felviszi. Ha befejezte az adatok felvitelét az ‘Könyv felvétele katalógusba‘ gombra kattint. A rendszer ellenőrzi az adatok helyességét és ha megfelelőek, akkor az könyvet felveszi az adatbázisba.
+
+||Megnevezés||
+|-|---------|-|
+||Szerző(k)||
+||Kiadó||
+||ISBN száma||
+||Cutter||
+||Tárgyszavak||
+||Cím||
+||Kiadási év||
+||Oldalak száma||
+||ETO jelzet||
+||Azonosító||
+
+- Könyv törlése: 
+A könyvtáros az ‘Katalógus‘ menü ‘Könyv leselejtezése‘ menüpontjára kattint. 
+1) Ha a könyvben megvan az azonosító vonalkódja és az nem sérült, akkor a könyvtáros belekattint az űrlap ‘Azonosító‘ mezőbe és beolvassa a könyvben lévő vonalkódot. A könyv azonosítója alapján csak egy könyv lehet az adatbázisban.
+2) Ha nincs meg az azonosító vagy sérült a vonalkód és nem olvasható be, akkor a könyvtáros kitölti az űrlap mezőit, amennyi információ a rendelkezésre áll. Ha a megadott adatok alapján több könyvet talált a rendszer az adatbázisban, akkor megjelenik egy hibaüzenet: „Több könyv egyezik a megadott adatokkal. Kérem adjon meg több adatot.”
+A fenti adatok megadása után az ‘Adatok lekérése‘ gombra kattint. Ha az adatbázisban a lekérés megtalálta a keresett könyvet, az adatai megjelennek az űrlapon. A könyvtáros a ‘Könyvpéldány törlése az adatbázisból‘ gombra kattintva véglegesíti a törlést. A rendszer kitörli az adatbázisból a könyvet.
+
+- Kölcsönzés - könyv kiadása: 
+A könyvtáros a ‘Kölcsönzés‘ menü ‘Könyv‘ kiadása menüpontra kattint. A megjelenő űrlapon az ‘Olvasójegy azonosító‘ mezőbe kattint és beolvassa az olvasójegyen lévő vonalkódot. Utána megnyomja az ‘Azonosítás‘ gombot. Ekkor megjelenik egy új űrlap a könyv adatainak megadásához. A könyvtáros az ‘Azonosító‘ mezőbe kattint és beolvassa a könyv vonalkódját. Utána az ‘Adatok lekérése‘ gombra kattint. Ha megjelennek a könyv adatai, akkor a ‘Könyv kikölcsönzése‘ gombra kattint. Az adatbázisban megtörténnek a bejegyzések az olvasóhoz és a könyvhöz.
+
+- Kölcsönzés - könyv visszavétele: 
+A könyvtáros a ‘Kölcsönzés‘ menü ‘Könyv visszavétele‘ menüpontra kattint. A megjelenő űrlapon az ‘Olvasójegy azonosító‘ mezőbe kattint és beolvassa az olvasójegyen lévő vonalkódot. Utána megnyomja az ‘Azonosítás‘ gombot. Ekkor megjelenik egy új űrlap a könyv adatainak megadásához. A könyvtáros az ‘Azonosító‘ mezőbe kattint és beolvassa a könyv vonalkódját. Utána az ‘Adatok lekérése‘ gombra kattint. Ha megjelennek a könyv adatai, akkor a ‘Könyv visszavétele‘ gombra kattint. Az adatbázisban megtörténnek a bejegyzések az olvasóhoz és a könyvhöz.
+
+- Lekérdezés (listák, kimutatások): 
+A könyvtárosok több lekérdezést is tudnak indítani. Egy példa:
+A könyvtáros az ‘Olvasó‘ menü ‘Lejárt tagságok‘ menüpontjára kattint. Az adatbázisból lekért adatok megjelennek a képernyőn. Lehetősége van kijelölni az egyes felhasználókat és a kijelölteket törölni a ‘Törlés a nyilvántartásból‘ gombra kattintva.
+
+#### Üzleti folyamatok adminisztrátor jogosultsággal rendelkező könyvtárosok számára:
+Az adminisztrátorok minden a könyvtárosoknál felsorolt funkciót elérnek, továbbá a következőket:
+
+- Könyvtáros regisztrálása: 
+Az adminisztrátor az ‘Könyvtáros’ menü, ‘Regisztráció’ menüpontjára kattintva elkezdi a regisztrációt. A megjelenő űrlapot a könyvtáros alábbi táblázatban szereplő adataival kitölti. Ha olyan könyvtárost regisztrál, aki adminisztrátori jogosultságokkal is fog rendelkezni, akkor bejelöli az ’Adminisztrátori joggal rendelkezzen’ mezőt. Ha befejezte az adatok felvitelét az ’Könyvtáros felvétele a nyilvántartásba’ gombra kattint. A rendszer ellenőrzi az adatok helyességét és ha megfelelőek, akkor a könyvtárost felveszi az adatbázisba.
+
+||Megnevezés||
+|-|---------|-|
+||Felhasználó név||
+||Családi név||
+||Születési családi név||
+||Születési hely||
+||Anyja születési családi neve||
+||Lakcím, irányítószám||
+||Lakcím, utca||
+||Telefonszám||
+||Jelszó||
+||Utónév||
+||Születési utónév||
+||Születési dátum||
+||Anyja születési utóneve||
+||Lakcím, város||
+||Lakcím, házszám||
+||E-mail cím||
+
+- Könyvtáros törlése:
+Az adminisztrátor a ‘Könyvtáros‘ menü ‘Törlés‘ menüpontjára kattint.  Az adminisztrátor kitölti az űrlap mezőit. A fenti adatok megadása után az ’Adatok lekérése’ gombra kattint. Ha az adatbázisban a lekérés megtalálta a keresett könyvtárost, az adatai megjelennek az űrlapon. A könyvtáros a ‘Könyvtáros törlése nyilvántartásból‘ gombra kattintva véglegesíti a törlést. A rendszer kitörli az adatbázisból az könyvtárost.
+ 
+#### Üzleti folyamatok olvasók számára:
+- Keresés: 
+Az olvasónak nem szükséges belépnie a rendszerbe a funkció eléréséhez. A felhasználó a ’Katalógus’ menü ’Keresés’ menüpontjára kattint. Megjelenő űrlap’ Keresett szerző, cím, vagy tárgyszavak:’ mezőjébe beírja a keresendő szöveget, majd a ’Keresés’ gombra kattint. A rendszer a találatokat listázza a képernyőn. Ha egy könyv sem felel meg a keresési feltételnek, akkor a „Nincs találat.” üzenet jelenik meg a képernyőn.
+
+- Részletes keresés: 
+Az olvasónak nem szükséges belépnie a rendszerbe a funkció eléréséhez. A felhasználó a ’Katalógus’ menü ’Részletes keresés’ menüpontjára kattint. A megjelenő űrlapon megadja a keresett könyv egyes adatait, majd ’Könyv keresése a katalógusban’ gombra kattint. A rendszer a találatokat listázza a képernyőn. Ha egy könyv sem felel meg a keresési feltételeknek, akkor a „Nincs találat.” üzenet jelenik meg a képernyőn.
+
+- Személyes adatok módosítása:
+Az olvasó az ’Olvasó’ menü ’Adatok módosítása’ menüpontra kattint. Megjelenik a képernyőn az olvasó összes adata. A szükséges adat módosítása után az ’Adatok módosítása’ gombra kattint. Az adatok módosítás előtt rendszer ellenőrzi a módosított adat helyességét. Ha az adatok jók, a rendszer az adatbázisban módosítja az olvasó adatait.
+
+- Kölcsönzött könyvek listázása: 
+Az olvasó az ’Olvasó’ menü ’Kikölcsönzött könyvek’ menüpontra kattint. A képernyőn megjelenik az olvasó által aktuálisan kikölcsönzött könyvek listája. Ha egy könyv sincs kikölcsönözve az olvasó által, akkor a „Jelenleg egy könyv sincs kikölcsönözve.” üzenet jelenik meg.
 
 ### 3.3 Üzleti entitások 
 
