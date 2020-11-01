@@ -127,6 +127,8 @@ Az olvasó az ’Olvasó’ menü ’Adatok módosítása’ menüpontra kattint
 Az olvasó az ’Olvasó’ menü ’Kikölcsönzött könyvek’ menüpontra kattint. A képernyőn megjelenik az olvasó által aktuálisan kikölcsönzött könyvek listája. Ha egy könyv sincs kikölcsönözve az olvasó által, akkor a „Jelenleg egy könyv sincs kikölcsönözve.” üzenet jelenik meg.
 
 ### 3.3 Üzleti entitások 
+-	könyv
+-	olvasójegy
 
 ## 4. Követelmények
 
