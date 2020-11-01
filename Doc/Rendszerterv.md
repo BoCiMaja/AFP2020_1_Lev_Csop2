@@ -287,6 +287,12 @@ a prototípus hiányosságának, azonban a keresési folyamatot így is demonstr
 ## 11. Tesztterv 
 
 ## 12. Telepítési terv
+Fizikai telepítési terv:
+-Szükség van egy adatbázis szerverre, amely közvetlenül csatlakozik a webszerververhez.
+-A webszerverre közvetlenül az internetről kapcsolódnak rá a kliensek.
 
+Szoftver telepítési terv:
+-A szoftver webes felületéhez csak egy ajánlott a böngésző telepítése szükséges (
+Google Chrome, Firefox, Opera, Edge) külön szoftver nem kell hozzá.
 
 
