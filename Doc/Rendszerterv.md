@@ -144,6 +144,18 @@ Az olvasó az ’Olvasó’ menü ’Kikölcsönzött könyvek’ menüpontra ka
 A rendszerünkben két rendszerszereplő csoportot különböztetünk meg. Az egyik a könyveket kölcsönző olvasók csoportja. A másik a könyvtári adminisztrációt végző könyvtárosok csoportja. Az olvasók igénybe veszik a könyvtár szolgáltatásait, míg a könyvtárosok ezt nyilvántartják és kiszolgálják az olvasókat. A könyvtárosok több jogosultsággal rendelkeznek, mint az olvasók. Az ő feladatuk még az olvasók értesítése problémák esetén, pl. elmaradás vagy lejárt tagság. A könyvtárosok csoport része az adminisztrátori jogosultsággal rendelkező könyvtárosok csoportja, akik teljes jogosultsággal rendelkeznek. Ők végzik a rendszerben a könyvtárosok adminisztrálását.
 
 ### 5.2 Rendszerhasználati esetek és lefutásaik 
+![Kereses_dia](https://github.com/beresgabor76/AFP2020_1_Lev_Csop2/blob/main/Doc/image/rendszerhasznalati/kereses.png)
+![Olvaso_sajat_adat_mod_dia](https://github.com/beresgabor76/AFP2020_1_Lev_Csop2/blob/main/Doc/image/rendszerhasznalati/olvaso_sajat_adat_mod.png)
+![Olvaso_reg_dia](https://github.com/beresgabor76/AFP2020_1_Lev_Csop2/blob/main/Doc/image/rendszerhasznalati/Olvaso_reg.png)
+![Olvaso_del_dia](https://github.com/beresgabor76/AFP2020_1_Lev_Csop2/blob/main/Doc/image/rendszerhasznalati/Olvaso_del.png)
+![Olvaso_adat_mod_dia](https://github.com/beresgabor76/AFP2020_1_Lev_Csop2/blob/main/Doc/image/rendszerhasznalati/olvaso_adat_mod.png)
+![Konyv_del_dia](https://github.com/beresgabor76/AFP2020_1_Lev_Csop2/blob/main/Doc/image/rendszerhasznalati/konyv_del.png)
+![Konyv_kiad_dia](https://github.com/beresgabor76/AFP2020_1_Lev_Csop2/blob/main/Doc/image/rendszerhasznalati/konyv_kiad.png)
+![Konyv_reg_dia](https://github.com/beresgabor76/AFP2020_1_Lev_Csop2/blob/main/Doc/image/rendszerhasznalati/konyv_reg.png)
+![Konyv_vissza_dia](https://github.com/beresgabor76/AFP2020_1_Lev_Csop2/blob/main/Doc/image/rendszerhasznalati/konyv_vissza.png)
+![Konyvtaros_reg_dia](https://github.com/beresgabor76/AFP2020_1_Lev_Csop2/blob/main/Doc/image/rendszerhasznalati/konyvtaros_reg.png)
+![Konyvtaros_del_dia](https://github.com/beresgabor76/AFP2020_1_Lev_Csop2/blob/main/Doc/image/rendszerhasznalati/konyvtaros_del.png)
+![Konyvtaros_adat_mod_dia](https://github.com/beresgabor76/AFP2020_1_Lev_Csop2/blob/main/Doc/image/rendszerhasznalati/konyvtaros_adat_mod.png)
 
 ### 5.3 Határ osztályok 
 
