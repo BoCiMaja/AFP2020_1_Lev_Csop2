@@ -321,15 +321,15 @@ lesznek. Ezzel belépve tudjuk tesztelni a könyvtáros adminisztrátor kivétel
 
 ### 11.1 Tesztelt üzleti folyamatok adminisztátor könyvtárosok számára:  
 
-**Belépés a rendszerbe:**
+**Belépés a rendszerbe:**  
 A kezdőoldalról be tud lépni a rendszerbe a felhasználónevévek és jelszavának megadásával. Az adminisztrátorok minden funkciót elérnek, 
 melyeknek meg kell jelenni a navigációs sávban.  
 
-**Tesztesetek.**
+**Tesztesetek.**  
 1. Nem regisztrált felhasználónév-jelszó kombináció. Elvárt eredmény: a rendszer hibaüzenetben jelzi ezt a felhasználó számára.
 2. Regisztrált felhasználónév-jelszó kombináció. Elvárt eredmény: a rendszer belépteti a felhasználót, navigációs sáv megváltozik.  
 
-**Könyvtáros regisztrálása:**
+**Könyvtáros regisztrálása:**  
 A megjelenő űrlapot az adminisztrátor a könyvtáros, alábbi táblázatban szereplő adataival kitölti. Ha olyan könyvtárost regisztrál, 
 aki adminisztrátori jogosultságokkal is fog rendelkezni, akkor bejelöli az 'Adminisztrátori joggal rendelkezzen' mezőt. 
 Az űrlap mezői és a bevitt adatokkal szemben támasztott követelmények:  
@@ -357,7 +357,7 @@ Az űrlap mezői és a bevitt adatokkal szemben támasztott követelmények:
 További követelmény, hogy azonos személyes adatokkal (Családi név, Utónév, Születési hely, Születési dátum, Anyja születési családi neve,
 Anyja születési utóneve) már regisztrált felhasználót ne lehessen újra regisztrálni.  
 
-**Tesztesetek:**
+**Tesztesetek:**  
 1. Bevitt adatok helyesek, megfelelnek a követelményeknek.  
 Elvárt eredmény:  
 a) A Könyvtáros táblában megjelenik a regisztrált felhasználó rekordja az űrlapban megadott értékekkel.  
@@ -367,7 +367,7 @@ felhasználónévvel és jelszóval, és a jogosultságának megfelelő navigác
 Elvárt eredmény: a rendszer hibaüzenetben jelzi a felhasználó számára a hibát, a hibás adatokat tartalmazó mezőket jelöli az űrlapon,
 az adatbázisban nem jelenik meg új rekord a Könyvtáros táblában.  
 
-**Könyvtáros adatainak módosítása:**
+**Könyvtáros adatainak módosítása:**  
 Adatok módosítása esetén az adminisztrátor először lekéri a könyvtáros 'adatlapját', melyet a könyvtáros meghatározó személyes adatainak
 (pl. Családi név, Utónév, szükség esetén Születési dátum) megadása után tud megtenni. Az űrlap megegyezik a regisztrációnál megjelenő 
 űrlappal, csak a Felhasználó név és Jelszó mezők nem szerepelnek. Ezekből kifolyólag a bevitt adatoknak ugyanazoknak a formai követelményeknek,
@@ -386,7 +386,7 @@ mezőkként szerepelnek. A módosítható adatok listája:
 ||E-mail cím||
 ||Adminisztrátori jog||  
 
-**Tesztesetek:**
+**Tesztesetek:**  
 1. Adatlekérés nem regisztrált könyvtárosra. Elvárt eredmény: a rendszer hibaüzenetben jelzi ezt a felhasználó számára.  
 2. Adatlekérés regisztrált könyvtárosra. Elvárt eredmény: a rendszer megjeleníti az űrlapot az adatbázisban szereplő adatokkal.
 3. Adatmódosítás helyes adatokkal. Elvárt eredmény: a megfelelő rekord módosul a Könyvtáros táblában. Az könyvtáros a rendszerbe 
@@ -394,13 +394,13 @@ való belépést követően a *Személyes adatok* menüpontra kattintva tudja el
 4. Adatmódosítás követelményeknek nem megfelelő adatokkal. Elvárt eredmény: a rendszer hibaüzenetben jelzi a felhasználó számára a hibát,
 a hibás adatokat tartalmazó mezőket jelöli az űrlapon, az adatbázisban nem módosul rekord a Könyvtáros táblában.   
 
-**Könyvtáros törlése:**
+**Könyvtáros törlése:**  
 Könyvtáros adatbázisból való törlése esetén az adminisztrátor először lekéri a könyvtáros 'adatlapját', melyet a könyvtáros meghatározó 
 személyes adatainak (pl. Családi név, Utónév, szükség esetén Születési dátum) megadása után tud megtenni. Az űrlap megegyezik az Adatok 
 módosítása űrlappal, viszont ezen az űrlapon a mezők egyike sem módosítható. Ezt követően a *Könytáros törlése nyilvántartásból* gomb 
 megnyomása után üzenetben jelzi a rendszer a folyamat végét.  
 
-**Tesztesetek:**
+**Tesztesetek:**  
 1. Adatlekérés nem regisztrált könyvtárosra. Elvárt eredmény: a rendszer hibaüzenetben jelzi ezt a felhasználó számára.
 2. Adatlekérés regisztrált könyvtárosra. Elvárt eredmény: a rendszer megjeleníti az űrlapot az adatbázisban szereplő adatokkal.
 3. Sikeresen adatlekérést követően könyvtáros törlése. Elvárt eredmény: a megfelelő rekord törlődik a Könyvtáros táblából az adatbázisban.
@@ -410,16 +410,16 @@ megnyomása után üzenetben jelzi a rendszer a folyamat végét.
 Az alábbiakban tesztelt üzleti folyamatok az adminisztrátor könyvtárosok esetén is érvényesek, azonban külön nem szükséges tesztelni esetükben.
 Az egyetlen különbség a Belépés esetén van.
 
-**Belépés a rendszerbe:**
+**Belépés a rendszerbe:**  
 Az adminisztrátor által előzetesen felvett könyvtáros a kezdőoldalról be tud lépni a rendszerbe a felhasználónevévek és jelszavának megadásával. 
 A navigációs sávban a jogosultságának megfelelő menüpontok jelennek meg számára. (Lásd: Menühierarchia fejezet.)
 
-**Tesztesetek.**
+**Tesztesetek:**  
 1. Nem regisztrált felhasználónév-jelszó kombináció. Elvárt eredmény: a rendszer hibaüzenetben jelzi ezt a felhasználó számára.
 2. Regisztrált felhasználónév-jelszó kombináció. Elvárt eredmény: a rendszer belépteti a felhasználót, navigációs sáv megváltozik, 
 Könyvtáros menüpont nem elérhető.
 
-**Olvasó regisztrálása a rendszerben:**
+**Olvasó regisztrálása a rendszerben:**  
 A könyvtáros az *Olvasó* menü, *Beiratkozás* menüpontjára kattintva elkezdi a regisztrációt. A megjelenő űrlapon az olvasótól elkért, 
 alábbi táblázat szerinti adatokat felviszi. A könyvtáros előkészít egy üres olvasójegyet. A Beiratkozás űrlap *Olvasójegy azonosító* 
 mezőjébe belekattint, és a vonalkód olvasóval beolvassa az olvasójegyen lévő vonalkódot. Ha befejezte az adatok felvitelét az 
@@ -446,7 +446,7 @@ mezőjébe belekattint, és a vonalkód olvasóval beolvassa az olvasójegyen l�
 ||Olvasójegy azonosító|1. Kötelező 2. Vonalkód olvasó esetén automatikus 3. Kötött formátumú: 13 számjegy||    
 ||Tagság érvényessége|1. Automatikus 2. Dátum formátumú: éééé.hh.nn||
 
-**Tesztesetek:**
+**Tesztesetek:**  
 1. Bevitt adatok helyesek, megfelelnek a követelményeknek.  
 Elvárt eredmény:  
 a) Az Olvasó táblában megjelenik a regisztrált felhasználó rekordja az űrlapban megadott értékekkel.  
@@ -456,7 +456,7 @@ felhasználónévvel és jelszóval, és a megfelelő navigációs sáv elérhet
 Elvárt eredmény: a rendszer hibaüzenetben jelzi a könyvtáros számára a hibát, a hibás adatokat tartalmazó mezőket jelöli az űrlapon,
 az adatbázisban nem jelenik meg új rekord az Olvasó táblában.
 
-**Olvasó adatainak módosítása:**
+**Olvasó adatainak módosítása:**  
 Adatok módosítása esetén a könyvtáros először lekéri az olvasó 'adatlapját', melyet az olvasót egyértelműen azonosító 
 *Olvasójegy azonosító* vonalkód leolvasóval történő bevitelével tud megtenni. Az űrlap megegyezik a regisztrációnál megjelenő 
 űrlappal, csak a Felhasználó név és Jelszó mezők nem szerepelnek. Ezekből kifolyólag a bevitt adatoknak ugyanazoknak a formai követelményeknek,
@@ -474,7 +474,7 @@ mezőkként szerepelnek. A módosítható adatok listája:
 ||Telefonszám||
 ||E-mail cím||
 
-**Tesztesetek:**
+**Tesztesetek:**  
 1. Adatlekérés nem regisztrált olvasóra. Elvárt eredmény: a rendszer hibaüzenetben jelzi ezt a felhasználó számára.  
 2. Adatlekérés regisztrált olvasóra. Elvárt eredmény: a rendszer megjeleníti az űrlapot az adatbázisban szereplő adatokkal.
 3. Adatmódosítás helyes adatokkal. Elvárt eredmény: a megfelelő rekord módosul az Olvasó táblában. Az olvasó a rendszerbe való belépést követően
