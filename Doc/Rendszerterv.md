@@ -330,29 +330,29 @@ szemben támasztott követelmények:
 
 ||Űrlap mező|Követelmények||
 |-|---------|-------------|-|
-||Felhasználó név|1.Nem lehet üres 2.Nem lehet egy regisztrált felhasználónév 3.Minimum 6 karakter hosszú legyen ||
-||Jelszó|1.Nem lehet üres 2.Minimum 8 karakter hosszú, regisztrációkor a születési dátum 8 számjegye||
-||Családi név|1.Nem lehet üres 2.Nem tartalmazhat számjegyet||
-||Utónév|1.Nem lehet üres 2.Nem tartalmazhat számjegyet||
-||Születési családi név|1.Opcionális 2.Nem tartalmazhat számjegyet||
-||Születési utónév|1.Opcionális 2.Nem tartalmazhat számjegyet||
-||Születési hely|1.Nem lehet üres 2.Nem tartalmazhat számjegyet||
-||Születési dátum|1.Nem lehet üres 2.Kötött dátum formátum:éééé.hh.nn||
-||Anyja születési családi neve|1.Nem lehet üres 2.Nem tartalmazhat számjegyet||
-||Anyja születési utóneve|1.Nem lehet üres 2.Nem tartalmazhat számjegyet||
-||Lakcím, irányítószám|1.Nem lehet üres 2.Kötött formátumú: 4 számjegy||
-||Lakcím, város|1.Nem lehet üres 2.Nem tartalmazhat számjegyet|
-||Lakcím, utca|1.Nem lehet üres||
-||Lakcím, házszám|1.Nem lehet üres||
-||Telefonszám|1.Opcionális 2.Kötött formátumú: 11 számjegy||
-||E-mail cím|1.Opcionális 2.Kötött formátumú: fióknév@domainnév||  
+||Felhasználó név|1. Nem lehet üres 2. Nem lehet egy regisztrált felhasználónév 3. Minimum 6 karakter hosszú legyen ||
+||Jelszó|1. Nem lehet üres 2. Minimum 8 karakter hosszú, regisztrációkor a születési dátum 8 számjegye||
+||Családi név|1. Nem lehet üres 2. Nem tartalmazhat számjegyet||
+||Utónév|1. Nem lehet üres 2. Nem tartalmazhat számjegyet||
+||Születési családi név|1. Opcionális 2. Nem tartalmazhat számjegyet||
+||Születési utónév|1. Opcionális 2. Nem tartalmazhat számjegyet||
+||Születési hely|1. Nem lehet üres 2. Nem tartalmazhat számjegyet||
+||Születési dátum|1. Nem lehet üres 2. Kötött dátum formátum:éééé.hh.nn||
+||Anyja születési családi neve|1. Nem lehet üres 2. Nem tartalmazhat számjegyet||
+||Anyja születési utóneve|1. Nem lehet üres 2. Nem tartalmazhat számjegyet||
+||Lakcím, irányítószám|1. Nem lehet üres 2. Kötött formátumú: 4 számjegy||
+||Lakcím, város|1. Nem lehet üres 2. Nem tartalmazhat számjegyet|
+||Lakcím, utca|1. Nem lehet üres||
+||Lakcím, házszám|1. Nem lehet üres||
+||Telefonszám|1. Opcionális 2. Kötött formátumú: 11 számjegy||
+||E-mail cím|1. Opcionális 2. Kötött formátumú: fióknév@domainnév||  
 
 További követelmény, hogy azonos személyes adatokkal (Családi név, Utónév, Születési hely, Születési dátum, Anyja születési családi neve,
 Anyja születési utóneve) már regisztrált felhasználót ne lehessen újra regisztrálni.  
 
 **Tesztesetek:**
 1. Bevitt adatok helyesek, megfelelnek a követelményeknek.  
-Elvárt eredmény: 
+Elvárt eredmény:  
 a) A Könyvtáros táblában megjelenik a regisztrált felhasználó rekordja az űrlapban megadott értékekkel.  
 b) A regsiztrált könyvtáros be tud lépni a rendszerbe a weboldal kezdőoldalán található Belépés menüponton keresztül a megadott 
 felhasználónévvel és jelszóval, és a jogosultságának megfelelő navigációs sáv elérhető számára.  
