@@ -296,7 +296,67 @@ a prototípus hiányosságának, azonban a keresési folyamatot így is demonstr
 
 ### 10.3 Kliens oldal osztályai 
 
-## 11. Tesztterv 
+## 11. Tesztterv   
+   
+A rendszerterv szerint implementált szoftver tesztelésének célja, hogy ellenőrizze az *Üzleti folyamatok modellje* című pontban 
+meghatározott folyamatok helyes, specifikáció szerinti lefutását, valamint hogy a kliens webes felület felhasználóbarát módon 
+jelenik meg, és használható különböző hardver és szoftverkörnyezetben.  
+
+A tesztelés során használt kiszolgáló hardverkonfigurációja a telepítés során használt hardverrel kompatibilis, teljesítményben 
+(processzor, operatív memória, háttértár) nem tér el jelentősen. A telepítéshez természetesen az általunk ajánlott konfiguráció
+került beszerzésre a felhasználó könyvtár által.  
+
+A tesztelés során használt kliens hardverek a napjainkban általánosan elterjedt hardverkonfigurációjú PC-k illetve laptopok, 
+melyeken a leggyakrabban használt böngészőkön (Google Chrome, Mozilla Firefox, Microsoft Edge) teszteljük a rendszert az alábbiakban
+részletezettek szerint. A minimum hardverkonfiguráció: Intel Celeron processzor, 4GB RAM, 128GB HDD, a képernyők felbontása: 
+1280x1024, 1920x1080.  
+
+A tesztelés során az üzleti folyamatokhoz tartozó különböző forgatókönyvek eredményét vizsgáljuk. Amennyiben az elvártnak megfelelő 
+eredményt kapjuk, a teszteset sikeresnek tekinthető, ellenkező esetben a hibát jegyzőkönyvben rögzítjük. Ezt követően a feljegyzett 
+hibákat javítjuk a szoftverben, és újbóli tesztelésnek vetjük alá a rendszert.  
+
+A rendszer alábbiakban leírt tesztelésének előfeltétele, hogy az adatbázisba phpMyAdmin segítségével felvegyünk egy első adminisztrátori 
+jogosultsággal rendelkező felhasználót a Könyvtáros táblába. Felhasználónév: admin, a további adatok a fejlesztő-tesztelő személyes adatai 
+lesznek. Ezzel belépve tudjuk tesztelni a könyvtáros adminisztrátor kivételes funkcióját, mely a könyvtárosok adminisztrációja.
+
+### 11.1 Tesztelt üzleti folyamatok adminisztátor könyvtárosok számára:  
+
+Az adminisztrátorok minden funkciót elérnek, melyeknek meg kell jelenni a navigációs sávban. 
+
+**Könyvtáros regisztrálása:**  
+A megjelenő űrlapot a könyvtáros alábbi táblázatban szereplő adataival kitölti. Ha olyan könyvtárost regisztrál, aki adminisztrátori 
+jogosultságokkal is fog rendelkezni, akkor bejelöli az 'Adminisztrátori joggal rendelkezzen' mezőt. Az űrlap mezői és a bevitt adatokkal 
+szemben támasztott követelmények:  
+||Megnevezés|Követelmények||
+|-|---------|-------------||
+||Felhasználó név|1.Nem lehet üres 2.Nem lehet egy regisztrált felhasználónév 3.Minimum 6 karakter hosszú legyen ||
+||Jelszó|1.Nem lehet üres 2.Minimum 8 karakter hosszú, regisztrációkor a születési dátum 8 számjegye||
+||Családi név|1.Nem lehet üres 2.Nem tartalmazhat számjegyet||
+||Utónév|1.Nem lehet üres 2.Nem tartalmazhat számjegyet||
+||Születési családi név|1.Opcionális 2.Nem tartalmazhat számjegyet||
+||Születési utónév|1.Opcionális 2.Nem tartalmazhat számjegyet||
+||Születési hely|1.Nem lehet üres 2.Nem tartalmazhat számjegyet||
+||Születési dátum|1.Nem lehet üres 2.Kötött dátum formátum:éééé.hh.nn||
+||Anyja születési családi neve|1.Nem lehet üres 2.Nem tartalmazhat számjegyet||
+||Anyja születési utóneve|1.Nem lehet üres 2.Nem tartalmazhat számjegyet||
+||Lakcím, irányítószám|1.Nem lehet üres 2.Kötött formátumú: 4 számjegy||
+||Lakcím, város|1.Nem lehet üres 2.Nem tartalmazhat számjegyet|
+||Lakcím, utca|1.Nem lehet üres||
+||Lakcím, házszám|1.Nem lehet üres||
+||Telefonszám|1.Opcionális 2.Kötött formátumú: 11 számjegy||
+||E-mail cím|1.Opcionális 2.Kötött formátumú: fióknév@domainnév||  
+További követelmény:  
+- Azonos személyes adatokkal (Családi név, Utónév, Születési hely, Születési dátum, Anyja születési családi neve,
+Anyja születési utóneve) már regisztrált felhasználót ne lehessen újra regisztrálni.  
+
+**Tesztesetek:**
+1. Bevitt adatok helyesek, megfelelnek a követelményeknek.  
+Elvárt eredmény: 
+- A Könyvtáros táblában megjelenik a regisztrált felhasználó rekordja az űrlapban megadott értékekkel.  
+- A regsiztrált könyvtáros be tud lépni a rendszerbe a weboldal kezdőoldalán található Belépés menüponton keresztül a megadott 
+felhasználónévvel és jelszóval, és a jogosultságának megfelelő navigációs sáv elérhető számára.  
+2. Bevitt adatok között szerepelnek a fenti követelményeknek nem megfelelő adatok. Elvárt eredmény: a rendszer hibaüzenetben jelzi a 
+felhasználó számára a hibát, a hibás adatokat tartalmazó mezőket jelöli az űrlapon.   
 
 ## 12. Telepítési terv
 Fizikai telepítési terv:
