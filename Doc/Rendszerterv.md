@@ -304,7 +304,7 @@ jelenik meg, és használható különböző hardver és szoftverkörnyezetben.
 
 A tesztelés során használt kiszolgáló hardverkonfigurációja a telepítés során használt hardverrel kompatibilis, teljesítményben 
 (processzor, operatív memória, háttértár) nem tér el jelentősen. A telepítéshez természetesen az általunk ajánlott konfiguráció
-került beszerzésre a felhasználó könyvtár által.  
+kerül beszerzésre a felhasználó könyvtár által.  
 
 A tesztelés során használt kliens hardverek a napjainkban általánosan elterjedt hardverkonfigurációjú PC-k illetve laptopok, 
 melyeken a leggyakrabban használt böngészőkön (Google Chrome, Mozilla Firefox, Microsoft Edge) teszteljük a rendszert az alábbiakban
@@ -321,31 +321,38 @@ lesznek. Ezzel belépve tudjuk tesztelni a könyvtáros adminisztrátor kivétel
 
 ### 11.1 Tesztelt üzleti folyamatok adminisztátor könyvtárosok számára:  
 
-Az adminisztrátorok minden funkciót elérnek, melyeknek meg kell jelenni a navigációs sávban. 
+**Belépés a rendszerbe:**
+A kezdőoldalról be tud lépni a rendszerbe a felhasználónevévek és jelszavának megadásával. Az adminisztrátorok minden funkciót elérnek, 
+melyeknek meg kell jelenni a navigációs sávban.  
 
-**Könyvtáros regisztrálása:**  
-A megjelenő űrlapot a könyvtáros alábbi táblázatban szereplő adataival kitölti. Ha olyan könyvtárost regisztrál, aki adminisztrátori 
-jogosultságokkal is fog rendelkezni, akkor bejelöli az 'Adminisztrátori joggal rendelkezzen' mezőt. Az űrlap mezői és a bevitt adatokkal 
-szemben támasztott követelmények:  
+**Tesztesetek.**
+1. Nem regisztrált felhasználónév-jelszó kombináció. Elvárt eredmény: a rendszer hibaüzenetben jelzi ezt a felhasználó számára.
+2. Regisztrált felhasználónév-jelszó kombináció. Elvárt eredmény: a rendszer belépteti a felhasználót, navigációs sáv megváltozik.  
+
+**Könyvtáros regisztrálása:**
+A megjelenő űrlapot az adminisztrátor a könyvtáros, alábbi táblázatban szereplő adataival kitölti. Ha olyan könyvtárost regisztrál, 
+aki adminisztrátori jogosultságokkal is fog rendelkezni, akkor bejelöli az 'Adminisztrátori joggal rendelkezzen' mezőt. 
+Az űrlap mezői és a bevitt adatokkal szemben támasztott követelmények:  
 
 ||Űrlap mező|Követelmények||
 |-|---------|-------------|-|
-||Felhasználó név|1. Nem lehet üres 2. Nem lehet egy regisztrált felhasználónév 3. Minimum 6 karakter hosszú legyen ||
-||Jelszó|1. Nem lehet üres 2. Minimum 8 karakter hosszú, regisztrációkor a születési dátum 8 számjegye||
-||Családi név|1. Nem lehet üres 2. Nem tartalmazhat számjegyet||
-||Utónév|1. Nem lehet üres 2. Nem tartalmazhat számjegyet||
+||Felhasználó név|1. Kötelező 2. Nem lehet egy már regisztrált felhasználónév 3. Minimum 6 karakter hosszú legyen ||
+||Jelszó|1. Kötelező 2. Minimum 8 karakter hosszú, regisztrációkor a születési dátum 8 számjegye||
+||Családi név|1. Kötelező 2. Nem tartalmazhat számjegyet||
+||Utónév|1. Kötelező 2. Nem tartalmazhat számjegyet||
 ||Születési családi név|1. Opcionális 2. Nem tartalmazhat számjegyet||
 ||Születési utónév|1. Opcionális 2. Nem tartalmazhat számjegyet||
-||Születési hely|1. Nem lehet üres 2. Nem tartalmazhat számjegyet||
-||Születési dátum|1. Nem lehet üres 2. Kötött dátum formátum:éééé.hh.nn||
-||Anyja születési családi neve|1. Nem lehet üres 2. Nem tartalmazhat számjegyet||
-||Anyja születési utóneve|1. Nem lehet üres 2. Nem tartalmazhat számjegyet||
-||Lakcím, irányítószám|1. Nem lehet üres 2. Kötött formátumú: 4 számjegy||
-||Lakcím, város|1. Nem lehet üres 2. Nem tartalmazhat számjegyet|
-||Lakcím, utca|1. Nem lehet üres||
-||Lakcím, házszám|1. Nem lehet üres||
+||Születési hely|1. Kötelező 2. Nem tartalmazhat számjegyet||
+||Születési dátum|1. Kötelező 2. Kötött dátum formátum: éééé.hh.nn||
+||Anyja születési családi neve|1. Kötelező 2. Nem tartalmazhat számjegyet||
+||Anyja születési utóneve|1. Kötelező 2. Nem tartalmazhat számjegyet||
+||Lakcím, irányítószám|1. Kötelező 2. Kötött formátumú: 4 számjegy||
+||Lakcím, város|1. Kötelező 2. Nem tartalmazhat számjegyet||
+||Lakcím, utca|1. Kötelező||
+||Lakcím, házszám|1. Kötelező||
 ||Telefonszám|1. Opcionális 2. Kötött formátumú: 11 számjegy||
-||E-mail cím|1. Opcionális 2. Kötött formátumú: fióknév@domainnév||  
+||E-mail cím|1. Opcionális 2. Kötött formátumú: fióknév@domainnév||
+||Adminisztrátor|1. Opcionális, checkbox ||    
 
 További követelmény, hogy azonos személyes adatokkal (Családi név, Utónév, Születési hely, Születési dátum, Anyja születési családi neve,
 Anyja születési utóneve) már regisztrált felhasználót ne lehessen újra regisztrálni.  
@@ -354,11 +361,128 @@ Anyja születési utóneve) már regisztrált felhasználót ne lehessen újra r
 1. Bevitt adatok helyesek, megfelelnek a követelményeknek.  
 Elvárt eredmény:  
 a) A Könyvtáros táblában megjelenik a regisztrált felhasználó rekordja az űrlapban megadott értékekkel.  
-b) A regsiztrált könyvtáros be tud lépni a rendszerbe a weboldal kezdőoldalán található Belépés menüponton keresztül a megadott 
+b) A regisztrált könyvtáros be tud lépni a rendszerbe a weboldal kezdőoldalán található Belépés menüponton keresztül a megadott 
 felhasználónévvel és jelszóval, és a jogosultságának megfelelő navigációs sáv elérhető számára.  
 2. Bevitt adatok között szerepelnek a fenti követelményeknek nem megfelelő adatok.  
-Elvárt eredmény: a rendszer hibaüzenetben jelzi a 
-felhasználó számára a hibát, a hibás adatokat tartalmazó mezőket jelöli az űrlapon.   
+Elvárt eredmény: a rendszer hibaüzenetben jelzi a felhasználó számára a hibát, a hibás adatokat tartalmazó mezőket jelöli az űrlapon,
+az adatbázisban nem jelenik meg új rekord a Könyvtáros táblában.  
+
+**Könyvtáros adatainak módosítása:**
+Adatok módosítása esetén az adminisztrátor először lekéri a könyvtáros 'adatlapját', melyet a könyvtáros meghatározó személyes adatainak
+(pl. Családi név, Utónév, szükség esetén Születési dátum) megadása után tud megtenni. Az űrlap megegyezik a regisztrációnál megjelenő 
+űrlappal, csak a Felhasználó név és Jelszó mezők nem szerepelnek. Ezekből kifolyólag a bevitt adatoknak ugyanazoknak a formai követelményeknek,
+melyek a fenti táblázatban szerepelnek. Ugyanakkor nem minden személyes adat módosítható természetüknél fogva, ezek az űrlapon nem módosítható
+mezőkként szerepelnek. A módosítható adatok listája:  
+
+||Űrlap mező||
+|-|---------|-|
+||Családi név||
+||Utónév||
+||Lakcím, utca||
+||Lakcím, irányítószám||
+||Lakcím, város||
+||Lakcím, házszám||
+||Telefonszám||
+||E-mail cím||
+||Adminisztrátori jog||  
+
+**Tesztesetek:**
+1. Adatlekérés nem regisztrált könyvtárosra. Elvárt eredmény: a rendszer hibaüzenetben jelzi ezt a felhasználó számára.  
+2. Adatlekérés regisztrált könyvtárosra. Elvárt eredmény: a rendszer megjeleníti az űrlapot az adatbázisban szereplő adatokkal.
+3. Adatmódosítás helyes adatokkal. Elvárt eredmény: a megfelelő rekord módosul a Könyvtáros táblában. Az könyvtáros a rendszerbe 
+való belépést követően a *Személyes adatok* menüpontra kattintva tudja ellenőrizni a módosításokat.  
+4. Adatmódosítás követelményeknek nem megfelelő adatokkal. Elvárt eredmény: a rendszer hibaüzenetben jelzi a felhasználó számára a hibát,
+a hibás adatokat tartalmazó mezőket jelöli az űrlapon, az adatbázisban nem módosul rekord a Könyvtáros táblában.   
+
+**Könyvtáros törlése:**
+Könyvtáros adatbázisból való törlése esetén az adminisztrátor először lekéri a könyvtáros 'adatlapját', melyet a könyvtáros meghatározó 
+személyes adatainak (pl. Családi név, Utónév, szükség esetén Születési dátum) megadása után tud megtenni. Az űrlap megegyezik az Adatok 
+módosítása űrlappal, viszont ezen az űrlapon a mezők egyike sem módosítható. Ezt követően a *Könytáros törlése nyilvántartásból* gomb 
+megnyomása után üzenetben jelzi a rendszer a folyamat végét.  
+
+**Tesztesetek:**
+1. Adatlekérés nem regisztrált könyvtárosra. Elvárt eredmény: a rendszer hibaüzenetben jelzi ezt a felhasználó számára.
+2. Adatlekérés regisztrált könyvtárosra. Elvárt eredmény: a rendszer megjeleníti az űrlapot az adatbázisban szereplő adatokkal.
+3. Sikeresen adatlekérést követően könyvtáros törlése. Elvárt eredmény: a megfelelő rekord törlődik a Könyvtáros táblából az adatbázisban.
+
+### 11.2 Tesztelt üzleti folyamatok könyvtárosok számára:
+
+Az alábbiakban tesztelt üzleti folyamatok az adminisztrátor könyvtárosok esetén is érvényesek, azonban külön nem szükséges tesztelni esetükben.
+Az egyetlen különbség a Belépés esetén van.
+
+**Belépés a rendszerbe:**
+Az adminisztrátor által előzetesen felvett könyvtáros a kezdőoldalról be tud lépni a rendszerbe a felhasználónevévek és jelszavának megadásával. 
+A navigációs sávban a jogosultságának megfelelő menüpontok jelennek meg számára. (Lásd: Menühierarchia fejezet.)
+
+**Tesztesetek.**
+1. Nem regisztrált felhasználónév-jelszó kombináció. Elvárt eredmény: a rendszer hibaüzenetben jelzi ezt a felhasználó számára.
+2. Regisztrált felhasználónév-jelszó kombináció. Elvárt eredmény: a rendszer belépteti a felhasználót, navigációs sáv megváltozik, 
+Könyvtáros menüpont nem elérhető.
+
+**Olvasó regisztrálása a rendszerben:**
+A könyvtáros az *Olvasó* menü, *Beiratkozás* menüpontjára kattintva elkezdi a regisztrációt. A megjelenő űrlapon az olvasótól elkért, 
+alábbi táblázat szerinti adatokat felviszi. A könyvtáros előkészít egy üres olvasójegyet. A Beiratkozás űrlap *Olvasójegy azonosító* 
+mezőjébe belekattint, és a vonalkód olvasóval beolvassa az olvasójegyen lévő vonalkódot. Ha befejezte az adatok felvitelét az 
+*Olvasó felvétele a nyilvántartásba* gombra kattint.  
+
+||Űrlap mező|Követelmények||
+|-|---------|-------------|-|
+||Felhasználó név|1. Kötelező 2. Nem lehet egy már regisztrált felhasználónév 3. Minimum 6 karakter hosszú legyen ||
+||Jelszó|1. Kötelező 2. Minimum 8 karakter hosszú, regisztrációkor a születési dátum 8 számjegye||
+||Családi név|1. Kötelező 2. Nem tartalmazhat számjegyet||
+||Utónév|1. Kötelező 2. Nem tartalmazhat számjegyet||
+||Születési családi név|1. Opcionális 2. Nem tartalmazhat számjegyet||
+||Születési utónév|1. Opcionális 2. Nem tartalmazhat számjegyet||
+||Születési hely|1. Kötelező 2. Nem tartalmazhat számjegyet||
+||Születési dátum|1. Kötelező 2. Kötött dátum formátum:éééé.hh.nn||
+||Anyja születési családi neve|1. Kötelező 2. Nem tartalmazhat számjegyet||
+||Anyja születési utóneve|1. Kötelező 2. Nem tartalmazhat számjegyet||
+||Lakcím, irányítószám|1. Kötelező 2. Kötött formátumú: 4 számjegy||
+||Lakcím, város|1. Kötelező 2. Nem tartalmazhat számjegyet|
+||Lakcím, utca|1. Kötelező||
+||Lakcím, házszám|1. Kötelező||
+||Telefonszám|1. Opcionális 2. Kötött formátumú: 11 számjegy||
+||E-mail cím|1. Opcionális 2. Kötött formátumú: fióknév@domainnév||
+||Olvasójegy azonosító|1. Kötelező 2. Vonalkód olvasó esetén automatikus 3. Kötött formátumú: 13 számjegy||    
+||Tagság érvényessége|1. Automatikus 2. Dátum formátumú: éééé.hh.nn||
+
+**Tesztesetek:**
+1. Bevitt adatok helyesek, megfelelnek a követelményeknek.  
+Elvárt eredmény:  
+a) Az Olvasó táblában megjelenik a regisztrált felhasználó rekordja az űrlapban megadott értékekkel.  
+b) A regisztrált olvasó be tud lépni a rendszerbe a weboldal kezdőoldalán található Belépés menüponton keresztül a megadott 
+felhasználónévvel és jelszóval, és a megfelelő navigációs sáv elérhető számára. (Lásd: Menühierarchiák fejezet) 
+2. Bevitt adatok között szerepelnek a fenti követelményeknek nem megfelelő adatok.  
+Elvárt eredmény: a rendszer hibaüzenetben jelzi a könyvtáros számára a hibát, a hibás adatokat tartalmazó mezőket jelöli az űrlapon,
+az adatbázisban nem jelenik meg új rekord az Olvasó táblában.
+
+**Olvasó adatainak módosítása:**
+Adatok módosítása esetén a könyvtáros először lekéri az olvasó 'adatlapját', melyet az olvasót egyértelműen azonosító 
+*Olvasójegy azonosító* vonalkód leolvasóval történő bevitelével tud megtenni. Az űrlap megegyezik a regisztrációnál megjelenő 
+űrlappal, csak a Felhasználó név és Jelszó mezők nem szerepelnek. Ezekből kifolyólag a bevitt adatoknak ugyanazoknak a formai követelményeknek,
+melyek a fenti táblázatban szerepelnek. Ugyanakkor nem minden személyes adat módosítható természetüknél fogva, ezek az űrlapon nem módosítható
+mezőkként szerepelnek. A módosítható adatok listája:  
+
+||Űrlap mező||
+|-|---------|-|
+||Családi név||
+||Utónév||
+||Lakcím, utca||
+||Lakcím, irányítószám||
+||Lakcím, város||
+||Lakcím, házszám||
+||Telefonszám||
+||E-mail cím||
+
+**Tesztesetek:**
+1. Adatlekérés nem regisztrált olvasóra. Elvárt eredmény: a rendszer hibaüzenetben jelzi ezt a felhasználó számára.  
+2. Adatlekérés regisztrált olvasóra. Elvárt eredmény: a rendszer megjeleníti az űrlapot az adatbázisban szereplő adatokkal.
+3. Adatmódosítás helyes adatokkal. Elvárt eredmény: a megfelelő rekord módosul az Olvasó táblában. Az olvasó a rendszerbe való belépést követően
+a *Személyes adatok* menüpontra kattintva tudja ellenőrizni a módosításokat.  
+4. Adatmódosítás követelményeknek nem megfelelő adatokkal. Elvárt eredmény: a rendszer hibaüzenetben jelzi a könyvtáros számára a hibát,
+a hibás adatokat tartalmazó mezőket jelöli az űrlapon, az adatbázisban nem módosul rekord az Olvasó táblában.
+
+
 
 ## 12. Telepítési terv
 Fizikai telepítési terv:
