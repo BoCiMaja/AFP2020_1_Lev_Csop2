@@ -327,8 +327,9 @@ Az adminisztrátorok minden funkciót elérnek, melyeknek meg kell jelenni a nav
 A megjelenő űrlapot a könyvtáros alábbi táblázatban szereplő adataival kitölti. Ha olyan könyvtárost regisztrál, aki adminisztrátori 
 jogosultságokkal is fog rendelkezni, akkor bejelöli az 'Adminisztrátori joggal rendelkezzen' mezőt. Az űrlap mezői és a bevitt adatokkal 
 szemben támasztott követelmények:  
-||Megnevezés|Követelmények||
-|-|---------|-------------||
+
+||Űrlap mező|Követelmények||
+|-|---------|-------------|-|
 ||Felhasználó név|1.Nem lehet üres 2.Nem lehet egy regisztrált felhasználónév 3.Minimum 6 karakter hosszú legyen ||
 ||Jelszó|1.Nem lehet üres 2.Minimum 8 karakter hosszú, regisztrációkor a születési dátum 8 számjegye||
 ||Családi név|1.Nem lehet üres 2.Nem tartalmazhat számjegyet||
@@ -345,17 +346,18 @@ szemben támasztott követelmények:
 ||Lakcím, házszám|1.Nem lehet üres||
 ||Telefonszám|1.Opcionális 2.Kötött formátumú: 11 számjegy||
 ||E-mail cím|1.Opcionális 2.Kötött formátumú: fióknév@domainnév||  
-További követelmény:  
-- Azonos személyes adatokkal (Családi név, Utónév, Születési hely, Születési dátum, Anyja születési családi neve,
+
+További követelmény, hogy azonos személyes adatokkal (Családi név, Utónév, Születési hely, Születési dátum, Anyja születési családi neve,
 Anyja születési utóneve) már regisztrált felhasználót ne lehessen újra regisztrálni.  
 
 **Tesztesetek:**
 1. Bevitt adatok helyesek, megfelelnek a követelményeknek.  
 Elvárt eredmény: 
-- A Könyvtáros táblában megjelenik a regisztrált felhasználó rekordja az űrlapban megadott értékekkel.  
-- A regsiztrált könyvtáros be tud lépni a rendszerbe a weboldal kezdőoldalán található Belépés menüponton keresztül a megadott 
+a) A Könyvtáros táblában megjelenik a regisztrált felhasználó rekordja az űrlapban megadott értékekkel.  
+b) A regsiztrált könyvtáros be tud lépni a rendszerbe a weboldal kezdőoldalán található Belépés menüponton keresztül a megadott 
 felhasználónévvel és jelszóval, és a jogosultságának megfelelő navigációs sáv elérhető számára.  
-2. Bevitt adatok között szerepelnek a fenti követelményeknek nem megfelelő adatok. Elvárt eredmény: a rendszer hibaüzenetben jelzi a 
+2. Bevitt adatok között szerepelnek a fenti követelményeknek nem megfelelő adatok.  
+Elvárt eredmény: a rendszer hibaüzenetben jelzi a 
 felhasználó számára a hibát, a hibás adatokat tartalmazó mezőket jelöli az űrlapon.   
 
 ## 12. Telepítési terv
