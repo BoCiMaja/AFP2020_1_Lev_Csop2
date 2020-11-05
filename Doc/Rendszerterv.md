@@ -325,7 +325,7 @@ lesznek. Ezzel belépve tudjuk tesztelni a könyvtáros adminisztrátor kivétel
 A kezdőoldalról be tud lépni a rendszerbe a felhasználónevévek és jelszavának megadásával. Az adminisztrátorok minden funkciót elérnek, 
 melyeknek meg kell jelenni a navigációs sávban.  
 
-**Tesztesetek.**  
+**Tesztesetek:**  
 1. Nem regisztrált felhasználónév-jelszó kombináció. Elvárt eredmény: a rendszer hibaüzenetben jelzi ezt a felhasználó számára.
 2. Regisztrált felhasználónév-jelszó kombináció. Elvárt eredmény: a rendszer belépteti a felhasználót, navigációs sáv megváltozik.  
 
@@ -363,6 +363,7 @@ Elvárt eredmény:
 a) A Könyvtáros táblában megjelenik a regisztrált felhasználó rekordja az űrlapban megadott értékekkel.  
 b) A regisztrált könyvtáros be tud lépni a rendszerbe a weboldal kezdőoldalán található Belépés menüponton keresztül a megadott 
 felhasználónévvel és jelszóval, és a jogosultságának megfelelő navigációs sáv elérhető számára.  
+c) A könyvtáros a rendszerbe való belépést követően a *Személyes adatok* menüpontra kattintva tudja ellenőrizni a felvett adatokat.  
 2. Bevitt adatok között szerepelnek a fenti követelményeknek nem megfelelő adatok.  
 Elvárt eredmény: a rendszer hibaüzenetben jelzi a felhasználó számára a hibát, a hibás adatokat tartalmazó mezőket jelöli az űrlapon,
 az adatbázisban nem jelenik meg új rekord a Könyvtáros táblában.  
@@ -403,7 +404,7 @@ megnyomása után üzenetben jelzi a rendszer a folyamat végét.
 **Tesztesetek:**  
 1. Adatlekérés nem regisztrált könyvtárosra. Elvárt eredmény: a rendszer hibaüzenetben jelzi ezt a felhasználó számára.
 2. Adatlekérés regisztrált könyvtárosra. Elvárt eredmény: a rendszer megjeleníti az űrlapot az adatbázisban szereplő adatokkal.
-3. Sikeresen adatlekérést követően könyvtáros törlése. Elvárt eredmény: a megfelelő rekord törlődik a Könyvtáros táblából az adatbázisban.
+3. Sikeres adatlekérést követően könyvtáros törlése. Elvárt eredmény: a megfelelő rekord törlődik a Könyvtáros táblából az adatbázisban.
 
 ### 11.2 Tesztelt üzleti folyamatok könyvtárosok számára:
 
@@ -452,14 +453,20 @@ Elvárt eredmény:
 a) Az Olvasó táblában megjelenik a regisztrált felhasználó rekordja az űrlapban megadott értékekkel.  
 b) A regisztrált olvasó be tud lépni a rendszerbe a weboldal kezdőoldalán található Belépés menüponton keresztül a megadott 
 felhasználónévvel és jelszóval, és a megfelelő navigációs sáv elérhető számára. (Lásd: Menühierarchiák fejezet) 
+c) Az olvasó a rendszerbe való belépést követően a *Személyes adatok* menüpontra kattintva tudja ellenőrizni a felvett adatokat.  
 2. Bevitt adatok között szerepelnek a fenti követelményeknek nem megfelelő adatok.  
 Elvárt eredmény: a rendszer hibaüzenetben jelzi a könyvtáros számára a hibát, a hibás adatokat tartalmazó mezőket jelöli az űrlapon,
-az adatbázisban nem jelenik meg új rekord az Olvasó táblában.
+az adatbázisban nem jelenik meg új rekord az Olvasó táblában.  
+
+**Megjegyzés:**  
+Amíg a rendszer teszteléséhez nem áll rendelkezésre vonalkód olvasó készülék, illetve vonalkód matricák, melyeket az olvasójegyre 
+ragasztanak azonosítóként, az olvasójegy azonosító mezőt manuálisan töltjük ki egy megfelelő számsorozattal.   
 
 **Olvasó adatainak módosítása:**  
 Adatok módosítása esetén a könyvtáros először lekéri az olvasó 'adatlapját', melyet az olvasót egyértelműen azonosító 
 *Olvasójegy azonosító* vonalkód leolvasóval történő bevitelével tud megtenni. Az űrlap megegyezik a regisztrációnál megjelenő 
-űrlappal, csak a Felhasználó név és Jelszó mezők nem szerepelnek. Ezekből kifolyólag a bevitt adatoknak ugyanazoknak a formai követelményeknek,
+űrlappal, csak a Felhasználó név és Jelszó mezők nem szerepelnek, valamint az olvasójegy azonosító szerepel az első helyen lehetővé 
+téve a gyorsabb adatbevitelt és módosítási folyamatot. Ezekből kifolyólag a bevitt adatoknak ugyanazoknak a formai követelményeknek,
 melyek a fenti táblázatban szerepelnek. Ugyanakkor nem minden személyes adat módosítható természetüknél fogva, ezek az űrlapon nem módosítható
 mezőkként szerepelnek. A módosítható adatok listája:  
 
@@ -481,6 +488,8 @@ mezőkként szerepelnek. A módosítható adatok listája:
 a *Személyes adatok* menüpontra kattintva tudja ellenőrizni a módosításokat.  
 4. Adatmódosítás követelményeknek nem megfelelő adatokkal. Elvárt eredmény: a rendszer hibaüzenetben jelzi a könyvtáros számára a hibát,
 a hibás adatokat tartalmazó mezőket jelöli az űrlapon, az adatbázisban nem módosul rekord az Olvasó táblában.
+
+**Tagság rendezése:**
 
 
 
