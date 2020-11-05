@@ -48,10 +48,7 @@ A még nem regisztrált olvasó felkeresi a könyvtárban a rendszereléréssel 
 ||E-mail cím||
 
 - Olvasó törlése a rendszerből:
-A könyvtáros az ‘Olvasó‘ menü ‘Kiiratkozás‘ menüpontjára kattint. 
-1) Ha megvan az olvasó olvasójegye, akkor a könyvtáros belekattint az űrlap ‘Olvasójegy azonosító‘ mezőbe és beolvassa az olvasójegyen lévő vonalkódot. Az olvasójegy azonosítója alapján csak egy felhasználó lehet az adatbázisban.
-2) Ha nincs meg az olvasójegy, akkor a könyvtáros kitölti az űrlap mezőit, amennyi információ a rendelkezésre áll. Ha a megadott adatok alapján több olvasót talált a rendszer az adatbázisban, akkor megjelenik egy hibaüzenet: „Több felhasználó egyezik a megadott adatokkal. Kérem adjon meg több adatot.”
-A fenti adatok megadása után az ’Adatok lekérése’ gombra kattint. Ha az adatbázisban a lekérés megtalálta a keresett olvasót, az adatai megjelennek az űrlapon. A könyvtáros a ‘Tagság megszüntetése‘ gombra kattint és véglegesíti a törlést. A rendszer kitörli az adatbázisból az olvasót.
+A könyvtáros az ‘Olvasó‘ menü ‘Kiiratkozás‘ menüpontjára kattint, majd belekattint az űrlap ‘Olvasójegy azonosító‘ mezőbe és beolvassa az olvasójegyen lévő vonalkódot. Ha nincs meg az olvasójegy, akkor a könyvtáros a 'Olvasó neve' mezőbe írja be a nevet. A fenti adatok megadása után az ’Azonosítás’ gombra kattint. A megjelenő listából kiválasztja a keresett olvasót és az 'Olvasó kiválasztása' gombra kattint. Az űrlapon megjelennek a keresett olvasó adatai. A könyvtáros a ‘Tagság megszüntetése‘ gombra kattint és véglegesíti a törlést. A rendszer kitörli az adatbázisból az olvasót.
 
 - Új könyv regisztrálása: 
 A könyvtáros a ‘Katalógus‘ menü ‘Új könyv felvétele‘ menüpontra kattint és elkezdi a regisztrációt. A megjelenő űrlapon a könyv alábbi táblázatban szereplő adatait felviszi. Ha befejezte az adatok felvitelét az ‘Könyv felvétele katalógusba‘ gombra kattint. A rendszer ellenőrzi az adatok helyességét és ha megfelelőek, akkor az könyvet felveszi az adatbázisba.
@@ -70,10 +67,7 @@ A könyvtáros a ‘Katalógus‘ menü ‘Új könyv felvétele‘ menüpontra 
 ||Azonosító||
 
 - Könyv törlése: 
-A könyvtáros az ‘Katalógus‘ menü ‘Könyv leselejtezése‘ menüpontjára kattint. 
-1) Ha a könyvben megvan az azonosító vonalkódja és az nem sérült, akkor a könyvtáros belekattint az űrlap ‘Azonosító‘ mezőbe és beolvassa a könyvben lévő vonalkódot. A könyv azonosítója alapján csak egy könyv lehet az adatbázisban.
-2) Ha nincs meg az azonosító vagy sérült a vonalkód és nem olvasható be, akkor a könyvtáros kitölti az űrlap mezőit, amennyi információ a rendelkezésre áll. Ha a megadott adatok alapján több könyvet talált a rendszer az adatbázisban, akkor megjelenik egy hibaüzenet: „Több könyv egyezik a megadott adatokkal. Kérem adjon meg több adatot.”
-A fenti adatok megadása után az ‘Adatok lekérése‘ gombra kattint. Ha az adatbázisban a lekérés megtalálta a keresett könyvet, az adatai megjelennek az űrlapon. A könyvtáros a ‘Könyvpéldány törlése az adatbázisból‘ gombra kattintva véglegesíti a törlést. A rendszer kitörli az adatbázisból a könyvet.
+A könyvtáros az ‘Katalógus‘ menü ‘Könyv leselejtezése‘ menüpontját kiválasztja, majd belekattint az űrlap ‘Azonosító‘ mezőbe és beolvassa a könyvben lévő vonalkódot.  A beolvasás után az ‘Adatok lekérése‘ gombra kattint. A könyv adatai megjelennek az űrlapon. A könyvtáros a ‘Könyvpéldány törlése az adatbázisból‘ gombra kattintva véglegesíti a törlést. A rendszer kitörli az adatbázisból a könyvet.
 
 - Kölcsönzés - könyv kiadása: 
 A könyvtáros a ‘Kölcsönzés‘ menü ‘Könyv‘ kiadása menüpontra kattint. A megjelenő űrlapon az ‘Olvasójegy azonosító‘ mezőbe kattint és beolvassa az olvasójegyen lévő vonalkódot. Utána megnyomja az ‘Azonosítás‘ gombot. Ekkor megjelenik egy új űrlap a könyv adatainak megadásához. A könyvtáros az ‘Azonosító‘ mezőbe kattint és beolvassa a könyv vonalkódját. Utána az ‘Adatok lekérése‘ gombra kattint. Ha megjelennek a könyv adatai, akkor a ‘Könyv kikölcsönzése‘ gombra kattint. Az adatbázisban megtörténnek a bejegyzések az olvasóhoz és a könyvhöz.
