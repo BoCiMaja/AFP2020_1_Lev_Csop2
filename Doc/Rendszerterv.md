@@ -316,7 +316,7 @@ lesznek. Ezzel belépve tudjuk tesztelni a könyvtáros adminisztrátor kivétel
 
 ### 11.1 Tesztelt üzleti folyamatok adminisztátor könyvtárosok számára:  
 
-**Belépés a rendszerbe:**  
+**A) Belépés a rendszerbe:**  
 A kezdőoldalról be tud lépni a rendszerbe a felhasználónevévek és jelszavának megadásával. Az adminisztrátorok minden funkciót elérnek, 
 melyeknek meg kell jelenni a navigációs sávban.  
 
@@ -325,7 +325,7 @@ melyeknek meg kell jelenni a navigációs sávban.
 2. Regisztrált felhasználónév-jelszó kombináció. Elvárt eredmény: a rendszer belépteti a felhasználót, navigációs sáv megváltozik.  
 
 
-**Könyvtáros regisztrálása:**  
+**B) Könyvtáros regisztrálása:**  
 A megjelenő űrlapot az adminisztrátor a könyvtáros, alábbi táblázatban szereplő adataival kitölti. Ha olyan könyvtárost regisztrál, 
 aki adminisztrátori jogosultságokkal is fog rendelkezni, akkor bejelöli az 'Adminisztrátori joggal rendelkezzen' mezőt. 
 Az űrlap mezői és a bevitt adatokkal szemben támasztott követelmények:  
@@ -365,7 +365,7 @@ Elvárt eredmény: a rendszer hibaüzenetben jelzi a felhasználó számára a h
 az adatbázisban nem jelenik meg új rekord a Könyvtáros táblában.  
 
 
-**Könyvtáros adatainak módosítása:**  
+**C) Könyvtáros adatainak módosítása:**  
 Adatok módosítása esetén az adminisztrátor először lekéri a könyvtáros 'adatlapját', melyet a könyvtáros meghatározó személyes adatainak
 (pl. Családi név, Utónév, szükség esetén Születési dátum) megadása után tud megtenni. Az űrlap megegyezik a regisztrációnál megjelenő 
 űrlappal, csak a Felhasználó név és Jelszó mezők nem szerepelnek. Ezekből kifolyólag a bevitt adatoknak ugyanazoknak a formai követelményeknek,
@@ -393,7 +393,7 @@ való belépést követően a *Személyes adatok* menüpontra kattintva tudja el
 a hibás adatokat tartalmazó mezőket jelöli az űrlapon, az adatbázisban nem módosul rekord a Könyvtáros táblában.   
 
 
-**Könyvtáros törlése:**  
+**D) Könyvtáros törlése:**  
 Könyvtáros adatbázisból való törlése esetén az adminisztrátor először lekéri a könyvtáros 'adatlapját', melyet a könyvtáros meghatározó 
 személyes adatainak (pl. Családi név, Utónév, szükség esetén Születési dátum) megadása után tud megtenni. Az űrlap megegyezik az Adatok 
 módosítása űrlappal, viszont ezen az űrlapon a mezők egyike sem módosítható. Ezt követően a *Könytáros törlése nyilvántartásból* gomb 
@@ -422,7 +422,7 @@ Könyvtáros menüpont nem elérhető.
 
 #### 11.2.1 Olvasók adminisztrációjának tesztelése:
 
-**Olvasó regisztrálása a rendszerben:**  
+**A) Olvasó regisztrálása a rendszerben:**  
 A könyvtáros az *Olvasó* menü, *Beiratkozás* menüpontjára kattintva elkezdi a regisztrációt. A megjelenő űrlapon az olvasótól elkért, 
 alábbi táblázat szerinti adatokat felviszi. A könyvtáros előkészít egy üres olvasójegyet. A Beiratkozás űrlap *Olvasójegy azonosító* 
 mezőjébe belekattint, és a vonalkód olvasóval beolvassa az olvasójegyen lévő vonalkódot. Ha befejezte az adatok felvitelét az 
@@ -465,7 +465,7 @@ Amíg a rendszer teszteléséhez nem áll rendelkezésre vonalkód olvasó kész
 ragasztanak azonosítóként, az olvasójegy azonosító mezőt manuálisan töltjük ki egy megfelelő számsorozattal.   
 
 
-**Olvasó adatainak módosítása:**  
+**B) Olvasó adatainak módosítása:**  
 Adatok módosítása esetén a könyvtáros először lekéri az olvasó 'adatlapját', melyet vagy az olvasót egyértelműen azonosító 
 *Olvasójegy azonosító* vonalkód leolvasóval történő bevitelével tud megtenni, vagy a név beírását követően egy találati listából választja ki
 a lakcím, születési dátum adatok alapján. Az adatokat tartalmazó űrlap megegyezik a regisztrációnál megjelenő 
@@ -496,7 +496,7 @@ a *Személyes adatok* menüpontra kattintva tudja ellenőrizni a módosításoka
 a hibás adatokat tartalmazó mezőket jelöli az űrlapon, az adatbázisban nem módosul rekord az Olvasó táblában.
 
 
-**Tagság rendezése:**
+**C) Tagság rendezése:**   
 A tagság rendezése esetén az olvasó tagságának érvényessége automatikusan meghosszabbítódik vagy az aktuális dátumtól kezdődő egy évre, vagy
 a tagság lejáratának dátumától egy évre. Az olvasó azonosítása a módosítással nalóg módon történik, a megjelenő űrlapon minden mező csak olvasható,
 egy gomb szolgál a hosszabbítás végrehajtására.  
@@ -512,7 +512,7 @@ a rendszer megjeleníti az űrlapot az adatbázisban szereplő adatokkal, a tags
 A véglegesítést követően az adatbázisban az Olvasó tábla megfelelő rekordja frissül, mely az Adatok módosítása menüpontban is ellenőrizhető.  
 
 
-**Lejárt tagságú olvasók:**  
+**D) Lejárt tagságú olvasók:**  
 E funkció szolgál az 5 évnél régebben lejárt tagságú olvasók listázására, majd törlésére. A tesztet egy hamis olvasó rekorddal tudjuk elvégezni, 
 melyet phpMyAdmin-ban viszünk fel az Olvasó táblába.
 
@@ -524,7 +524,7 @@ szerepel a hozzá tartozó rekord.
 
 #### 11.2.2 Katalógus adminisztrációjának tesztelése:  
 
-**Új könyv regisztrációja:**  
+**A) Új könyv regisztrációja:**  
 A könyvtáros a *Katalógus* menü *Új könyv felvétele* menüpontra kattint és elkezdi a regisztrációt. A megjelenő űrlapon a könyv alábbi 
 táblázatban szereplő adatait felviszi. Ha befejezte az adatok felvitelét az *Könyv felvétele katalógusba* gombra kattint.  
 
@@ -556,7 +556,7 @@ ha megfelelő keresési feltételeket adunk meg.
 Nem jelenik meg új rekord az adatbázisban.
 
 
-**Könyv leselejtezése:**  
+**B) Könyv leselejtezése:**  
 Könyv leselejtezése abban az esetben szükséges, ha a könyv megrongálódott. A művelethez szükséges a könyvpéldányt azonosító vonalkód matrica. 
 A megjelenő űrlap az alábbi mezőkből áll, melyek közül egyedül az azonosítót kötelező kitölteni, ezt követően az *Adatok lekérése* gombra 
 kattintva megjelennek a könyv adatai, ezek az űrlap mezők csak olvashatók.  
@@ -581,7 +581,7 @@ A *Könyvpéldány törlése katalógusból* gombra kattintva az adatbázis Pél
 jelzi, hogy az azonosítón nincs regisztrálva könyvpéldány.
 
 
-**Lejárt kölcsönzési határidős könyvek:**  
+**C) Lejárt kölcsönzési határidős könyvek:**  
 Ezt a Katalógus menüpontot választva a könyvtáros ki tudja listázni azokat a könyvpéldányokat, melyeket az olvasók nem hoztak vissza 
 a kölcsönzési határidőn belül. Ez könyvtári gyakorlattól függ, hogy milyen eljárást alkalmaznak a lejárat jelzésére az olvasóknak, illetve 
 hogy mikor törlik a katalógusból, mely lehet egy év de kettő is, megrendelőnk tájékozatatása alapján. Először természetesen e-mailben értesítik 
@@ -596,7 +596,7 @@ művelet esetén az adatbázisból törlődik a kölcsönzésre vonatkozó rekor
 A lejárt könyvek újbóli listázása esetén a könyv nem jelenik meg a listában.
 
 
-**Egyszerű keresés:**
+**D) Egyszerű keresés:**   
 Ezt a funkciót a rendszerbe való belépés előtt elegendő tesztelni, de rendelkezésre áll a felhasználók belépését követően is. Előfeltétele, hogy a 
 fent részletezettek szerint sikeresen vegyünk fel új könyveket a katalógusba. Az űrlap egyetlen 'kulcsszó' mezőt tartalmaz, amely azonban több szóból 
 állhat. (Pl. szerző esetén annak teljes neve.) A rendszer a Könyv egyedek összes attribútumát megvizsgálja, hogy egyezik-e a megadott kulcsszavakkal, 
@@ -617,7 +617,7 @@ vonatkozó kölcsönzési információkat.
 Elvárt eredmény: a rendszer jelezze, hogy nem talált a keresési feltételnek megfelelő könyvet.
 
 
-**Részletes keresés:**  
+**E) Részletes keresés:**  
 Ezt a funkciót a rendszerbe való belépés előtt elegendő tesztelni, de rendelkezésre áll a felhasználók belépését követően is. Előfeltétele, hogy a 
 fent részletezettek szerint sikeresen vegyünk fel új könyveket a katalógusba. A részletes keresés esetén a Könyv minden attribútumát külön-külön 
 meghatározhatjuk, melyeknek egyezést kell mutatni a keresett könyv megfelelő attribútumaival. A részletes keresés űrlap az alábbi mezőket tartalmazza:  
