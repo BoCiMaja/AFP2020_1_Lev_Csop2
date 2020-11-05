@@ -535,7 +535,7 @@ táblázatban szereplő adatait felviszi. Ha befejezte az adatok felvitelét az 
 ||Cutter|1. Kötelező 2. Kötött formátum: betű-szóköz-szám||
 ||ETO jelzet|1. Kötelező 2. Kötött formátum||
 ||Tárgyszavak|1. Opcionális||
-||Azonosító|1. Kötelező|1. Kötelező 2. Kötött formátum: 13 jegyű vonalkód azonosító 3. Egyedi minden példány esetén||
+||Azonosító|1. Kötelező 2. Kötött formátum: 13 jegyű vonalkód azonosító 3. Egyedi minden példány esetén||
 
 Mivel az adatbázisban külön tároljuk a Könyv egyed adatait és a Példány egyed adatait, új könyv felvétele során az adatbázis mindkét 
 tábláját kell ellenőrizni.  
