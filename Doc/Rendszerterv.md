@@ -420,7 +420,7 @@ A navigációs sávban a jogosultságának megfelelő menüpontok jelennek meg s
 Könyvtáros menüpont nem elérhető.
 
 
-#### 11.2.1 Olvasók adminisztrációjának tesztelése:
+### 11.2.1 Olvasók adminisztrációjának tesztelése:
 
 **A) Olvasó regisztrálása a rendszerben:**  
 A könyvtáros az *Olvasó* menü, *Beiratkozás* menüpontjára kattintva elkezdi a regisztrációt. A megjelenő űrlapon az olvasótól elkért, 
@@ -522,7 +522,7 @@ szerepel a hozzá tartozó rekord.
 2. A lejárt tagságú olvasó megjelenik a listában, majd törlést követően az adatbázis Olvasó táblájában nem szerepel a hozzá tartozó rekord.  
 
 
-#### 11.2.2 Katalógus adminisztrációjának tesztelése:  
+### 11.2.2 Katalógus adminisztrációjának tesztelése:  
 
 **A) Új könyv regisztrációja:**  
 A könyvtáros a *Katalógus* menü *Új könyv felvétele* menüpontra kattint és elkezdi a regisztrációt. A megjelenő űrlapon a könyv alábbi 
@@ -646,6 +646,106 @@ a találati listában a könyvekre kattintva annak összes mezőjét meg lehet t
 vonatkozó kölcsönzési információkat.  
 3. Tetszőleges könyv attribútum(ok) megadása, amely egyetlen regisztrált könyvvel sem mutat egyezést. 
 Elvárt eredmény: a rendszer jelezze, hogy nem talált a keresési feltételnek megfelelő könyvet.  
+
+**F) Teljes leltár:**  
+A teljes leltárt évente egyszer végzik a könyvtárban, a ki nem kölcsönzött könyveket sorban leltárba veszik, ekkor a könyvpéldány 
+leltárba vételi dátuma megváltozik. Ha minden könyvet leltárba vettek a *Teljes leltár vége* menüpontban lehet ellenórizni, hogy mely 
+könyveket nem vettek leltárba azok közül, amelyek a katalógusban szerepelnek és nincsenek kikölcsönözve. A leltárba vétel a könyvek 
+vonalkódos azonosítójának beolvasásával történik.  
+
+**Tesztesetek:**  
+1. A katalógusba felvett könyvek közül bizonyos könyveket nem veszünk leltárba. Elvárt eredmény: a leltárba nem vett könyvek a teljes leltár 
+vége megnyomása esetén kilistázódnak. A többi könyv leltárba vételi dátuma a Példány táblában az aktuális dátum. 
+2. A listában szereplő könyveket törlésre kijelöljük és megnyomjuk a *Könyv törlése katalógusból* gombot. Elvárt eredmény: a kijelölt könyvek 
+rekordjai a Példány táblában törlésre kerülnek.
+
+**G) Könyv kikölcsönzése:**  
+A kölcsönzés első lépése a kölcsönző olvasó azonosítása. Ez történhet a vonalkód leolvasásával, vagy név alapján történő kereséssel. Ezt követően 
+lehet a könyvek vonalkód azonosítóját beolvasva azokat kiadni.
+
+**Tesztesetek:**  
+1. Olvasójegy azonosító megadása, és Azonosítás gomb megnyomása. Elvárt eredmény: létező olvasó esetén az űrlapon megjelenik az olvasó teljes neve, 
+tagságának érvényessége, valamint a kölcsönzési határidő, amely az aktuális dátumtól számított egy hónap.
+2. Olvasó nevének megadása, és keresés megnyomása. Elvárt eredmény: létező olvasó esetén a találati listában megjelenik minden egyező nevű olvasó.
+3. Olvasó kiválasztása találati listából, lakcím és születési dátum alapján. Elvárt eredmény: az űrlapon megjelenik az olvasó vonalkódos 
+azonosítója, tagságának érvényessége, valamint a kölcsönzési határidő, amely az aktuális dátumtól számított egy hónap.
+4. Kölcsönzésre kerülő könyvpéldány azonosítójának megadása, adatok lekérése, kikölcsönzés. Elvárt eredény: az adatok lekérését követően az 
+űrlapon megjelennek a könyv adatai. A kölcsönzést követően a Kölcsönzések táblában megjelenik egy új rekord a megfelelő adatokkal.
+
+**H) Kölcsönzési határidő hosszabbítása:**  
+A könyv hosszabbításának első lépése - az olvasó azonosítása - megegyezik a kölcsönzés első lépésével a fentiekben leírtak szerint. 
+Ezt követően megjelenik egy lista kölcsönzött könyvek szerző, cím és azonosító adataival. A könyvek bejelölését követően a 
+*Kölcsönzési határidő hosszabbítása* gombra kattintva a határidő az előző határidő plusz egy hónapra módosul. Ha már volt hosszabbítva, 
+akkor a rendszer üzenetben jelzi, hogy további hosszabbítás nem lehetséges.
+
+**Tesztesetek:**  
+1. Olvasójegy azonosító megadása, és Azonosítás gomb megnyomása. Elvárt eredmény: létező olvasó esetén az űrlapon megjelenik az olvasó teljes neve, 
+tagságának érvényessége, valamint a kölcsönzési határidő, amely az aktuális dátumtól számított egy hónap.  
+2. Olvasó nevének megadása, és keresés megnyomása. Elvárt eredmény: létező olvasó esetén a találati listában megjelenik minden egyező nevű olvasó.  
+3. Olvasó kiválasztása találati listából, lakcím és születési dátum alapján. Elvárt eredmény: az űrlapon megjelenik az olvasó vonalkódos 
+azonosítója, tagságának érvényessége, valamint a kölcsönzési határidő, amely az aktuális dátumtól számított egy hónap.  
+4. Még nem hosszabbított kölcsönzés határidejének hosszabbítása. Elvárt eredmény: a Kölcsönzések táblában a határidő egy hónappal módosul, 
+és a hosszabítva mező igaz értéket kap.  
+4. Már meghosszabbított kölcsönzés határidejének hosszabbítása. Elvárt eredmény: a rendszer üzenetben jelzi, hogy ez nem lehetséges. 
+A Kölcsönzések táblában a határidő nem módosul.  
+
+**I) Könyv visszavétele:**  
+A könyv visszavételének első lépése - az olvasó azonosítása - megegyezik a kölcsönzés első lépésével a fentiekben leírtak szerint. 
+Ezt követően lehet a könyvek vonalkód azonosítóját beolvasva azokat visszavételezni. Ha határidőn túl hozta vissza az olvasó a könyveket 
+a rendszer üzenetben jelzi a késedelem és a késedelmi díj értékét.
+
+**Tesztesetek:**  
+1. Olvasójegy azonosító megadása, és Azonosítás gomb megnyomása. Elvárt eredmény: létező olvasó esetén az űrlapon megjelenik az olvasó teljes neve, 
+tagságának érvényessége, valamint a kölcsönzési határidő, amely az aktuális dátumtól számított egy hónap.
+2. Olvasó nevének megadása, és keresés megnyomása. Elvárt eredmény: létező olvasó esetén a találati listában megjelenik minden egyező nevű olvasó.
+3. Olvasó kiválasztása találati listából, lakcím és születési dátum alapján. Elvárt eredmény: az űrlapon megjelenik az olvasó vonalkódos 
+azonosítója, tagságának érvényessége, valamint a kölcsönzési határidő, amely az aktuális dátumtól számított egy hónap.
+4. Kikölcsönzött könyvpéldány azonosítójának megadása, adatok lekérése, visszavételezés. Elvárt eredény: az adatok lekérését követően az 
+űrlapon megjelennek a könyv adatai. A visszavételezést követően a Kölcsönzések táblában az adott kölcsönzéshez tartozó rekordban a 
+'kölcsönzés vége' mezőbe az aktuális dátum kerül.  
+5. Visszavételezés vége. Lejárt határidővel kerül visszavételezésre a könyv, melyhez egy hamis rekordot veszünk fel a Kölcsönzések táblába. 
+Elvárt eredmény: a rendszer jelzi a késedelmes napok számát és a késedelmi díj értékét a könyvtáros számára.  
+
+### 11.3 Személyes adatok kezelése:  
+
+**A) Személyes adatok megjelenítése, elérhetőségek módosítása:**  
+A rendszerbe való belépést követően elérhetővé válik minden felhasználó - olvasó, könyvtáros, adminisztrátor könyvtáros - számára. 
+Az olvasók a könyvtárosok által felvett adatokat tudják ellenőrizni, a könyvtárosok az adminisztárok által felvett adatokat. 
+Módosítani csak a telefonszámot és az e-mail címet lehetséges, a többi mező csak olvasható. Az alábbi űrlap jelenik meg:  
+  
+||Űrlap mező||
+|-|---------||
+||Családi név||
+||Utónév||
+||Születési családi név||
+||Születési utónév||
+||Születési hely||
+||Születési dátum||
+||Anyja születési családi neve||
+||Anyja születési utóneve||
+||Lakcím, irányítószám||
+||Lakcím, város||
+||Lakcím, utca||
+||Lakcím, házszám||
+||Telefonszám||
+||E-mail cím||  
+  
+A telefonszám és e-mail cím formai követelményei megegyeznek az 'olvasó regisztrálása a rendszerben' pontban megadottakkal.  
+  
+**Tesztesetek:**  
+1. E-mail cím és telefonszám módosítása. Elvárt eredmény: a bejelentkezett felhasználó típusának megfelelő - Olvasó vagy Könyvtáros - táblában 
+a megfelelő mezők módosulnak.  
+
+**B) Jelszó cseréje:**  
+A rendszerbe való belépést követően elérhetővé válik minden felhasználó - olvasó, könyvtáros, adminisztrátor könyvtáros - számára. 
+Az űrlapon szükséges megadni a régi jelszót, és az új jelszót két mezőben. Ezt követően lehet módosítani azt. A jelszóval szembeni 
+formai követelmény, hogy minimum 8 karakter hosszú legyen.    
+
+**Tesztesetek:**  
+1. Helyes régi jelszó, új jelszó mindkét mezőben ugyanaz. Elvárt eredmény: a jelszó módosul. A rendszerből való kilépést követően 
+az újbóli belépés során az új jelszóval be tud lépni a felhasználó.
+2. Hibás régi jelszó, nem egyező új jelszó mezők, vagy 8 karakternél rövidebb új jelszó megadása. Elvárt eredmény: a rendszer 
+hibaüzenetben jelzi az adott hibát a felhasználó számára. A jelszó nem módosul.   
 
 
 ## 12. Telepítési terv
