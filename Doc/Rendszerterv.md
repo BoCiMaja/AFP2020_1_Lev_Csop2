@@ -712,9 +712,10 @@ Elvárt eredmény: a rendszer jelzi a késedelmes napok számát és a késedelm
 A rendszerbe való belépést követően elérhetővé válik minden felhasználó - olvasó, könyvtáros, adminisztrátor könyvtáros - számára. 
 Az olvasók a könyvtárosok által felvett adatokat tudják ellenőrizni, a könyvtárosok az adminisztárok által felvett adatokat. 
 Módosítani csak a telefonszámot és az e-mail címet lehetséges, a többi mező csak olvasható. Az alábbi űrlap jelenik meg:  
-  
+
+
 ||Űrlap mező||
-|-|---------||
+|-|---------|-|
 ||Családi név||
 ||Utónév||
 ||Születési családi név||
@@ -729,6 +730,7 @@ Módosítani csak a telefonszámot és az e-mail címet lehetséges, a többi me
 ||Lakcím, házszám||
 ||Telefonszám||
 ||E-mail cím||  
+  
   
 A telefonszám és e-mail cím formai követelményei megegyeznek az 'olvasó regisztrálása a rendszerben' pontban megadottakkal.  
   
