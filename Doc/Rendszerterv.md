@@ -4,11 +4,45 @@
 
 ## 2. Projektterv
 
-### 2.1 Projektszerepkörök, felelősségek 
+### 2.1 Projektszerepkörök, felelősségek
+Scrum master: Béres Gábor
+Feladata a kommunikáció a csapat tagjaival, a sprint időszakán belül daily meeting-eken az elvégzett és a következő feladatok átbeszélése, akadályok (impediment) feltárása. 
 
-### 2.2 Projektmunkások és felelősségeik 
+Product owner: Szűcs János
+A prioritással és üzleti értékkel ellátott felhasználói sztorikat tartalmazó Product Backlog létrehozása és felügyelete.
 
-### 2.3 Ütemterv 
+Üzleti szereplők (Stakeholders):
+- Megrendelő:  
+
+### 2.2 Projektmunkások és felelősségeik
+
+Frontend:
+- Béres Gábor
+A felhasználók által elérhető felület kialakítása, amin keresztűl a backend által biztosított szolgáltatások igénybevételével elérhetőek a rendszerben a felhasználók rendelkezésére álló funkciók.
+
+Backend:
+- Béres Gábor
+- Jakab Zsolt
+- Németh Richárd
+- Szűcs János
+Feladatuk az adatbázis szerkezetek kialakítása, funkciók létrehozása, a frontend kiszolgálása adatokkal.
+
+Tesztelés:
+- Németh Richárd
+- Szűcs János
+A szoftverekben meglévő hibák felderítése még az üzembehelyezés előtt. 
+  
+### 2.3 Ütemterv
+
+||Funkció / Story | Feladat / Task | Prioritás | Becslés | Aktuális becslés | Elteltidő | Hátralévő idő ||
+|-|---------------|----------------|-----------|---------|------------------|-----------|---------------|-|
+||Követelmény specifikáció|        |         0 |      12 |               12 |        12 |             0 ||             
+||Funkcionális specifikáció|       |         0 |      12 |               12 |        12 |             0 ||
+||Rendszerterv|                    |           |      16 |               16 |         8 |             8 ||
+||Adattárolás|Adatmodell megtervezése|       0 |       4 |                4 |         4 |             0 ||
+|| |Adatbázis megvalósítása a szerveren|     1 |       1 |                1 |         0 |             1 ||
+||Login felület|Képernyődizájn elkészítése|  2 |       8 |                8 |         0 |             8 ||
+
 
 ### 2.4 Mérföldkövek 
 
