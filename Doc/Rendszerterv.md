@@ -82,10 +82,7 @@ A még nem regisztrált olvasó felkeresi a könyvtárban a rendszereléréssel 
 ||E-mail cím||
 
 - Olvasó törlése a rendszerből:
-A könyvtáros az ‘Olvasó‘ menü ‘Kiiratkozás‘ menüpontjára kattint. 
-1) Ha megvan az olvasó olvasójegye, akkor a könyvtáros belekattint az űrlap ‘Olvasójegy azonosító‘ mezőbe és beolvassa az olvasójegyen lévő vonalkódot. Az olvasójegy azonosítója alapján csak egy felhasználó lehet az adatbázisban.
-2) Ha nincs meg az olvasójegy, akkor a könyvtáros kitölti az űrlap mezőit, amennyi információ a rendelkezésre áll. Ha a megadott adatok alapján több olvasót talált a rendszer az adatbázisban, akkor megjelenik egy hibaüzenet: „Több felhasználó egyezik a megadott adatokkal. Kérem adjon meg több adatot.”
-A fenti adatok megadása után az ’Adatok lekérése’ gombra kattint. Ha az adatbázisban a lekérés megtalálta a keresett olvasót, az adatai megjelennek az űrlapon. A könyvtáros a ‘Tagság megszüntetése‘ gombra kattint és véglegesíti a törlést. A rendszer kitörli az adatbázisból az olvasót.
+A könyvtáros az ‘Olvasó‘ menü ‘Kiiratkozás‘ menüpontjára kattint, majd belekattint az űrlap ‘Olvasójegy azonosító‘ mezőbe és beolvassa az olvasójegyen lévő vonalkódot. Ha nincs meg az olvasójegy, akkor a könyvtáros a 'Olvasó neve' mezőbe írja be a nevet. A fenti adatok megadása után az ’Azonosítás’ gombra kattint. A megjelenő listából kiválasztja a keresett olvasót és az 'Olvasó kiválasztása' gombra kattint. Az űrlapon megjelennek a keresett olvasó adatai. A könyvtáros a ‘Tagság megszüntetése‘ gombra kattint és véglegesíti a törlést. A rendszer kitörli az adatbázisból az olvasót.
 
 - Új könyv regisztrálása: 
 A könyvtáros a ‘Katalógus‘ menü ‘Új könyv felvétele‘ menüpontra kattint és elkezdi a regisztrációt. A megjelenő űrlapon a könyv alábbi táblázatban szereplő adatait felviszi. Ha befejezte az adatok felvitelét az ‘Könyv felvétele katalógusba‘ gombra kattint. A rendszer ellenőrzi az adatok helyességét és ha megfelelőek, akkor az könyvet felveszi az adatbázisba.
@@ -104,10 +101,7 @@ A könyvtáros a ‘Katalógus‘ menü ‘Új könyv felvétele‘ menüpontra 
 ||Azonosító||
 
 - Könyv törlése: 
-A könyvtáros az ‘Katalógus‘ menü ‘Könyv leselejtezése‘ menüpontjára kattint. 
-1) Ha a könyvben megvan az azonosító vonalkódja és az nem sérült, akkor a könyvtáros belekattint az űrlap ‘Azonosító‘ mezőbe és beolvassa a könyvben lévő vonalkódot. A könyv azonosítója alapján csak egy könyv lehet az adatbázisban.
-2) Ha nincs meg az azonosító vagy sérült a vonalkód és nem olvasható be, akkor a könyvtáros kitölti az űrlap mezőit, amennyi információ a rendelkezésre áll. Ha a megadott adatok alapján több könyvet talált a rendszer az adatbázisban, akkor megjelenik egy hibaüzenet: „Több könyv egyezik a megadott adatokkal. Kérem adjon meg több adatot.”
-A fenti adatok megadása után az ‘Adatok lekérése‘ gombra kattint. Ha az adatbázisban a lekérés megtalálta a keresett könyvet, az adatai megjelennek az űrlapon. A könyvtáros a ‘Könyvpéldány törlése az adatbázisból‘ gombra kattintva véglegesíti a törlést. A rendszer kitörli az adatbázisból a könyvet.
+A könyvtáros az ‘Katalógus‘ menü ‘Könyv leselejtezése‘ menüpontját kiválasztja, majd belekattint az űrlap ‘Azonosító‘ mezőbe és beolvassa a könyvben lévő vonalkódot.  A beolvasás után az ‘Adatok lekérése‘ gombra kattint. A könyv adatai megjelennek az űrlapon. A könyvtáros a ‘Könyvpéldány törlése az adatbázisból‘ gombra kattintva véglegesíti a törlést. A rendszer kitörli az adatbázisból a könyvet.
 
 - Kölcsönzés - könyv kiadása: 
 A könyvtáros a ‘Kölcsönzés‘ menü ‘Könyv‘ kiadása menüpontra kattint. A megjelenő űrlapon az ‘Olvasójegy azonosító‘ mezőbe kattint és beolvassa az olvasójegyen lévő vonalkódot. Utána megnyomja az ‘Azonosítás‘ gombot. Ekkor megjelenik egy új űrlap a könyv adatainak megadásához. A könyvtáros az ‘Azonosító‘ mezőbe kattint és beolvassa a könyv vonalkódját. Utána az ‘Adatok lekérése‘ gombra kattint. Ha megjelennek a könyv adatai, akkor a ‘Könyv kikölcsönzése‘ gombra kattint. Az adatbázisban megtörténnek a bejegyzések az olvasóhoz és a könyvhöz.
@@ -353,17 +347,19 @@ A rendszer alábbiakban leírt tesztelésének előfeltétele, hogy az adatbázi
 jogosultsággal rendelkező felhasználót a Könyvtáros táblába. Felhasználónév: admin, a további adatok a fejlesztő-tesztelő személyes adatai 
 lesznek. Ezzel belépve tudjuk tesztelni a könyvtáros adminisztrátor kivételes funkcióját, mely a könyvtárosok adminisztrációja.
 
+
 ### 11.1 Tesztelt üzleti folyamatok adminisztátor könyvtárosok számára:  
 
-**Belépés a rendszerbe:**  
+**A) Belépés a rendszerbe:**  
 A kezdőoldalról be tud lépni a rendszerbe a felhasználónevévek és jelszavának megadásával. Az adminisztrátorok minden funkciót elérnek, 
 melyeknek meg kell jelenni a navigációs sávban.  
 
-**Tesztesetek.**  
+**Tesztesetek:**  
 1. Nem regisztrált felhasználónév-jelszó kombináció. Elvárt eredmény: a rendszer hibaüzenetben jelzi ezt a felhasználó számára.
 2. Regisztrált felhasználónév-jelszó kombináció. Elvárt eredmény: a rendszer belépteti a felhasználót, navigációs sáv megváltozik.  
 
-**Könyvtáros regisztrálása:**  
+
+**B) Könyvtáros regisztrálása:**  
 A megjelenő űrlapot az adminisztrátor a könyvtáros, alábbi táblázatban szereplő adataival kitölti. Ha olyan könyvtárost regisztrál, 
 aki adminisztrátori jogosultságokkal is fog rendelkezni, akkor bejelöli az 'Adminisztrátori joggal rendelkezzen' mezőt. 
 Az űrlap mezői és a bevitt adatokkal szemben támasztott követelmények:  
@@ -397,11 +393,13 @@ Elvárt eredmény:
 a) A Könyvtáros táblában megjelenik a regisztrált felhasználó rekordja az űrlapban megadott értékekkel.  
 b) A regisztrált könyvtáros be tud lépni a rendszerbe a weboldal kezdőoldalán található Belépés menüponton keresztül a megadott 
 felhasználónévvel és jelszóval, és a jogosultságának megfelelő navigációs sáv elérhető számára.  
+c) A könyvtáros a rendszerbe való belépést követően a *Személyes adatok* menüpontra kattintva tudja ellenőrizni a felvett adatokat.  
 2. Bevitt adatok között szerepelnek a fenti követelményeknek nem megfelelő adatok.  
 Elvárt eredmény: a rendszer hibaüzenetben jelzi a felhasználó számára a hibát, a hibás adatokat tartalmazó mezőket jelöli az űrlapon,
 az adatbázisban nem jelenik meg új rekord a Könyvtáros táblában.  
 
-**Könyvtáros adatainak módosítása:**  
+
+**C) Könyvtáros adatainak módosítása:**  
 Adatok módosítása esetén az adminisztrátor először lekéri a könyvtáros 'adatlapját', melyet a könyvtáros meghatározó személyes adatainak
 (pl. Családi név, Utónév, szükség esetén Születési dátum) megadása után tud megtenni. Az űrlap megegyezik a regisztrációnál megjelenő 
 űrlappal, csak a Felhasználó név és Jelszó mezők nem szerepelnek. Ezekből kifolyólag a bevitt adatoknak ugyanazoknak a formai követelményeknek,
@@ -428,7 +426,8 @@ való belépést követően a *Személyes adatok* menüpontra kattintva tudja el
 4. Adatmódosítás követelményeknek nem megfelelő adatokkal. Elvárt eredmény: a rendszer hibaüzenetben jelzi a felhasználó számára a hibát,
 a hibás adatokat tartalmazó mezőket jelöli az űrlapon, az adatbázisban nem módosul rekord a Könyvtáros táblában.   
 
-**Könyvtáros törlése:**  
+
+**D) Könyvtáros törlése:**  
 Könyvtáros adatbázisból való törlése esetén az adminisztrátor először lekéri a könyvtáros 'adatlapját', melyet a könyvtáros meghatározó 
 személyes adatainak (pl. Családi név, Utónév, szükség esetén Születési dátum) megadása után tud megtenni. Az űrlap megegyezik az Adatok 
 módosítása űrlappal, viszont ezen az űrlapon a mezők egyike sem módosítható. Ezt követően a *Könytáros törlése nyilvántartásból* gomb 
@@ -437,7 +436,8 @@ megnyomása után üzenetben jelzi a rendszer a folyamat végét.
 **Tesztesetek:**  
 1. Adatlekérés nem regisztrált könyvtárosra. Elvárt eredmény: a rendszer hibaüzenetben jelzi ezt a felhasználó számára.
 2. Adatlekérés regisztrált könyvtárosra. Elvárt eredmény: a rendszer megjeleníti az űrlapot az adatbázisban szereplő adatokkal.
-3. Sikeresen adatlekérést követően könyvtáros törlése. Elvárt eredmény: a megfelelő rekord törlődik a Könyvtáros táblából az adatbázisban.
+3. Sikeres adatlekérést követően könyvtáros törlése. Elvárt eredmény: a megfelelő rekord törlődik a Könyvtáros táblából az adatbázisban.
+
 
 ### 11.2 Tesztelt üzleti folyamatok könyvtárosok számára:
 
@@ -453,7 +453,10 @@ A navigációs sávban a jogosultságának megfelelő menüpontok jelennek meg s
 2. Regisztrált felhasználónév-jelszó kombináció. Elvárt eredmény: a rendszer belépteti a felhasználót, navigációs sáv megváltozik, 
 Könyvtáros menüpont nem elérhető.
 
-**Olvasó regisztrálása a rendszerben:**  
+
+### 11.2.1 Olvasók adminisztrációjának tesztelése:
+
+**A) Olvasó regisztrálása a rendszerben:**  
 A könyvtáros az *Olvasó* menü, *Beiratkozás* menüpontjára kattintva elkezdi a regisztrációt. A megjelenő űrlapon az olvasótól elkért, 
 alábbi táblázat szerinti adatokat felviszi. A könyvtáros előkészít egy üres olvasójegyet. A Beiratkozás űrlap *Olvasójegy azonosító* 
 mezőjébe belekattint, és a vonalkód olvasóval beolvassa az olvasójegyen lévő vonalkódot. Ha befejezte az adatok felvitelét az 
@@ -486,16 +489,23 @@ Elvárt eredmény:
 a) Az Olvasó táblában megjelenik a regisztrált felhasználó rekordja az űrlapban megadott értékekkel.  
 b) A regisztrált olvasó be tud lépni a rendszerbe a weboldal kezdőoldalán található Belépés menüponton keresztül a megadott 
 felhasználónévvel és jelszóval, és a megfelelő navigációs sáv elérhető számára. (Lásd: Menühierarchiák fejezet) 
+c) Az olvasó a rendszerbe való belépést követően a *Személyes adatok* menüpontra kattintva tudja ellenőrizni a felvett adatokat.  
 2. Bevitt adatok között szerepelnek a fenti követelményeknek nem megfelelő adatok.  
 Elvárt eredmény: a rendszer hibaüzenetben jelzi a könyvtáros számára a hibát, a hibás adatokat tartalmazó mezőket jelöli az űrlapon,
-az adatbázisban nem jelenik meg új rekord az Olvasó táblában.
+az adatbázisban nem jelenik meg új rekord az Olvasó táblában.  
 
-**Olvasó adatainak módosítása:**  
-Adatok módosítása esetén a könyvtáros először lekéri az olvasó 'adatlapját', melyet az olvasót egyértelműen azonosító 
-*Olvasójegy azonosító* vonalkód leolvasóval történő bevitelével tud megtenni. Az űrlap megegyezik a regisztrációnál megjelenő 
-űrlappal, csak a Felhasználó név és Jelszó mezők nem szerepelnek. Ezekből kifolyólag a bevitt adatoknak ugyanazoknak a formai követelményeknek,
-melyek a fenti táblázatban szerepelnek. Ugyanakkor nem minden személyes adat módosítható természetüknél fogva, ezek az űrlapon nem módosítható
-mezőkként szerepelnek. A módosítható adatok listája:  
+**Megjegyzés:**  
+Amíg a rendszer teszteléséhez nem áll rendelkezésre vonalkód olvasó készülék, illetve vonalkód matricák, melyeket az olvasójegyre 
+ragasztanak azonosítóként, az olvasójegy azonosító mezőt manuálisan töltjük ki egy megfelelő számsorozattal.   
+
+
+**B) Olvasó adatainak módosítása:**  
+Adatok módosítása esetén a könyvtáros először lekéri az olvasó 'adatlapját', melyet vagy az olvasót egyértelműen azonosító 
+*Olvasójegy azonosító* vonalkód leolvasóval történő bevitelével tud megtenni, vagy a név beírását követően egy találati listából választja ki
+a lakcím, születési dátum adatok alapján. Az adatokat tartalmazó űrlap megegyezik a regisztrációnál megjelenő 
+űrlappal, csak a Felhasználó név és Jelszó mezők nem szerepelnek. Ezekből kifolyólag a bevitt adatoknak ugyanazoknak a formai és tartalmi 
+követelményeknek kell megfelelni, melyek a fenti táblázatban szerepelnek. Ugyanakkor nem minden személyes adat módosítható természetüknél fogva, 
+ezek az űrlapon nem módosítható mezőkként szerepelnek. A módosítható adatok listája:  
 
 ||Űrlap mező||
 |-|---------|-|
@@ -509,13 +519,269 @@ mezőkként szerepelnek. A módosítható adatok listája:
 ||E-mail cím||
 
 **Tesztesetek:**  
-1. Adatlekérés nem regisztrált olvasóra. Elvárt eredmény: a rendszer hibaüzenetben jelzi ezt a felhasználó számára.  
-2. Adatlekérés regisztrált olvasóra. Elvárt eredmény: a rendszer megjeleníti az űrlapot az adatbázisban szereplő adatokkal.
-3. Adatmódosítás helyes adatokkal. Elvárt eredmény: a megfelelő rekord módosul az Olvasó táblában. Az olvasó a rendszerbe való belépést követően
+1. Azonosítás olvasójegy alapján nem regisztrált olvasóra. Elvárt eredmény: a rendszer hibaüzenetben jelzi ezt a felhasználó számára.  
+2. Azonosítás olvasójegy alapján regisztrált olvasóra. Elvárt eredmény: a rendszer megjeleníti az űrlapot az adatbázisban szereplő adatokkal.
+3. Keresés név alapján nem regisztrált olvasóra. Elvárt eredmény: a rendszer hibaüzenetben jelzi ezt a felhasználó számára.  
+4. Keresés név alapján regisztrált olvasóra. Elvárt eredmény: a rendszer megjeleníti a találati listát, melyben kiválasztva az olvasót,
+megjeleníti az űrlapot az adatbázisban szereplő adatokkal.
+5. Adatmódosítás helyes adatokkal. Elvárt eredmény: a megfelelő rekord módosul az Olvasó táblában. Az olvasó a rendszerbe való belépést követően
 a *Személyes adatok* menüpontra kattintva tudja ellenőrizni a módosításokat.  
-4. Adatmódosítás követelményeknek nem megfelelő adatokkal. Elvárt eredmény: a rendszer hibaüzenetben jelzi a könyvtáros számára a hibát,
+6. Adatmódosítás követelményeknek nem megfelelő adatokkal. Elvárt eredmény: a rendszer hibaüzenetben jelzi a könyvtáros számára a hibát,
 a hibás adatokat tartalmazó mezőket jelöli az űrlapon, az adatbázisban nem módosul rekord az Olvasó táblában.
 
+
+**C) Tagság rendezése:**   
+A tagság rendezése esetén az olvasó tagságának érvényessége automatikusan meghosszabbítódik vagy az aktuális dátumtól kezdődő egy évre, vagy
+a tagság lejáratának dátumától egy évre. Az olvasó azonosítása a módosítással nalóg módon történik, a megjelenő űrlapon minden mező csak olvasható,
+egy gomb szolgál a hosszabbítás végrehajtására.  
+
+**Tesztesetek:**  
+1. Azonosítás olvasójegy alapján nem regisztrált olvasóra. Elvárt eredmény: a rendszer hibaüzenetben jelzi ezt a felhasználó számára.  
+2. Azonosítás olvasójegy alapján regisztrált olvasóra. Elvárt eredmény: a rendszer megjeleníti az űrlapot az adatbázisban szereplő adatokkal, 
+a tagság érvényessége mezőben a fentieknek megfelelő dátum szerepel. A véglegesítést követően az adatbázisban az Olvasó tábla megfelelő rekordja 
+frissül, mely az Adatok módosítása menüpontban is ellenőrizhető.
+3. Keresés név alapján nem regisztrált olvasóra. Elvárt eredmény: a rendszer hibaüzenetben jelzi ezt a felhasználó számára.  
+4. Keresés név alapján regisztrált olvasóra. Elvárt eredmény: a rendszer megjeleníti a találati listát, melyben kiválasztva az olvasót, 
+a rendszer megjeleníti az űrlapot az adatbázisban szereplő adatokkal, a tagság érvényessége mezőben a fentieknek megfelelő dátum szerepel. 
+A véglegesítést követően az adatbázisban az Olvasó tábla megfelelő rekordja frissül, mely az Adatok módosítása menüpontban is ellenőrizhető.  
+
+
+**D) Lejárt tagságú olvasók:**  
+E funkció szolgál az 5 évnél régebben lejárt tagságú olvasók listázására, majd törlésére. A tesztet egy hamis olvasó rekorddal tudjuk elvégezni, 
+melyet phpMyAdmin-ban viszünk fel az Olvasó táblába.
+
+**Tesztesetek:**  
+1. A lejárt tagságú olvasó megjelenik a listában, majd kijelölés nélkül a törlés gomb megnyomását követően az adatbázis Olvasó táblájában továbbra is 
+szerepel a hozzá tartozó rekord.  
+2. A lejárt tagságú olvasó megjelenik a listában, majd törlést követően az adatbázis Olvasó táblájában nem szerepel a hozzá tartozó rekord.  
+
+
+### 11.2.2 Katalógus adminisztrációjának tesztelése:  
+
+**A) Új könyv regisztrációja:**  
+A könyvtáros a *Katalógus* menü *Új könyv felvétele* menüpontra kattint és elkezdi a regisztrációt. A megjelenő űrlapon a könyv alábbi 
+táblázatban szereplő adatait felviszi. Ha befejezte az adatok felvitelét az *Könyv felvétele katalógusba* gombra kattint.  
+
+||Űrlap mező|Követelmények||
+|-|---------|-------------|-|
+||Szerző(k)|1. Kötelező 2. Nem tartalmazhat számot 3. Kötött formátum: a)szerző neve: családnév, utónév b)szerzők elválasztása pontosvesszővel ||
+||Cím|1. Kötelező||
+||Kiadó|1. Kötelező||
+||Kiadási év|1. Kötelező 2. Kötött formátum: 4 számjegy (évszám) 3. Hitelesség||
+||ISBN száma|1. Kötelező 2. Kötött formátum: 13 jegyű (a 2007. január 1. előtt kiadott könyveknél 10 jegyű)||
+||Oldalak száma|1. Kötelező 2. Kötött formátum: pozitív egész szám||
+||Cutter|1. Kötelező 2. Kötött formátum: betű-szóköz-szám||
+||ETO jelzet|1. Kötelező 2. Kötött formátum||
+||Tárgyszavak|1. Opcionális||
+||Azonosító|1. Kötelező 2. Kötött formátum: 13 jegyű vonalkód azonosító 3. Egyedi minden példány esetén||
+
+Mivel az adatbázisban külön tároljuk a Könyv egyed adatait és a Példány egyed adatait, új könyv felvétele során az adatbázis mindkét 
+tábláját kell ellenőrizni.  
+
+**Tesztesetek:**  
+1. Teljesen új könyv (nem másodpéldány) felvétele katalógusba a fenti táblázatban szereplő követelményeknek megfelelő adatokkal. 
+Elvárt eredmény: új rekord a Könyv táblában, és új rekord a Példány táblában az űrlapon szereplő adatokkal, a Példány külső 
+kulcsa (ISBN) a Könyv ISBN mezőjével megegyezik. Az *Egyszerű keresés* és *Részletes keresés* művelet során kilistázza az új könyvet, 
+ha megfelelő keresési feltételeket adunk meg.
+2. Másodpéldány felvétele katalógusba a fenti táblázatban szereplő követelményeknek megfelelő adatokkal. Elvárt eredmény: új rekord 
+az adatbázis Példány táblájában, megfelelő külső kulccsal a megadott ISBN számú Könyv rekordra. Az *Egyszerű keresés* és *Részletes keresés* művelet során kilistázza az új könyvet, 
+ha megfelelő keresési feltételeket adunk meg.
+3. A követelményeknek nem megfelelően kitöltött űrlap. Elvárt eredmény: a rendszer hibaüzenetben jelzi ezt a könyvtáros felhasználó számára. 
+Nem jelenik meg új rekord az adatbázisban.
+
+
+**B) Könyv leselejtezése:**  
+Könyv leselejtezése abban az esetben szükséges, ha a könyv megrongálódott. A művelethez szükséges a könyvpéldányt azonosító vonalkód matrica. 
+A megjelenő űrlap az alábbi mezőkből áll, melyek közül egyedül az azonosítót kötelező kitölteni, ezt követően az *Adatok lekérése* gombra 
+kattintva megjelennek a könyv adatai, ezek az űrlap mezők csak olvashatók.  
+
+||Űrlap mező||
+|-|---------|-|
+||Azonosító||
+||ISBN száma||
+||Szerző(k)||
+||Cím||
+||Kiadó||
+||Kiadási év||
+||Oldalak száma||
+||Cutter||
+||ETO jelzet||
+||Tárgyszavak||
+
+**Tesztesetek:**
+1. Regisztrált könyvpéldány leselejtezése. Elvárt eredmény: Azonosító bevitelét és az adatok lekérését követően megjelennek a könyv adatai. 
+A *Könyvpéldány törlése katalógusból* gombra kattintva az adatbázis Példány táblájából törlődik a megfelelő rekord.
+2. Nem regisztrált könyvpéldány leselejtezése. Elvárt eredmény: Azonosító bevitelét és az adatok lekérését követően a rendszer hibaüzenetben 
+jelzi, hogy az azonosítón nincs regisztrálva könyvpéldány.
+
+
+**C) Lejárt kölcsönzési határidős könyvek:**  
+Ezt a Katalógus menüpontot választva a könyvtáros ki tudja listázni azokat a könyvpéldányokat, melyeket az olvasók nem hoztak vissza 
+a kölcsönzési határidőn belül. Ez könyvtári gyakorlattól függ, hogy milyen eljárást alkalmaznak a lejárat jelzésére az olvasóknak, illetve 
+hogy mikor törlik a katalógusból, mely lehet egy év de kettő is, megrendelőnk tájékozatatása alapján. Először természetesen e-mailben értesítik 
+az olvasót a határidő lejártáról, mely a felületen gombnyomásra automatikusan történik. E művelet teszteléséhez először a Kölcsönzések táblába 
+fel kell vennünk egy hamis rekordot egy regisztrált olvasóhoz, melyben a határidő lejárt.  
+
+**Tesztesetek:**  
+1. A hamis rekordot kilistázza a rendszer és megadja, hogy a határidőn túl hány nappal járt le. Checkbox kipipálása és e-mail küldése esetén 
+a rendszer küld egy e-mail a kölcsönző olvasó részére. 
+2. A hamis rekordot kilistázza a rendszer és megadja, hogy a határidőn túl hány nappal járt le. Checkbox kipipálása és könyv törlése katalógusból 
+művelet esetén az adatbázisból törlődik a kölcsönzésre vonatkozó rekord a Kölcsönzések táblából, és a könyvpéldány a Példány táblából. 
+A lejárt könyvek újbóli listázása esetén a könyv nem jelenik meg a listában.
+
+
+**D) Egyszerű keresés:**   
+Ezt a funkciót a rendszerbe való belépés előtt elegendő tesztelni, de rendelkezésre áll a felhasználók belépését követően is. Előfeltétele, hogy a 
+fent részletezettek szerint sikeresen vegyünk fel új könyveket a katalógusba. Az űrlap egyetlen 'kulcsszó' mezőt tartalmaz, amely azonban több szóból 
+állhat. (Pl. szerző esetén annak teljes neve.) A rendszer a Könyv egyedek összes attribútumát megvizsgálja, hogy egyezik-e a megadott kulcsszavakkal, 
+és akkor talál egyezést, ha az attribútum egyezések ÉS kapcsolatban állnak egy adott Könyv egyedben. (Pl. Gárdonyi Géza esetén csak Gárdonyi Géza 
+műveit listázza ki, Karinthy esetén Karinthy Frigyes és Karinthy Ferenc műveit is, illetve mindkét esetben a róluk szóló könyveket is, ha a címben 
+vagy a tárgyszavakban szerepel a nevük.)
+
+**Tesztesetek:**
+1. Tetszőleges könyv attribútum(ok) megadása, amely egy és csak egy regisztrált könyvvel mutat egyezést. 
+Elvárt eredmény: a találati listában szerepeljen a könyv - többszörös egyezés esetén is csak egyszer -, 
+a találati listában a könyvre kattintva annak összes mezőjét meg lehet tekinteni, illetve a könyvpéldányokra 
+vonatkozó kölcsönzési információkat.  
+2. Tetszőleges könyv attribútum(ok) megadása, amely több regisztrált könyvvel mutat egyezést. 
+Elvárt eredmény: a találati listában szerepeljen mindegyik tesztelt könyv - többszörös egyezés esetén is csak egyszer -, 
+a találati listában a könyvekre kattintva annak összes mezőjét meg lehet tekinteni, illetve a könyvpéldányokra 
+vonatkozó kölcsönzési információkat.  
+3. Tetszőleges könyv attribútum(ok) megadása, amely egyetlen regisztrált könyvvel sem mutat egyezést. 
+Elvárt eredmény: a rendszer jelezze, hogy nem talált a keresési feltételnek megfelelő könyvet.
+
+
+**E) Részletes keresés:**  
+Ezt a funkciót a rendszerbe való belépés előtt elegendő tesztelni, de rendelkezésre áll a felhasználók belépését követően is. Előfeltétele, hogy a 
+fent részletezettek szerint sikeresen vegyünk fel új könyveket a katalógusba. A részletes keresés esetén a Könyv minden attribútumát külön-külön 
+meghatározhatjuk, melyeknek egyezést kell mutatni a keresett könyv megfelelő attribútumaival. A részletes keresés űrlap az alábbi mezőket tartalmazza:  
+
+||Űrlap mező||
+|-|---------|-|
+||Szerző(k)||
+||Cím||
+||Kiadó||
+||Kiadási év||
+||ISBN száma||
+||Oldalak száma||
+||Cutter||
+||ETO jelzet||
+||Tárgyszavak||
+||Azonosító||  
+
+**Tesztesetek:**  
+1. Tetszőleges könyv attribútum(ok) megadása, amely egy és csak egy regisztrált könyvvel mutat egyezést. 
+Elvárt eredmény: a találati listában szerepeljen a könyv - többszörös egyezés esetén is csak egyszer -, 
+a találati listában a könyvre kattintva annak összes mezőjét meg lehet tekinteni, illetve a könyvpéldányokra 
+vonatkozó kölcsönzési információkat.  
+2. Tetszőleges könyv attribútum(ok) megadása, amely több regisztrált könyvvel mutat egyezést. 
+Elvárt eredmény: a találati listában szerepeljen mindegyik tesztelt könyv - többszörös egyezés esetén is csak egyszer -, 
+a találati listában a könyvekre kattintva annak összes mezőjét meg lehet tekinteni, illetve a könyvpéldányokra 
+vonatkozó kölcsönzési információkat.  
+3. Tetszőleges könyv attribútum(ok) megadása, amely egyetlen regisztrált könyvvel sem mutat egyezést. 
+Elvárt eredmény: a rendszer jelezze, hogy nem talált a keresési feltételnek megfelelő könyvet.  
+
+**F) Teljes leltár:**  
+A teljes leltárt évente egyszer végzik a könyvtárban, a ki nem kölcsönzött könyveket sorban leltárba veszik, ekkor a könyvpéldány 
+leltárba vételi dátuma megváltozik. Ha minden könyvet leltárba vettek a *Teljes leltár vége* menüpontban lehet ellenórizni, hogy mely 
+könyveket nem vettek leltárba azok közül, amelyek a katalógusban szerepelnek és nincsenek kikölcsönözve. A leltárba vétel a könyvek 
+vonalkódos azonosítójának beolvasásával történik.  
+
+**Tesztesetek:**  
+1. A katalógusba felvett könyvek közül bizonyos könyveket nem veszünk leltárba. Elvárt eredmény: a leltárba nem vett könyvek a teljes leltár 
+vége megnyomása esetén kilistázódnak. A többi könyv leltárba vételi dátuma a Példány táblában az aktuális dátum. 
+2. A listában szereplő könyveket törlésre kijelöljük és megnyomjuk a *Könyv törlése katalógusból* gombot. Elvárt eredmény: a kijelölt könyvek 
+rekordjai a Példány táblában törlésre kerülnek.
+
+**G) Könyv kikölcsönzése:**  
+A kölcsönzés első lépése a kölcsönző olvasó azonosítása. Ez történhet a vonalkód leolvasásával, vagy név alapján történő kereséssel. Ezt követően 
+lehet a könyvek vonalkód azonosítóját beolvasva azokat kiadni.
+
+**Tesztesetek:**  
+1. Olvasójegy azonosító megadása, és Azonosítás gomb megnyomása. Elvárt eredmény: létező olvasó esetén az űrlapon megjelenik az olvasó teljes neve, 
+tagságának érvényessége, valamint a kölcsönzési határidő, amely az aktuális dátumtól számított egy hónap.
+2. Olvasó nevének megadása, és keresés megnyomása. Elvárt eredmény: létező olvasó esetén a találati listában megjelenik minden egyező nevű olvasó.
+3. Olvasó kiválasztása találati listából, lakcím és születési dátum alapján. Elvárt eredmény: az űrlapon megjelenik az olvasó vonalkódos 
+azonosítója, tagságának érvényessége, valamint a kölcsönzési határidő, amely az aktuális dátumtól számított egy hónap.
+4. Kölcsönzésre kerülő könyvpéldány azonosítójának megadása, adatok lekérése, kikölcsönzés. Elvárt eredény: az adatok lekérését követően az 
+űrlapon megjelennek a könyv adatai. A kölcsönzést követően a Kölcsönzések táblában megjelenik egy új rekord a megfelelő adatokkal.
+
+**H) Kölcsönzési határidő hosszabbítása:**  
+A könyv hosszabbításának első lépése - az olvasó azonosítása - megegyezik a kölcsönzés első lépésével a fentiekben leírtak szerint. 
+Ezt követően megjelenik egy lista kölcsönzött könyvek szerző, cím és azonosító adataival. A könyvek bejelölését követően a 
+*Kölcsönzési határidő hosszabbítása* gombra kattintva a határidő az előző határidő plusz egy hónapra módosul. Ha már volt hosszabbítva, 
+akkor a rendszer üzenetben jelzi, hogy további hosszabbítás nem lehetséges.
+
+**Tesztesetek:**  
+1. Olvasójegy azonosító megadása, és Azonosítás gomb megnyomása. Elvárt eredmény: létező olvasó esetén az űrlapon megjelenik az olvasó teljes neve, 
+tagságának érvényessége, valamint a kölcsönzési határidő, amely az aktuális dátumtól számított egy hónap.  
+2. Olvasó nevének megadása, és keresés megnyomása. Elvárt eredmény: létező olvasó esetén a találati listában megjelenik minden egyező nevű olvasó.  
+3. Olvasó kiválasztása találati listából, lakcím és születési dátum alapján. Elvárt eredmény: az űrlapon megjelenik az olvasó vonalkódos 
+azonosítója, tagságának érvényessége, valamint a kölcsönzési határidő, amely az aktuális dátumtól számított egy hónap.  
+4. Még nem hosszabbított kölcsönzés határidejének hosszabbítása. Elvárt eredmény: a Kölcsönzések táblában a határidő egy hónappal módosul, 
+és a hosszabítva mező igaz értéket kap.  
+4. Már meghosszabbított kölcsönzés határidejének hosszabbítása. Elvárt eredmény: a rendszer üzenetben jelzi, hogy ez nem lehetséges. 
+A Kölcsönzések táblában a határidő nem módosul.  
+
+**I) Könyv visszavétele:**  
+A könyv visszavételének első lépése - az olvasó azonosítása - megegyezik a kölcsönzés első lépésével a fentiekben leírtak szerint. 
+Ezt követően lehet a könyvek vonalkód azonosítóját beolvasva azokat visszavételezni. Ha határidőn túl hozta vissza az olvasó a könyveket 
+a rendszer üzenetben jelzi a késedelem és a késedelmi díj értékét.
+
+**Tesztesetek:**  
+1. Olvasójegy azonosító megadása, és Azonosítás gomb megnyomása. Elvárt eredmény: létező olvasó esetén az űrlapon megjelenik az olvasó teljes neve, 
+tagságának érvényessége, valamint a kölcsönzési határidő, amely az aktuális dátumtól számított egy hónap.
+2. Olvasó nevének megadása, és keresés megnyomása. Elvárt eredmény: létező olvasó esetén a találati listában megjelenik minden egyező nevű olvasó.
+3. Olvasó kiválasztása találati listából, lakcím és születési dátum alapján. Elvárt eredmény: az űrlapon megjelenik az olvasó vonalkódos 
+azonosítója, tagságának érvényessége, valamint a kölcsönzési határidő, amely az aktuális dátumtól számított egy hónap.
+4. Kikölcsönzött könyvpéldány azonosítójának megadása, adatok lekérése, visszavételezés. Elvárt eredény: az adatok lekérését követően az 
+űrlapon megjelennek a könyv adatai. A visszavételezést követően a Kölcsönzések táblában az adott kölcsönzéshez tartozó rekordban a 
+'kölcsönzés vége' mezőbe az aktuális dátum kerül.  
+5. Visszavételezés vége. Lejárt határidővel kerül visszavételezésre a könyv, melyhez egy hamis rekordot veszünk fel a Kölcsönzések táblába. 
+Elvárt eredmény: a rendszer jelzi a késedelmes napok számát és a késedelmi díj értékét a könyvtáros számára.  
+
+### 11.3 Személyes adatok kezelése:  
+
+**A) Személyes adatok megjelenítése, elérhetőségek módosítása:**  
+A rendszerbe való belépést követően elérhetővé válik minden felhasználó - olvasó, könyvtáros, adminisztrátor könyvtáros - számára. 
+Az olvasók a könyvtárosok által felvett adatokat tudják ellenőrizni, a könyvtárosok az adminisztárok által felvett adatokat. 
+Módosítani csak a telefonszámot és az e-mail címet lehetséges, a többi mező csak olvasható. Az alábbi űrlap jelenik meg:  
+
+
+||Űrlap mező||
+|-|---------|-|
+||Családi név||
+||Utónév||
+||Születési családi név||
+||Születési utónév||
+||Születési hely||
+||Születési dátum||
+||Anyja születési családi neve||
+||Anyja születési utóneve||
+||Lakcím, irányítószám||
+||Lakcím, város||
+||Lakcím, utca||
+||Lakcím, házszám||
+||Telefonszám||
+||E-mail cím||  
+  
+  
+A telefonszám és e-mail cím formai követelményei megegyeznek az 'olvasó regisztrálása a rendszerben' pontban megadottakkal.  
+  
+**Tesztesetek:**  
+1. E-mail cím és telefonszám módosítása. Elvárt eredmény: a bejelentkezett felhasználó típusának megfelelő - Olvasó vagy Könyvtáros - táblában 
+a megfelelő mezők módosulnak.  
+
+**B) Jelszó cseréje:**  
+A rendszerbe való belépést követően elérhetővé válik minden felhasználó - olvasó, könyvtáros, adminisztrátor könyvtáros - számára. 
+Az űrlapon szükséges megadni a régi jelszót, és az új jelszót két mezőben. Ezt követően lehet módosítani azt. A jelszóval szembeni 
+formai követelmény, hogy minimum 8 karakter hosszú legyen.    
+
+**Tesztesetek:**  
+1. Helyes régi jelszó, új jelszó mindkét mezőben ugyanaz. Elvárt eredmény: a jelszó módosul. A rendszerből való kilépést követően 
+az újbóli belépés során az új jelszóval be tud lépni a felhasználó.
+2. Hibás régi jelszó, nem egyező új jelszó mezők, vagy 8 karakternél rövidebb új jelszó megadása. Elvárt eredmény: a rendszer 
+hibaüzenetben jelzi az adott hibát a felhasználó számára. A jelszó nem módosul.   
 
 
 ## 12. Telepítési terv
