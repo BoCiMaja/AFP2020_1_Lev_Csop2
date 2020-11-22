@@ -274,7 +274,8 @@ a prototípus hiányosságának, azonban a keresési folyamatot így is demonstr
 
 ### 8.5 Biztonsági funkciók 
 
-## 9. Adatbázisterv
+## 9. Adatbázisterv  
+  
 **Olvasó egyedet** jellemzi:  
  Olvasójegy azonosító, ami elsődleges kulcs, 
  Felhasználói név,
@@ -295,7 +296,7 @@ a prototípus hiányosságának, azonban a keresési folyamatot így is demonstr
  Telefonszám,  
  e-mail,  
  
- ** Könyv egyedet** jellemzi:  
+ **Könyv egyedet** jellemzi:  
  ISBN száma, ami elsődleges kulcs,  
  Szerző(k),  
  Cím,  
@@ -344,10 +345,14 @@ a prototípus hiányosságának, azonban a keresési folyamatot így is demonstr
  
 ### 9.1 Logikai adatmodell 
 
+###**Egyed-Kapcsolat diagram**  
+  
  ![Egyed-kapcsolat diagram](https://github.com/beresgabor76/AFP2020_1_Lev_Csop2/blob/main/Doc/image/ER.png)   
- 
+   
+###**Adatbázis séma**  
+  
  ![Relációsémák](https://github.com/beresgabor76/AFP2020_1_Lev_Csop2/blob/main/Doc/image/Relacios.png)  
- 
+   
  ** Az adatbázis relációs sémái a létrehozás sorrendjében**  
  A táblák felvételének sorrendjében    
  Olvaso \[\ #Olvasojegyazonosito, Jelszo, Felhasználoi_nev, Tagság_ervenyesseg, Csaladi_nev, Utonev, Szuletesi_csaladi_nev, Szuletesi_utonev, Szuletesi_hely, Szuletesi_datum, Anyja_szuletesi_csaladi_neve, Anyja_szuletesi_utoneve, Lakcim_iranyitoszam, Lakcim_varos, Lakcim_utca, Lakcim_hazszam, Telefonszam, e-mail]  
@@ -356,15 +361,13 @@ a prototípus hiányosságának, azonban a keresési folyamatot így is demonstr
  Konyvtaros \[\ #Felhasználoi_nev, Jelszo, Csaladi_nev, Utonev,Szuletesi_csaladi_nev, Szuletesi_utonev,	Szuletesi_hely, Szuletesi_datum, Anyja_szuletesi_csaladi_neve,Anyja_szuletesi_utoneve,Lakcim_iranyitoszam, Lakcim_varos,Lakcim_utca, Lakcim_hazszam, Telefonszam, e-mail, Adminisztrator]  
  Kolcsonzesek \[\ #Peldany_id, #Olvaso, #Kölcsönzés_kezdete, Kölcsönzés_vege, Kiadta, Visszavetelezte, Hosszabbitva]  
  
-  
-
 ### 9.2 Tárolt eljárások 
 
 ### 9.3 Fizikai adatmodellt legeneráló SQL szkript   
 
 **A táblákat létrehozó parancsok**    
  
-Create TABLE Olvaso(Olvasojegy_azonosito  CHAR(8) PRIMARY KEY,   
+Create TABLE Olvasok(Olvasojegy_azonosito  CHAR(8) PRIMARY KEY,   
 Felhasznaloi_nev VARCHAR(40) NOT NULL, 
 Jelszo CHAR(40) NOT NULL,  
 Tagsag_ervenyesseg DATE NOT NULL,  
@@ -383,7 +386,7 @@ Lakcim_hazszam VARCHAR(40) NOT NULL,
 Telefonszam CHAR(11),  
 Email VARCHAR(40));   
 
-CREATE TABLE Konyv(ISBN VARCHAR(13) PRIMARY KEY,  
+CREATE TABLE Konyvek(ISBN VARCHAR(13) PRIMARY KEY,  
 Szerzok VARCHAR(200) NOT NULL,   
 Cim VARCHAR(50) NOT NULL,   
 Kiado VARCHAR(50),   
@@ -393,12 +396,12 @@ ETO_jelzet VARCHAR(10),
 Oldalak_szama INTEGER,  
 Targyszavak VARCHAR(100));  
 
-CREATE TABLE Peldany(Azonosito CHAR(13) PRIMARY KEY,   
+CREATE TABLE Peldanyok(Azonosito CHAR(13) PRIMARY KEY,   
 ISBN VARCHAR(13) NOT NULL REFERENCES Konyv(ISBN),   
 Leltarbavetel_datuma DATE NOT NULL,  
 Megjegyzes VARCHAR(100));  
  
-CREATE TABLE Konyvtaros(Felhasznaloi_nev varchar(20) PRIMARY KEY,  
+CREATE TABLE Konyvtarosok(Felhasznaloi_nev varchar(20) PRIMARY KEY,  
 Jelszo CHAR(40) NOT NULL,  
 Csaladi_nev VARCHAR(40) NOT NULL,  
 Utonev VARCHAR(40) NOT NULL,  
@@ -428,11 +431,11 @@ PRIMARY KEY(Peldany_id, Olvaso, Kolcsonzes_kezdete));
 
 **Felhasználókat és jogokat létrehozó parancsok**  
 
-CREATE USER konyvtaros IDENTIFIED BY '1212';
-GRANT SELECT, INSERT, UPDATE, DELETE ON Konyvtar.* TO konyvtaros;
+CREATE USER konyvtaros IDENTIFIED BY '1212';  
+GRANT SELECT, INSERT, UPDATE, DELETE ON Konyvtar.\* TO konyvtaros;  
 
-CREATE USER olvaso IDENTIFIED BY '3434';
-GRANT SELECT ON Konyvtar.* TO olvaso;
+CREATE USER olvaso IDENTIFIED BY '3434';  
+GRANT SELECT ON Konyvtar.\* TO olvaso;  
 GRANT UPDATE ON Konyvtar.Olvasok TO olvaso;  
 
 ## 10. Implementációs terv
