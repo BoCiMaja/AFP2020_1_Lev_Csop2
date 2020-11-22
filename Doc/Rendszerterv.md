@@ -344,7 +344,7 @@ a prototípus hiányosságának, azonban a keresési folyamatot így is demonstr
  
 ### 9.1 Logikai adatmodell 
 
- ![Egyed-kapcsolat diagram](https://github.com/beresgabor76/AFP2020_1_Lev_Csop2/blob/main/Doc/image/Er.png)  
+ ![Egyed-kapcsolat diagram](https://github.com/beresgabor76/AFP2020_1_Lev_Csop2/blob/main/Doc/image/ER.png)   
  
  ![Relációsémák](https://github.com/beresgabor76/AFP2020_1_Lev_Csop2/blob/main/Doc/image/Relacios.png)  
  
@@ -356,11 +356,17 @@ a prototípus hiányosságának, azonban a keresési folyamatot így is demonstr
  Konyvtaros \[\ #Felhasználoi_nev, Jelszo, Csaladi_nev, Utonev,Szuletesi_csaladi_nev, Szuletesi_utonev,	Szuletesi_hely, Szuletesi_datum, Anyja_szuletesi_csaladi_neve,Anyja_szuletesi_utoneve,Lakcim_iranyitoszam, Lakcim_varos,Lakcim_utca, Lakcim_hazszam, Telefonszam, e-mail, Adminisztrator]  
  Kolcsonzesek \[\ #Peldany_id, #Olvaso, #Kölcsönzés_kezdete, Kölcsönzés_vege, Kiadta, Visszavetelezte, Hosszabbitva]  
  
- ** A táblákat létrehozó parancsok **  
+  
+
+### 9.2 Tárolt eljárások 
+
+### 9.3 Fizikai adatmodellt legeneráló SQL szkript   
+
+**A táblákat létrehozó parancsok**    
  
 Create TABLE Olvaso(Olvasojegy_azonosito  CHAR(8) PRIMARY KEY,   
 Felhasznaloi_nev VARCHAR(40) NOT NULL, 
-jelszo CHAR(40) NOT NULL,  
+Jelszo CHAR(40) NOT NULL,  
 Tagsag_ervenyesseg DATE NOT NULL,  
 Csaladi_nev VARCHAR(40) NOT NULL,  
 Utonev VARCHAR(40) NOT NULL,  
@@ -375,7 +381,7 @@ Lakcim_varos VARCHAR(40) NOT NULL,
 Lakcim_utca VARCHAR(40) NOT NULL,   
 Lakcim_hazszam VARCHAR(40) NOT NULL,  
 Telefonszam CHAR(11),  
-e_mail VARCHAR(40));   
+Email VARCHAR(40));   
 
 CREATE TABLE Konyv(ISBN VARCHAR(13) PRIMARY KEY,  
 Szerzok VARCHAR(200) NOT NULL,   
@@ -407,7 +413,7 @@ Lakcim_varos VARCHAR(40) NOT NULL,
 Lakcim_utca VARCHAR(40) NOT NULL,  
 Lakcim_hazszam Varchar(40) NOT NULL,  
 Telefonszam CHAR(11),  
-e_mail VARCHAR(40) NOT NULL,  
+Email VARCHAR(40) NOT NULL,  
 Adminisztrator INTEGER NOT NULL);  
 
 CREATE TABLE Kolcsonzesek(   
@@ -418,11 +424,16 @@ Kolcsonzes_vege DATE,
 Kiadta VARCHAR(20) NOT NULL REFERENCES Konyvtaros(Felhasznaloi_nev),   
 Visszavetelezte VARCHAR(20) REFERENCES Konyvtaros(Felhasznaloi_nev),   
 Hosszabbitva integer,  
-PRIMARY KEY(Peldany_id, Olvaso, Kolcsonzes_kezdete));  
+PRIMARY KEY(Peldany_id, Olvaso, Kolcsonzes_kezdete));
 
-### 9.2 Tárolt eljárások 
+**Felhasználókat és jogokat létrehozó parancsok**  
 
-### 9.3 Fizikai adatmodellt legeneráló SQL szkript 
+CREATE USER konyvtaros IDENTIFIED BY '1212';
+GRANT SELECT, INSERT, UPDATE, DELETE ON Konyvtar.* TO konyvtaros;
+
+CREATE USER olvaso IDENTIFIED BY '3434';
+GRANT SELECT ON Konyvtar.* TO olvaso;
+GRANT UPDATE ON Konyvtar.Olvasok TO olvaso;  
 
 ## 10. Implementációs terv
 
