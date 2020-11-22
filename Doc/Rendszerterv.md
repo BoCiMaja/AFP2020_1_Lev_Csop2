@@ -345,11 +345,11 @@ a prototípus hiányosságának, azonban a keresési folyamatot így is demonstr
  
 ### 9.1 Logikai adatmodell 
 
-###**Egyed-Kapcsolat diagram**  
+### Egyed-Kapcsolat diagram
   
  ![Egyed-kapcsolat diagram](https://github.com/beresgabor76/AFP2020_1_Lev_Csop2/blob/main/Doc/image/ER.png)   
    
-###**Adatbázis séma**  
+### Adatbázis séma
   
  ![Relációsémák](https://github.com/beresgabor76/AFP2020_1_Lev_Csop2/blob/main/Doc/image/Relacios.png)  
    
