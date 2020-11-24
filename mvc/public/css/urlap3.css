@@ -1,0 +1,56 @@
+* {
+  box-sizing: border-box;
+}
+div.container {  	
+	width: 800px;
+	margin: 20px auto;          
+	padding: 16px;
+	background-color: #55d1a8;  
+	border-radius: 6px;
+}
+div.container label {
+	font-family: Verdana;
+	font-size: 11pt;
+	color: black;	
+}
+div.container div.column {
+  float: left;
+  width: 50%;
+  padding: 10px; 
+}
+div.container:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+input[type=text], input[type=password], input[type=number], input[type=email], select {
+	width: 100%;
+	padding: 10px;
+	margin: 5px 0px 10px 0px;
+	display: inline-block;
+	border: none;
+	border-radius: 6px;
+	background: #fff;          
+}
+input.empty, label.empty {
+	visibility:	hidden;
+}
+input[type=submit] {
+	background-color: #39896e;
+	color: white;
+	font-family: Verdana;
+	font-size: 11pt;
+	width: 360px;
+	margin: 10px 0px;
+	padding: 16px 20px;	
+	border: none;
+	border-radius: 6px;
+	cursor: pointer;	
+}
+input[type=submit]:hover {
+	background-color: #47af8c;
+}
+input.threebutton {
+	width: 30%;
+	margin-left: 15px;
+}

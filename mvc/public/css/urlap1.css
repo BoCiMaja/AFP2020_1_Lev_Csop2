@@ -1,0 +1,45 @@
+* {
+  box-sizing: border-box;
+}
+div.container {  
+	width: 500px;
+	margin: 120px auto 250px auto;          
+	padding: 16px;
+	background-color: #55d1a8;  
+	border-radius: 6px;
+}
+div.container label {
+	font-family: Verdana;
+	font-size: 11pt;
+	color: black;	
+}
+div.container p {
+	font-family: Verdana;
+	font-size: 12pt;
+	color: black;
+	text-align: center;
+}
+input[type=text], input[type=password], input[type=number], select {
+	width: 100%;
+	padding: 10px;
+	margin: 5px 0px 22px 0px;
+	display: inline-block;
+	border: none;
+	border-radius: 6px;
+	background: #fff;          
+}
+input[type=submit] {
+	background-color: #39896e;
+	color: white;
+	font-family: Verdana;
+	font-size: 11pt;
+	padding: 16px 20px;
+	margin: 8px 0;
+	border: none;
+	border-radius: 6px;
+	cursor: pointer;
+	width: 100%;
+}
+input[type=submit]:hover {
+	background-color: #47af8c;
+}

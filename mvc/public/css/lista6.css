@@ -1,0 +1,49 @@
+* {
+  box-sizing: border-box;
+}
+table, th, td {
+	border: 2px solid white;
+	border-collapse: collapse;	
+	margin: 20px auto;
+	font-family: Verdana;
+	font-size: 10pt;
+	color: black;
+}
+th.book, td.book {
+	width: 600px;	
+	height: 30px;
+}
+th.bookid, td.bookid {
+	width: 120px;	
+	height: 30px;
+}
+th.days, td.days, th.date, td.date, th.published, td.published, th.copies, td.copies {
+	width: 100px;	
+	height: 30px;
+}
+th.book, th.bookid, td.bookid, th.days, th.date, td.date, th.published, td.published, th.copies, td.copies {
+	text-align: center;	
+}
+td.book, td.days  {
+	text-align: left;
+	padding-left: 10px;
+}
+input[type=submit] {
+	background-color: #39896e;
+	color: white;
+	font-family: Verdana;
+	font-size: 11pt;
+	padding: 12px 15px;
+	margin: 10px 0px;
+	border: none;
+	border-radius: 6px;
+	cursor: pointer;
+	width: 100%;
+}
+input[type=submit]:hover {
+	background-color: #47af8c;
+}
+input.halfwidth {
+	width: 50%;
+	margin: 10px 25%;
+}
