@@ -1,0 +1,52 @@
+* {
+  box-sizing: border-box;
+}
+div.container {  
+	width: 860px;
+	margin: 50px auto 250px auto;          
+	padding: 16px;
+	background-color: #55d1a8;  
+	border-radius: 6px;
+	font-family: Verdana;
+	font-size: 11pt;	
+	color: black;
+}
+table, th, td {
+	border: 2px solid white;
+	border-collapse: collapse;	
+	margin: 20px auto;
+}
+th.book, td.book {
+	width: 600px;	
+	height: 30px;
+}
+th.bookid, td.bookid {
+	width: 120px;	
+	height: 30px;
+}
+th.days, td.days, th.date, td.date, th.published, td.published, th.copies, td.copies {
+	width: 100px;	
+	height: 30px;
+}
+th.book, th.bookid, td.bookid, th.days, th.date, td.date, th.published, td.published, th.copies, td.copies {
+	text-align: center;	
+}
+td.book, td.days  {
+	text-align: left;
+	padding-left: 10px;
+}
+input[type=submit] {
+	background-color: #39896e;
+	color: white;
+	font-family: Verdana;
+	font-size: 11pt;
+	padding: 12px 15px;
+	margin: 10px 15px;
+	border: none;
+	border-radius: 6px;
+	cursor: pointer;
+	width: 45%;
+}
+input[type=submit]:hover {
+	background-color: #47af8c;
+}

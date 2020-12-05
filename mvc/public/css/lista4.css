@@ -1,0 +1,23 @@
+* {
+  box-sizing: border-box;
+}
+table, th, td {
+	border: 2px solid white;
+	border-collapse: collapse;	
+	margin: 20px auto;
+	font-family: Verdana;
+	font-size: 10pt;
+	color: black;
+}
+th.bookid, td.bookid, th.available, td.available {
+	width: 200px;	
+	height: 30px;
+}
+th.bookid, td.bookid, th.available {
+	text-align: center;	
+}
+td.available  {
+	text-align: left;
+	padding-left: 10px;
+}
+
