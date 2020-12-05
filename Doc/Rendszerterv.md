@@ -40,8 +40,17 @@ A szoftverekben meglévő hibák felderítése még az üzembehelyezés előtt.
 ||Funkcionális specifikáció|       |         0 |      12 |               12 |        12 |             0 ||
 ||Rendszerterv|                    |           |      16 |               16 |         8 |             8 ||
 ||Adattárolás|Adatmodell megtervezése|       0 |       4 |                4 |         4 |             0 ||
-|| |Adatbázis megvalósítása a szerveren|     1 |       1 |                1 |         0 |             1 ||
-||Login felület|Képernyődizájn elkészítése|  2 |       8 |                8 |         0 |             8 ||
+||Adatbázis megvalósítása a szerveren|       1 |       1 |                1 |         0 |             1 ||
+||Website|Képernyőtervek elkészítése|        2 |       8 |                8 |         0 |             8 ||
+||Website|Prototípus elkészítése|            2 |       8 |                8 |         0 |             8 ||
+||Website|Adatbázis létrehozása|             2 |       8 |                8 |         0 |             8 ||
+||Website|Menüstruktúra elkészítése|         2 |       8 |                8 |         0 |             8 ||
+||Honlap|Kezdőlap funkciók elkészítése|      2 |       8 |                8 |         0 |             8 ||
+||Honlap|Login funkció megvalósítás|         2 |       8 |                8 |         0 |             8 ||
+||Website|Katalógus funkció|                 2 |       8 |                8 |         0 |             8 ||
+
+
+
 
 
 ### 2.4 Mérföldkövek 
@@ -280,13 +289,29 @@ a prototípus hiányosságának, azonban a keresési folyamatot így is demonstr
 
 ## 6. Fizikai környezet
 
-### 6.1 Vásárolt softwarekomponensek és külső rendszerek 
+### 6.1 Vásárolt softwarekomponensek és külső rendszerek
 
-### 6.2 Hardver és hálózati topológia 
+Nincsenek vásárolt szoftverkomponensek. 
 
-### 6.3 Fizikai alrendszerek 
+### 6.2 Hardver és hálózati topológia
 
-### 6.4 Fejlesztő eszközök 
+- Az alkalmazás web platformra készűl.
+- Internet böngészőn keresztűl érhető el a felhasználó felület.
+- Szerverhez kapcsolódnak:
+-- kliens gépek a helyi hálózaton 
+-- interneten bárki számára elérhető honlap  
+ 
+### 6.3 Fizikai alrendszerek
+
+- Webszerver: 80-as porton elérhető HTTP szolgáltatás 
+- Mysql adatbázis szerver
+- Kliens gépek: a követelményeknek megfelelő internet böngésző futtatására alklamas PC-k.
+
+### 6.4 Fejlesztő eszközök
+
+- Apache NetBeans  
+- PSPad
+- MySQL Workbench
 
 ### 6.5 Keretrendszer
 
