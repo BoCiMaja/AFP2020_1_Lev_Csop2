@@ -1,5 +1,5 @@
         <article>
-            <form method="POST" action="AFP_2020_1_Lev_Csop2/mvc/public/reader/register">
+            <form method="POST" action="/AFP2020_1_Lev_Csop2/mvc/public/reader/register">
                 <div class="container">          
                     <div class="column">
                             <label for="username">Felhasználó név:</label>

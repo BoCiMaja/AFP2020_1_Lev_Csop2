@@ -25,7 +25,7 @@ Szerzok VARCHAR(200) NOT NULL,
 Cim VARCHAR(50) NOT NULL,
 Kiado VARCHAR(50),
 Kiadasi_ev INTEGER,
-Cutter VARCHAR(3),
+Cutter VARCHAR(10),
 ETO_jelzet VARCHAR(10),
 Oldalak_szama INTEGER,
 Targyszavak VARCHAR(100));

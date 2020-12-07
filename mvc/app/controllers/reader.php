@@ -184,10 +184,10 @@ class Reader extends Controller {
                 {
                     $readerModel = $this->model('ReaderModel');
                     $readerModel->deleteReader($reader->olvasojegy_azonosito);
-                    $deleted .= $reader->csaladi_nev .' '. $reader->utonev .', ';
+                    $deleted .= $reader->csaladi_nev .' '. $reader->utonev .' <br>';
                 }
             }
-            $message = 'A következő olvasók törölve lettek a nyilvántartásból:' . $deleted;
+            $message = 'A következő olvasók törölve lettek a nyilvántartásból: <br>' . $deleted;
             $this->view('header/header_urlap_1');
             $this->viewNavigation($rights);                
             $this->view('reader/uzenet', [$message]);                            

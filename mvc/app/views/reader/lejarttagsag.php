@@ -1,5 +1,5 @@
         <article>
-            <form method="POST" action="AFP_2020_1_Lev_Csop2/mvc/public/reader/expired">
+            <form method="POST" action="/AFP2020_1_Lev_Csop2/mvc/public/reader/expired">
                 <div class="container">
                     <table>
                     <tr>

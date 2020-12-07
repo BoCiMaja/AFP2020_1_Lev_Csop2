@@ -5,7 +5,7 @@ else
     $error_msg = '';
 ?>
         <article>
-            <form method="POST" action="AFP_2020_1_Lev_Csop2/mvc/public/user/login">
+            <form method="POST" action="/AFP2020_1_Lev_Csop2/mvc/public/user/login">
                 <div class="container">
                     <?php if ($error_msg) :?>
                     <label><?=$error_msg?></label><br><br>

@@ -3,7 +3,7 @@ $operation = $data['operation'];
 $user = $data['user'];
 ?>
         <article>
-            <form method="POST" action="AFP_2020_1_Lev_Csop2/mvc/public/reader/process/<?=$operation?>">
+            <form method="POST" action="/AFP2020_1_Lev_Csop2/mvc/public/reader/process/<?=$operation?>">
                 <div class="container">                    
                     <div class="column">
                             <label for="azonosito">Olvasójegy azonosító:</label>
