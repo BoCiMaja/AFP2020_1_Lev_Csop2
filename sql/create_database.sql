@@ -25,7 +25,7 @@ Szerzok VARCHAR(200) NOT NULL,
 Cim VARCHAR(50) NOT NULL,
 Kiado VARCHAR(50),
 Kiadasi_ev INTEGER,
-Cutter VARCHAR(3),
+Cutter VARCHAR(10),
 ETO_jelzet VARCHAR(10),
 Oldalak_szama INTEGER,
 Targyszavak VARCHAR(100));
@@ -60,7 +60,7 @@ Kolcsonzes_kezdete DATE NOT NULL,
 Kolcsonzes_vege DATE,
 Kiadta VARCHAR(20) NOT NULL REFERENCES Konyvtaros(Felhasznaloi_nev),
 Visszavetelezte VARCHAR(20) REFERENCES Konyvtaros(Felhasznaloi_nev),
-Hosszabbitva integer,
+Hosszabbitva INTEGER DEFAULT 0,
 PRIMARY KEY(Peldany_id, Olvaso, Kolcsonzes_kezdete));
 
 CREATE USER konyvtaros IDENTIFIED BY '1212';

@@ -26,6 +26,9 @@ class Controller {
             case 'olvaso':
                 require_once '../app/views/nav/nav_belepve_olvaso.php';                        
                 break;
+            default:
+                require_once '../app/views/nav/nav_start.php';
+                break;
         }           
     }
 }

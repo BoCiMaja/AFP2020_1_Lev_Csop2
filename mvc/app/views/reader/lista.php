@@ -1,21 +1,21 @@
 <?php
 $operation = $data['operation'];
-$users = $data['users'];
+$readers = $data['readers'];
 ?>
         <article>	
 	    <div class="container">
-                    <form method="POST" action="AFP_2020_1_Lev_Csop2/mvc/public/reader/choose/<?=$operation?>">
+                    <form method="POST" action="/AFP2020_1_Lev_Csop2/mvc/public/reader/choose/<?=$operation?>">
                         <table>					
                             <tr>
                                 <th></th><th class="readerid">Olvasójegy szám</th><th class="name">Név</th><th class="address">Lakcím</th><th class="birthdate">Születési dátum</th>
                             </tr>
-                            <?php foreach($users as $user) :?>
+                            <?php foreach($readers as $reader) :?>
                             <tr>
-                                <td><input type="radio" name="azonosito" value="<?=$user->Olvasojegy_azonosito?>" checked="true"></td>
-                                <td class="readerid"><?=$user->Olvasojegy_azonosito?></td>
-                                <td class="name"><?=$user->Csaladi_nev?> <?=$user->Utonev?></td>
-                                <td class="address"><?=$user->Lakcim_varos?> <?=$user->Lakcim_utca?> <?=$user->Lakcim_hazszam?></td>
-                                <td class="birthdate"><?=$user->Szuletesi_datum?></td>
+                                <td><input type="radio" name="azonosito" value="<?=$reader->Olvasojegy_azonosito?>" checked="true"></td>
+                                <td class="readerid"><?=$reader->Olvasojegy_azonosito?></td>
+                                <td class="name"><?=$reader->Csaladi_nev?> <?=$reader->Utonev?></td>
+                                <td class="address"><?=$reader->Lakcim_varos?> <?=$reader->Lakcim_utca?> <?=$reader->Lakcim_hazszam?></td>
+                                <td class="birthdate"><?=$reader->Szuletesi_datum?></td>
                             </tr>   
                             <?php endforeach;?>
                         </table>
