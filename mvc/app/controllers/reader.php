@@ -61,10 +61,10 @@ class Reader extends Controller {
             }
             else 
             {                
-                $user = $response['data'];                
+                $reader = $response['data'];                
                 $this->view('header/header_urlap_2');
                 $this->viewNavigation($rights);
-                $this->view('reader/adatlap', ['operation' => $param, 'user' => $user]);
+                $this->view('reader/adatlap', ['operation' => $param, 'reader' => $reader]);
             }
         }      
         else if (array_key_exists('findbyname', $_POST))
@@ -81,10 +81,10 @@ class Reader extends Controller {
             }
             else 
             {              
-                $users = $response['data'];                
+                $readers = $response['data'];                
                 $this->view('header/header_urlap_3_5');
                 $this->viewNavigation($rights);
-                $this->view('reader/lista', ['operation' => $param, 'users' => $users]);
+                $this->view('reader/lista', ['operation' => $param, 'readers' => $readers]);
             }            
         }
         else if (array_key_exists('choosebyname', $_POST))
@@ -94,7 +94,7 @@ class Reader extends Controller {
             $response = $readerModel->findReaderById($id);                   
             $this->view('header/header_urlap_2');
             $this->viewNavigation($rights);
-            $this->view('reader/adatlap', ['operation' => $param, 'user' => $response['data']]);
+            $this->view('reader/adatlap', ['operation' => $param, 'reader' => $response['data']]);
         }
         else            
         {          
@@ -184,10 +184,10 @@ class Reader extends Controller {
                 {
                     $readerModel = $this->model('ReaderModel');
                     $readerModel->deleteReader($reader->olvasojegy_azonosito);
-                    $deleted .= $reader->csaladi_nev .' '. $reader->utonev .', ';
+                    $deleted .= $reader->csaladi_nev .' '. $reader->utonev .' <br>';
                 }
             }
-            $message = 'A következő olvasók törölve lettek a nyilvántartásból:' . $deleted;
+            $message = 'A következő olvasók törölve lettek a nyilvántartásból: <br>' . $deleted;
             $this->view('header/header_urlap_1');
             $this->viewNavigation($rights);                
             $this->view('reader/uzenet', [$message]);                            
