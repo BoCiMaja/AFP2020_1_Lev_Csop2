@@ -32,7 +32,7 @@ class User extends Controller {
             session_start();
             $_SESSION = array();
             session_destroy();
-            $targeturl = 'http://localhost:8080/AFP2020_1_Lev_Csop2/mvc/public/home/index';
+            $targeturl = 'http://localhost:8080'.BASEURL.'/home/index';
             header('Location: '.$targeturl);            
         }        
     }
