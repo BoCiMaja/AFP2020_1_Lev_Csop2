@@ -21,11 +21,11 @@ th.book, td.book {
 	height: 30px;
 }
 th.bookid, td.bookid {
-	width: 120px;	
+	width: 150px;	
 	height: 30px;
 }
 th.days, td.days, th.date, td.date, th.published, td.published, th.copies, td.copies {
-	width: 100px;	
+	width: 130px;	
 	height: 30px;
 }
 th.book, th.bookid, td.bookid, th.days, th.date, td.date, th.published, td.published, th.copies, td.copies {
