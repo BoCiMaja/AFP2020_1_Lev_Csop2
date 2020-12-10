@@ -20,7 +20,7 @@ class UserModel {
                 session_start();
                 $_SESSION['username'] = $username;     
                 $_SESSION['rights'] = 'olvaso';     
-                $targeturl = 'http://localhost:8080/AFP2020_1_Lev_Csop2/mvc/public/home/index';
+                $targeturl = 'http://localhost:8080'.BASEURL.'/home/index';
                 header('Location: '.$targeturl);
             }
             else 
@@ -39,7 +39,7 @@ class UserModel {
                         $_SESSION['rights'] = 'admin'; 
                     else
                         $_SESSION['rights'] = 'konyvtaros'; 
-                    $targeturl = 'http://localhost:8080/AFP2020_1_Lev_Csop2/mvc/public/home/index';
+                    $targeturl = 'http://localhost:8080'.BASEURL.'/home/index';
                     header('Location: '.$targeturl);
                 }
                 else 
