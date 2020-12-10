@@ -15,6 +15,10 @@ class User extends Controller {
                 $this->view('nav/nav_belepes');                
                 $this->view('user/belepes', ['error' => $error]);
             }
+            else {
+                $targeturl = 'http://localhost:8080'.BASEURL.'/home/index';
+                header('Location: '.$targeturl);
+            }
         }
         else 
         {

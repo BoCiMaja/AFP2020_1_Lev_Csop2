@@ -20,8 +20,7 @@ class UserModel {
                 session_start();
                 $_SESSION['username'] = $username;     
                 $_SESSION['rights'] = 'olvaso';     
-                $targeturl = 'http://localhost:8080'.BASEURL.'/home/index';
-                header('Location: '.$targeturl);
+                return;
             }
             else 
             {
@@ -39,8 +38,7 @@ class UserModel {
                         $_SESSION['rights'] = 'admin'; 
                     else
                         $_SESSION['rights'] = 'konyvtaros'; 
-                    $targeturl = 'http://localhost:8080'.BASEURL.'/home/index';
-                    header('Location: '.$targeturl);
+                    return;
                 }
                 else 
                 {
