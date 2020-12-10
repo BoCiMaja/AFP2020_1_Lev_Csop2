@@ -1,5 +1,5 @@
         <article>
-            <form method="POST" action="/AFP2020_1_Lev_Csop2/mvc/public/user/changepwd">
+            <form method="POST" action="<?=BASEURL?>/user/changepwd">
                 <div class="container">                    
                     <label for="password">Régi jelszó:</label>
                     <input type="password" id="password" name="old_password"><br/>

@@ -1,13 +1,13 @@
         <nav>         
             <ul class="topnav">
-                <li><a href="/AFP2020_1_Lev_Csop2/mvc/public/home/index">Kezdőlap</a></li>               
+                <li><a href="<?=BASEURL?>/home/index">Kezdőlap</a></li>               
                 <li class="dropdown"><a href="#">Olvasó</a>
                     <ul class="subnav">
-                        <li><a href="/AFP2020_1_Lev_Csop2/mvc/public/reader/register">Beiratkozás</a></li>
-                        <li><a href="/AFP2020_1_Lev_Csop2/mvc/public/reader/choose/update">Adatok módosítása</a></li>
-                        <li><a href="/AFP2020_1_Lev_Csop2/mvc/public/reader/choose/prolong">Tagság rendezése</a></li>
-                        <li><a href="/AFP2020_1_Lev_Csop2/mvc/public/reader/choose/delete">Kiiratkozás</a></li>
-			<li><a href="/AFP2020_1_Lev_Csop2/mvc/public/reader/expired">Lejárt tagságok</a></li>                        
+                        <li><a href="<?=BASEURL?>/reader/register">Beiratkozás</a></li>
+                        <li><a href="<?=BASEURL?>/reader/choose/update">Adatok módosítása</a></li>
+                        <li><a href="<?=BASEURL?>/reader/choose/prolong">Tagság rendezése</a></li>
+                        <li><a href="<?=BASEURL?>/reader/choose/delete">Kiiratkozás</a></li>
+			<li><a href="<?=BASEURL?>/reader/expired">Lejárt tagságok</a></li>                        
                     </ul>
                 </li>
 		<li class="dropdown"><a href="#">Könyvtáros</a>
@@ -38,9 +38,9 @@
                 </li>
                 <li class="dropdown" id="user"><a href="#">Belépve: <?php echo $_SESSION['username']?></a>
                     <ul class="subnav">
-                        <li><a href="/AFP2020_1_Lev_Csop2/mvc/public/user/userdata">Személyes adatok</a></li>
-                        <li><a href="/AFP2020_1_Lev_Csop2/mvc/public/user/changepwd">Jelszó csere</a></li>
-                        <li><a href="/AFP2020_1_Lev_Csop2/mvc/public/user/logout">Kijelentkezés</a>                        
+                        <li><a href="<?=BASEURL?>/user/userdata">Személyes adatok</a></li>
+                        <li><a href="<?=BASEURL?>/user/changepwd">Jelszó csere</a></li>
+                        <li><a href="<?=BASEURL?>/user/logout">Kijelentkezés</a>                        
                     </ul>
                 </li>
             </ul>        
