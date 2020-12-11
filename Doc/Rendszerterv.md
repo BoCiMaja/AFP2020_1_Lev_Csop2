@@ -42,7 +42,7 @@ A szoftverekben meglévő hibák felderítése még az üzembehelyezés előtt.
 ||Funkcionális specifikáció|       |         0 |      12 |               12 |        12 |             0 ||
 ||Rendszerterv|                    |           |      16 |               16 |         8 |             8 ||
 ||Adattárolás|Adatmodell megtervezése|       0 |       4 |                4 |         4 |             0 ||
-||Adatbázis megvalósítása a szerveren|       1 |       1 |                1 |         0 |             1 ||
+||Adattárolás|Adatbázis megvalósítása a szerveren|  1 |  1 |              1 |         0 |             1 ||
 ||Website|Képernyőtervek elkészítése|        2 |       8 |                8 |         0 |             8 ||
 ||Website|Prototípus elkészítése|            2 |       8 |                8 |         0 |             8 ||
 ||Website|Adatbázis létrehozása|             2 |       8 |                8 |         0 |             8 ||
