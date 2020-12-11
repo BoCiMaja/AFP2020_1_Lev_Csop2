@@ -44,6 +44,9 @@ class User extends Controller {
     public function userdata()
     {
         session_start();
+        if (!isset($_SESSION['username']) || !isset($_SESSION['rights'])) 
+            return;
+        
         $userModel = $this->model('UserModel');
         $username = $_SESSION['username'];
         $rights = $_SESSION['rights'];
@@ -65,8 +68,11 @@ class User extends Controller {
     public function update()
     {
         session_start();        
+        if (!isset($_SESSION['username']) || !isset($_SESSION['rights'])) 
+            return;       
+        
         $username = $_SESSION['username'];
-        $rights = $_SESSION['rights'];
+        $rights = $_SESSION['rights'];        
         $phone = $_POST['telefon'];
         $email = $_POST['email'];
         $userModel = $this->model('UserModel');
@@ -86,7 +92,10 @@ class User extends Controller {
     
     public function changepwd() 
     {
-        session_start();        
+        session_start();
+        if (!isset($_SESSION['username']) || !isset($_SESSION['rights'])) 
+            return;       
+        
         $username = $_SESSION['username'];
         $rights = $_SESSION['rights'];
         
