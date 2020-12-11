@@ -5,7 +5,11 @@ class Reader extends Controller {
     public function register() 
     {
         session_start();
-        $rights = $_SESSION['rights'];
+        if (!isset($_SESSION['rights']) || 
+           ($_SESSION['rights']!='admin' && $_SESSION['rights']!='konyvtaros'))        
+            return;
+        else
+            $rights = $_SESSION['rights'];
         
         if (array_key_exists('submit', $_POST))
         {
@@ -46,7 +50,11 @@ class Reader extends Controller {
     {
                 
         session_start();
-        $rights = $_SESSION['rights'];
+        if (!isset($_SESSION['rights']) || 
+           ($_SESSION['rights']!='admin' && $_SESSION['rights']!='konyvtaros'))        
+            return;
+        else
+            $rights = $_SESSION['rights'];
         
         if (array_key_exists('findbyid', $_POST))
         {            
@@ -107,7 +115,11 @@ class Reader extends Controller {
     public function process($param)
     {
         session_start();
-        $rights = $_SESSION['rights'];
+        if (!isset($_SESSION['rights']) || 
+           ($_SESSION['rights']!='admin' && $_SESSION['rights']!='konyvtaros'))        
+            return;
+        else
+            $rights = $_SESSION['rights'];
         
         switch ($param)
         {
@@ -171,7 +183,11 @@ class Reader extends Controller {
     public function expired()
     {
         session_start();
-        $rights = $_SESSION['rights'];
+        if (!isset($_SESSION['rights']) || 
+           ($_SESSION['rights']!='admin' && $_SESSION['rights']!='konyvtaros'))        
+            return;
+        else
+            $rights = $_SESSION['rights'];
         
         if (array_key_exists('delete', $_POST))
         {            
