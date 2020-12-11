@@ -4,32 +4,23 @@ class Home extends Controller {
   
     public function index()
     {   
-        session_start();   
-        $username = isset($_SESSION['username']) ? $_SESSION['username'] : '';         
+        session_start();                 
         $rights = isset($_SESSION['rights']) ? $_SESSION['rights'] : '';         
 		
         $this->view('header/header');
-        if (empty($rights))
-        {	
-                $this->view('nav/nav_start');
-        }
-        else
-        {
-                switch ($rights)
-                {
-                        case 'admin':
-                                $this->view('nav/nav_belepve_admin');
-                                break;			
-                        case 'konyvtaros':
-                                $this->view('nav/nav_belepve_konyvtaros');
-                                break;
-                        case 'olvaso':
-                                $this->view('nav/nav_belepve_olvaso');
-                                break;
-                }
-        }		
-        $this->view('home/index', ['username' => $username, 'rights' => $rights] );        
+        $this->viewNavigation($rights);		
+        $this->view('home/index');//, ['username' => $username, 'rights' => $rights] );        
     }    
+    
+    public function info()
+    {
+        session_start();                  
+        $rights = isset($_SESSION['rights']) ? $_SESSION['rights'] : '';
+		
+        $this->view('header/header');
+        $this->viewNavigation($rights);		
+        $this->view('home/tajekoztato');//, ['username' => $username, 'rights' => $rights] );        
+    }
 }
 
 ?>

@@ -3,7 +3,7 @@ $userdata = $data['userdata'];
 ?>
     
         <article>
-            <form method="POST" action="AFP_2020_1_Lev_Csop2/mvc/public/user/update">
+            <form method="POST" action="<?=BASEURL?>/user/update">
                 <div class="container">                    
                     <div class="column">						
                             <label for="csaladinev">Családi név:</label>

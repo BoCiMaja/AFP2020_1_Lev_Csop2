@@ -15,6 +15,10 @@ class User extends Controller {
                 $this->view('nav/nav_belepes');                
                 $this->view('user/belepes', ['error' => $error]);
             }
+            else {
+                $targeturl = 'http://localhost:8080'.BASEURL.'/home/index';
+                header('Location: '.$targeturl);
+            }
         }
         else 
         {
@@ -32,7 +36,7 @@ class User extends Controller {
             session_start();
             $_SESSION = array();
             session_destroy();
-            $targeturl = 'http://localhost:8080/konyvtar/mvc/public/home/index';
+            $targeturl = 'http://localhost:8080'.BASEURL.'/home/index';
             header('Location: '.$targeturl);            
         }        
     }

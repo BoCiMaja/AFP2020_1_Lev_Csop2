@@ -914,8 +914,8 @@ tagságának érvényessége, valamint a kölcsönzési határidő, amely az akt
 3. Olvasó kiválasztása találati listából, lakcím és születési dátum alapján. Elvárt eredmény: az űrlapon megjelenik az olvasó vonalkódos 
 azonosítója, tagságának érvényessége, valamint a kölcsönzési határidő, amely az aktuális dátumtól számított egy hónap.  
 4. Még nem hosszabbított kölcsönzés határidejének hosszabbítása. Elvárt eredmény: a Kölcsönzések táblában a határidő egy hónappal módosul, 
-és a hosszabítva mező igaz értéket kap.  
-4. Már meghosszabbított kölcsönzés határidejének hosszabbítása. Elvárt eredmény: a rendszer üzenetben jelzi, hogy ez nem lehetséges. 
+és a hosszabítva mező 1-gyel nő.  
+4. Már meghosszabbított kölcsönzés határidejének hosszabbítása. Elvárt eredmény: a rendszer üzenetben jelzi, hogy ez nem lehetséges, ha elért bizonyos számot. 
 A Kölcsönzések táblában a határidő nem módosul.  
 
 **I) Könyv visszavétele:**  
