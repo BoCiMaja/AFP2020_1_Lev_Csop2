@@ -2,6 +2,8 @@
 
 ## 1. A rendszer célja
 
+A cél egy olyan rendszer létrehozása, ami lehetővé teszi a könyvtári dolgozók számára
+
 ## 2. Projektterv
 
 ### 2.1 Projektszerepkörök, felelősségek
@@ -18,6 +20,7 @@ A prioritással és üzleti értékkel ellátott felhasználói sztorikat tartal
 
 Frontend:
 - Béres Gábor
+- Németh Richárd
 A felhasználók által elérhető felület kialakítása, amin keresztűl a backend által biztosított szolgáltatások igénybevételével elérhetőek a rendszerben a felhasználók rendelkezésére álló funkciók.
 
 Backend:
@@ -28,6 +31,7 @@ Backend:
 Feladatuk az adatbázis szerkezetek kialakítása, funkciók létrehozása, a frontend kiszolgálása adatokkal.
 
 Tesztelés:
+- Jakab Zsolt
 - Németh Richárd
 - Szűcs János
 A szoftverekben meglévő hibák felderítése még az üzembehelyezés előtt. 
@@ -48,12 +52,15 @@ A szoftverekben meglévő hibák felderítése még az üzembehelyezés előtt.
 ||Honlap|Kezdőlap funkciók elkészítése|      2 |       8 |                8 |         0 |             8 ||
 ||Honlap|Login funkció megvalósítás|         2 |       8 |                8 |         0 |             8 ||
 ||Website|Katalógus funkció|                 2 |       8 |                8 |         0 |             8 ||
+||Website|Olvasókhoz tartozó funkció|        2 |       8 |                8 |         0 |             8 ||
+||Website|Könyvtáros funkciók kezelése|      2 |       8 |                8 |         0 |             8 ||
+||Website|Tesztelés|                         2 |      16 |               16 |         0 |            16 ||
 
 
+### 2.4 Mérföldkövek
 
-
-
-### 2.4 Mérföldkövek 
+- A prototipus bemutatása
+- Az elkészült szoftver átadása 
 
 ## 3. Üzleti folyamatok modellje
 
@@ -309,29 +316,31 @@ Nincsenek vásárolt szoftverkomponensek.
 
 ### 6.4 Fejlesztő eszközök
 
-- Apache NetBeans  
-- PSPad
+- Apache NetBeans
+- WampServer  
 - MySQL Workbench
-
-### 6.5 Keretrendszer
-
-## 7. Absztrakt domain modell
-
-### 7.1 Domainspecifikáció, fogalmak 
-
-### 7.2 Absztrakt komponensek, ezek kapcsolatai 
+- PSPad
 
 ## 8. Architekturális terv
 
+Az Apache http szerveren futó alkalmazás szolgálja ki webes felületen keresztűl a rendszer felhasználóit.
+A felhasználó felület böngészőben megjelenő html oldalak formájában érhető el, ezen keresztűl tudják a felhasználók a rendszert használni.
+Az adatok tárolása a MySql adatbázis szerveren történik.
+
+
 ### 8.1 Architekturális tervezési minta
 
-### 8.2 Az alkalmazás rétegei, fő komponensei, ezek kapcsolatai 
+Az alkalmazás elkészítése során az MVC (Model, View Controller) modellt használjuk.
 
-### 8.3 Változások kezelése 
+### 8.2 Az alkalmazás rétegei, fő komponensei, ezek kapcsolatai
 
-### 8.4 Rendszer bővíthetősége 
+A backend a webszereveren fut, a vékony kliens a böngészőből elérhető a felhasználók számára.
+Adatbázis szerver (Adatbázis) <-------> Webszerver (Üzleti logika) <-------> Kliens (Felhasználói felület) 
 
-### 8.5 Biztonsági funkciók 
+### 8.3 Változások kezelése
+
+Minden változás lekezelése szerver oldalon történik, a kliens oldalon nincs szükség új komonensek telepítésére.  
+
 
 ## 9. Adatbázisterv  
   
@@ -499,9 +508,14 @@ GRANT UPDATE ON Konyvtar.Olvasok TO olvaso;
 
 ## 10. Implementációs terv
 
+A webszerveren futó php program tartalmazza az üzleti logikát.
+A felhasználói felület, ami böngészőben megjelenő weboldalak formájában érhető el HTML, CSS, és JavaScript technológiák felhasználásával készülnek.
+A programok objektum orientált programozási paradigma használatával, MVC modell használata mellett.  
+MySql adatbázis szervert használunk az adatok tárolására.
+
 ### 10.1 Perzisztencia osztályok 
 
-### 10.2 Üzleti logika osztályai 
+### 10.2 Üzleti logika osztályai
 
 ### 10.3 Kliens oldal osztályai 
 
