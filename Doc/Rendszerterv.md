@@ -583,7 +583,7 @@ Anyja születési utóneve) már regisztrált felhasználót ne lehessen újra r
 **Tesztesetek:**  
 1. Bevitt adatok helyesek, megfelelnek a követelményeknek.  
 Elvárt eredmény:  
-a) A Könyvtáros táblában megjelenik a regisztrált felhasználó rekordja az űrlapban megadott értékekkel.  
+a) A Könyvtáros táblában megjelenik a regisztrált felhasználó rekordja az űrlapban megadott értékekkel. Ellenőrzés a Könyvtáros/Adatmódosítás almenüponton keresztül.
 b) A regisztrált könyvtáros be tud lépni a rendszerbe a weboldal kezdőoldalán található Belépés menüponton keresztül a megadott 
 felhasználónévvel és jelszóval, és a jogosultságának megfelelő navigációs sáv elérhető számára.  
 c) A könyvtáros a rendszerbe való belépést követően a *Személyes adatok* menüpontra kattintva tudja ellenőrizni a felvett adatokat.  
