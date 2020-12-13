@@ -43,8 +43,7 @@ class Reader extends Controller {
                         $telefonszam, $email);
             
             if (!$error)
-                $error = $readerModel->registerReader(  $felhasznaloi_nev,
-                                                        $jelszo,
+                $error = $readerModel->registerReader(  $felhasznaloi_nev,                                                   $jelszo,
                                                         $csaladi_nev,
                                                         $utonev,
                                                         $szuletesi_csaladi_nev,
