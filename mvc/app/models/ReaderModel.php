@@ -85,6 +85,7 @@ class ReaderModel {
         else
             return ['error' => $error];    
     }
+    
     public function validateReaderData1(
             $olvasojegy_azonosito, $felhasznaloi_nev, $jelszo,
             $szuletesi_csaladi_nev, $szuletesi_utonev, 
@@ -117,18 +118,25 @@ class ReaderModel {
         if (strlen($olvasojegy_azonosito) != 8)
             $error .= 'Az olvasójegy azonosító pontosan 8 karakter hosszú számsor legyen.<br>';
         if (strlen($jelszo) < 8)
-            $error .= 'A jelszó túl rövid, minimum 8 karakter hosszú legyen.<br>';
+            $error .= 'A jelszó túl rövid, minimum 8 karakter hosszú legyen.<br>';        
         if ((!empty($szuletesi_csaladi_nev) || !empty($szuletesi_utonev))
                 && (!preg_match('/^([A-ZÁ-Ű][a-zá-ű]+[ ]?)+$/', $szuletesi_csaladi_nev) 
                 || !preg_match('/^([A-ZÁ-Ű][a-zá-ű]+[ ]?)+$/', $szuletesi_utonev)))
                 $error .= 'A születési családnév vagy utónév nem megfelelő formátumú.<br>';        
+        if ((!empty($szuletesi_csaladi_nev) || !empty($szuletesi_utonev))
+                && (strlen($szuletesi_csaladi_nev) > 40  || strlen($szuletesi_utonev)>40))
+                $error .= 'A születési családnév és utónév maximum 40 karakter hosszúak lehetnek.<br>';        
         if (!preg_match('/^([A-ZÁ-Ű][a-zá-ű]+[ ]?)+$/', $anyja_szuletesi_csaladi_neve)
                 || !preg_match('/^([A-ZÁ-Ű][a-zá-ű]+[ ]?)+$/', $anyja_szuletesi_utoneve))
-                $error .= 'Anyja születési családneve vagy utóneve nem megfelelő formátumú vagy nincs megadva.<br>';
-        
+                $error .= 'Anyja születési családneve és utóneve nem megfelelő formátumú vagy nincs megadva.<br>';
+        if (strlen($anyja_szuletesi_csaladi_neve) > 40  || strlen($anyja_szuletesi_utoneve)>40)
+                $error .= 'Az anya születési családneve és utóneve maximum 40 karakter hosszúak lehetnek.<br>';        
         if (!preg_match('/^[A-ZÁ-Ű][a-zá-ű]+$/', $szuletesi_hely))
                 $error .= 'A születési hely nem megfelelő formátumú vagy nincs megadva.<br>';
-        if (!preg_match('/^[1,2][0-9]{3}\.[0,1][0-9]\.[0-3][0-9]$/', $szuletesi_datum))
+        if (strlen($szuletesi_hely) > 40)
+                $error .= 'A születési hely maximum 40 karakter hosszú lehet.<br>';
+        if (!preg_match('/^[1,2][0-9]{3}\.[0,1][0-9]\.[0-3][0-9]$/', $szuletesi_datum) &&
+                !preg_match('/^[1,2][0-9]{3}\-[0,1][0-9]\-[0-3][0-9]$/', $szuletesi_datum))
                 $error .= 'A születési dátum nem megfelelő formátumú vagy nincs megadva.<br>';
         
         return $error;
@@ -142,22 +150,52 @@ class ReaderModel {
         if (!preg_match('/^([A-ZÁ-Ű][a-zá-ű]+[ ]?)+$/', $csaladi_nev)
                 || !preg_match('/^([A-ZÁ-Ű][a-zá-ű]+[ ]?)+$/', $utonev))
                 $error .= 'A családnév vagy utónév nem megfelelő formátumú vagy nincs megadva.<br>';
+        if (strlen($csaladi_nev) > 40  || strlen($utonev)>40)
+                $error .= 'A családnév és az utónév maximum 40 karakter hosszúak lehetnek.<br>';        
         if (!preg_match('/^[1-9][0-9]{3}$/', $lakcim_iranyitoszam))
                 $error .= 'Az irányítószám nem megfelelő formátumú vagy nincs megadva.<br>';
         if (!preg_match('/^[A-ZÁ-Ű][a-zá-ű]+$/', $lakcim_varos))
                 $error .= 'A város nem megfelelő formátumú vagy nincs megadva.<br>';
-        if (!preg_match('/^([A-ZÁ-Ű][a-zá-ű]+\s)([A-ZÁ-Űa-zá-ű]*\s?)+$/', $lakcim_utca)
-                && !((substr($lakcim_utca, -4) == 'utca'  
-                || substr($lakcim_utca, -2) == 'út' 
-                || substr($lakcim_utca, -2) == 'u.'  
-                || substr($lakcim_utca, -3) == 'tér'  
-                || substr($lakcim_utca, -5) == 'körút'  
-                || substr($lakcim_utca, -4)) == 'krt.')) 
-                $error .= 'Az utca mező nem megfelelő formátumú vagy nincs megadva.<br>';
+        if (strlen($lakcim_varos) > 40)
+                $error .= 'A lakcím város megnevezése maximum 40 karakter hosszú lehet.<br>';        
+        if (!preg_match('/^([A-ZÁ-Ű][a-zá-ű\-]+\s)([A-ZÁ-Űa-zá-ű\-\.]*\s?)+$/', $lakcim_utca)
+                || !(substr($lakcim_utca, -4) == "utca"  
+                || substr($lakcim_utca, -2) == "út" 
+                || substr($lakcim_utca, -2) == "u."  
+                || substr($lakcim_utca, -3) == "tér"  
+                || substr($lakcim_utca, -5) == "körút"  
+                || substr($lakcim_utca, -4) == "krt."))
+            $error .= 'Az utca mező nem megfelelő formátumú vagy nincs megadva.<br>';        
+        if (strlen($lakcim_utca) > 40)
+                $error .= 'A lakcím utca megnevezése maximum 40 karakter hosszú lehet.<br>';
+        if (strlen($lakcim_hazszam) > 40)
+                $error .= 'A lakcím házszám megnevezése maximum 40 karakter hosszú lehet.<br>';
         if (!empty($telefonszam) && !preg_match('/^[0-9]{11}$/', $telefonszam))
             $error .= 'A telefonszamnak 11 számjegyből kell állnia. <br>';
-        if (!empty($email) && !preg_match('/^[a-zA-Z0-9]+[a-zA-Z0-9\_\-\.]*@([a-zA-Z0-9]+\.)+[a-z]{2,3}$/', $email))
-            $error .= 'Az email címe nem megfelelő formátumú. <br>';
+        if (!empty($email))
+        {
+            if(!preg_match('/^[a-zA-Z0-9]+[a-zA-Z0-9\_\-\.]*@([a-zA-Z0-9]+\.)+[a-z]{2,3}$/', $email))
+                $error .= 'Az email címe nem megfelelő formátumú. <br>';
+            else  
+            {                
+                $domain = preg_replace('/^[a-zA-Z0-9][a-zA-Z0-9\_\-\.]*@/', '', $email);
+                $domain_exists = false;
+                if (!empty($domain))
+                {                
+                    exec("nslookup -type=\"MX\" $domain", $output);
+                    foreach ($output as $line)
+                    {
+                        if (preg_match('/^'.$domain.'/', $line))
+                        {
+                            $domain_exists = true;
+                            break;
+                        }                
+                    }
+                }
+                if (!$domain_exists)
+                    $error .= 'Nem létező mail szerver szerepel a megadott email címben. <br>';
+            }
+        }
         return $error;
     }
     
