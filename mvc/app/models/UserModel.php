@@ -123,8 +123,29 @@ class UserModel {
         $error = '';        
         if (!empty($phone) && !preg_match('/^[0-9]{11}$/', $phone))
             $error .= 'A telefonszamnak 11 számjegyből kell állnia. <br>';
-        if (!empty($email) && !preg_match('/^[a-zA-Z0-9]+[a-zA-Z0-9\_\-\.]*@([a-zA-Z0-9]+\.)+[a-z]{2,3}$/', $email))
-            $error .= 'Az email címe nem megfelelő formátumú. <br>';
+        if (!empty($email))
+        { 
+            if(!preg_match('/^[a-zA-Z0-9]+[a-zA-Z0-9\_\-\.]*@([a-zA-Z0-9]+\.)+[a-z]{2,3}$/', $email))
+                $error .= 'Az email címe nem megfelelő formátumú. <br>';        
+            else {                
+                $domain = preg_replace('/^[a-zA-Z0-9][a-zA-Z0-9\_\-\.]*@/', '', $email);
+                $domain_exists = false;
+                if (!empty($domain))
+                {                
+                    exec("nslookup -type=\"MX\" $domain", $output);
+                    foreach ($output as $line)
+                    {
+                        if (preg_match('/^'.$domain.'/', $line))
+                        {
+                            $domain_exists = true;
+                            break;
+                        }                
+                    }
+                }
+                if (!$domain_exists)
+                    $error .= 'Nem létező mail szerver szerepel a megadott email címben. <br>';
+            }
+        }
         return $error;        
     }
     
