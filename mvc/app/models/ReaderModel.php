@@ -120,14 +120,14 @@ class ReaderModel {
         if (strlen($jelszo) < 8)
             $error .= 'A jelszó túl rövid, minimum 8 karakter hosszú legyen.<br>';        
         if ((!empty($szuletesi_csaladi_nev) || !empty($szuletesi_utonev))
-                && (!preg_match('/^([A-ZÁ-Ű][a-zá-ű]+[ ]?)+$/', $szuletesi_csaladi_nev) 
+                && (!preg_match('/^([A-ZÁ-Ű][a-zá-ű]+[ \-]?)+$/', $szuletesi_csaladi_nev) 
                 || !preg_match('/^([A-ZÁ-Ű][a-zá-ű]+[ ]?)+$/', $szuletesi_utonev)))
                 $error .= 'A születési családnév vagy utónév nem megfelelő formátumú.<br>';        
         if ((!empty($szuletesi_csaladi_nev) || !empty($szuletesi_utonev))
                 && (strlen($szuletesi_csaladi_nev) > 40  || strlen($szuletesi_utonev)>40))
                 $error .= 'A születési családnév és utónév maximum 40 karakter hosszúak lehetnek.<br>';        
         if (!preg_match('/^([A-ZÁ-Ű][a-zá-ű]+[ ]?)+$/', $anyja_szuletesi_csaladi_neve)
-                || !preg_match('/^([A-ZÁ-Ű][a-zá-ű]+[ ]?)+$/', $anyja_szuletesi_utoneve))
+                || !preg_match('/^([A-ZÁ-Ű][a-zá-ű]+[ \-]?)+$/', $anyja_szuletesi_utoneve))
                 $error .= 'Anyja születési családneve és utóneve nem megfelelő formátumú vagy nincs megadva.<br>';
         if (strlen($anyja_szuletesi_csaladi_neve) > 40  || strlen($anyja_szuletesi_utoneve)>40)
                 $error .= 'Az anya születési családneve és utóneve maximum 40 karakter hosszúak lehetnek.<br>';        
@@ -147,7 +147,7 @@ class ReaderModel {
             $telefonszam, $email)
     {
         $error = '';       
-        if (!preg_match('/^([A-ZÁ-Ű][a-zá-ű]+[ ]?)+$/', $csaladi_nev)
+        if (!preg_match('/^([A-ZÁ-Ű][a-zá-ű]+[ \-]?)+$/', $csaladi_nev)
                 || !preg_match('/^([A-ZÁ-Ű][a-zá-ű]+[ ]?)+$/', $utonev))
                 $error .= 'A családnév vagy utónév nem megfelelő formátumú vagy nincs megadva.<br>';
         if (strlen($csaladi_nev) > 40  || strlen($utonev)>40)
