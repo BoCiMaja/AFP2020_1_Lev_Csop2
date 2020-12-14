@@ -16,7 +16,7 @@ $userdata = $data['userdata'];
                             <input type="text" id="anya_csaladinev" name="anya_csaladinev" tabindex="7" disabled value=<?=$userdata->Anyja_szuletesi_csaladi_neve?>><br/>		
                             <label for="irszam">Lakcím, irányítószám:</label>
                             <input type="number" id="irszam" name="irszam" tabindex="9" disabled value=<?=$userdata->Lakcim_iranyitoszam?>><br/>						
-                            <label for="utca">Lakcím, utca:</label>
+                            <label for="utca">Lakcím, közterület neve:</label>
                             <input type="text" id="utca" name="utca" tabindex="11" disabled value=<?=$userdata->Lakcim_utca?>><br/>
                             <label for="telefon">Telefonszám:</label>
                             <input type="number" id="telefon" name="telefon" tabindex="13" value=<?=$userdata->Telefonszam?>><br/>												

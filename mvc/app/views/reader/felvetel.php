@@ -14,7 +14,7 @@
                             <input type="text" id="anya_csaladinev" name="anyja_szuletesi_csaladi_neve" tabindex="9"><br/>		
                             <label for="irszam">Lakcím, irányítószám:</label>
                             <input type="number" id="irszam" name="lakcim_iranyitoszam" tabindex="11"><br/>						
-                            <label for="utca">Lakcím, utca:</label>
+                            <label for="utca">Lakcím, közterület neve:</label>
                             <input type="text" id="utca" name="lakcim_utca" tabindex="13"><br/>
                             <label for="telefon">Telefonszám:</label>
                             <input type="number" id="telefon" name="telefonszam" tabindex="15"><br/>

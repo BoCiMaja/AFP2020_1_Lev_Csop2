@@ -18,7 +18,7 @@ $reader = $data['reader'];
                             <input type="text" id="anya_csaladinev" name="anyja_szuletesi_csaladi_neve" tabindex="9" value="<?=$reader->Anyja_szuletesi_csaladi_neve?>" disabled><br/>		
                             <label for="irszam">Lakcím, irányítószám:</label>
                             <input type="number" id="irszam" name="lakcim_iranyitoszam" tabindex="11" value="<?=$reader->Lakcim_iranyitoszam?>" <?php if ($operation!='update'):?>disabled<?php endif;?>><br/>						
-                            <label for="utca">Lakcím, utca:</label>
+                            <label for="utca">Lakcím, közterület neve:</label>
                             <input type="text" id="utca" name="lakcim_utca" tabindex="13" value="<?=$reader->Lakcim_utca?>" <?php if ($operation!='update'):?>disabled<?php endif;?>><br/>
                             <label for="telefon">Telefonszám:</label>
                             <input type="number" id="telefon" name="telefonszam" tabindex="15" value="<?=$reader->Telefonszam?>" <?php if ($operation!='update'):?>disabled<?php endif;?>><br/>
