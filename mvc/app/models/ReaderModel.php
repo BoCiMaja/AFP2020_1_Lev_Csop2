@@ -327,14 +327,30 @@ class ReaderModel {
             return ['tagsag' => $expiry->format('Y.m.d')];          
     }
     
-    function registerReader($data) 
+    function registerReader($felhasznaloi_nev,
+                            $jelszo,
+                            $csaladi_nev,
+                            $utonev,
+                            $szuletesi_csaladi_nev,
+                            $szuletesi_utonev,
+                            $szuletesi_hely,
+                            $szuletesi_datum,
+                            $anyja_szuletesi_csaladi_neve,
+                            $anyja_szuletesi_utoneve,            
+                            $lakcim_iranyitoszam,
+                            $lakcim_varos,
+                            $lakcim_utca,
+                            $lakcim_hazszam,
+                            $telefonszam,
+                            $email,            
+                            $olvasojegy_azonosito) 
     {
         $error = '';
         try
         {
             $db = new PDO(DB_DSN, DB_USR_LIB, DB_PWD_LIB);
             $query = "INSERT INTO Olvasok VALUES ("
-                    . ":olvasojegy_azonosito, :felhasznaloi_nev, :jelszo," 
+                    . ":olvasojegy_azonosito, :felhasznaloi_nev, SHA(:jelszo)," 
                     . ":tagsag_ervenyesseg, "
                     . ":csaladi_nev, :utonev, "
                     . ":szuletesi_csaladi_nev, :szuletesi_utonev, "
@@ -342,28 +358,28 @@ class ReaderModel {
                     . ":anyja_szuletesi_csaladi_neve, :anyja_szuletesi_utoneve, "                                       
                     . ":lakcim_iranyitoszam, :lakcim_varos, :lakcim_utca, :lakcim_hazszam,"
                     . ":telefonszam, :email)";       
-                    
+            
             $stmt = $db->prepare($query);
-            $stmt->bindValue(':olvasojegy_azonosito', $data['olvasojegy_azonosito']);
+            $stmt->bindValue(':olvasojegy_azonosito', $olvasojegy_azonosito);
             $expiry = new DateTime(date('Y-m-d'));
             $expiry->modify('+1 year');
-            $stmt->bindValue(':tagsag_ervenyesseg', $expiry->format('Y.m.d'));
-            $stmt->bindValue(':felhasznaloi_nev', $data['felhasznaloi_nev']);
-            $stmt->bindValue(':jelszo', $data['jelszo']);
-            $stmt->bindValue(':csaladi_nev', $data['csaladi_nev']);
-            $stmt->bindValue(':utonev', $data['utonev']);
-            $stmt->bindValue(':szuletesi_csaladi_nev', $data['szuletesi_csaladi_nev']);
-            $stmt->bindValue(':szuletesi_utonev', $data['szuletesi_utonev']);
-            $stmt->bindValue(':szuletesi_hely', $data['szuletesi_hely']);
-            $stmt->bindValue(':szuletesi_datum', $data['szuletesi_datum']);
-            $stmt->bindValue(':anyja_szuletesi_csaladi_neve', $data['anyja_szuletesi_csaladi_neve']);
-            $stmt->bindValue(':anyja_szuletesi_utoneve', $data['anyja_szuletesi_utoneve']);
-            $stmt->bindValue(':lakcim_iranyitoszam', $data['lakcim_iranyitoszam']);
-            $stmt->bindValue(':lakcim_varos', $data['lakcim_varos']);
-            $stmt->bindValue(':lakcim_utca', $data['lakcim_utca']);
-            $stmt->bindValue(':lakcim_hazszam', $data['lakcim_hazszam']);
-            $stmt->bindValue(':telefonszam', $data['telefonszam']);
-            $stmt->bindValue(':email', $data['email']);
+            $stmt->bindValue(':tagsag_ervenyesseg', $expiry->format('Y.m.d.'));
+            $stmt->bindValue(':felhasznaloi_nev', $felhasznaloi_nev);
+            $stmt->bindValue(':jelszo', $jelszo);
+            $stmt->bindValue(':csaladi_nev', $csaladi_nev);
+            $stmt->bindValue(':utonev', $utonev);
+            $stmt->bindValue(':szuletesi_csaladi_nev', $szuletesi_csaladi_nev);
+            $stmt->bindValue(':szuletesi_utonev', $szuletesi_utonev);
+            $stmt->bindValue(':szuletesi_hely', $szuletesi_hely);
+            $stmt->bindValue(':szuletesi_datum', $szuletesi_datum);
+            $stmt->bindValue(':anyja_szuletesi_csaladi_neve', $anyja_szuletesi_csaladi_neve);
+            $stmt->bindValue(':anyja_szuletesi_utoneve', $anyja_szuletesi_utoneve);
+            $stmt->bindValue(':lakcim_iranyitoszam', $lakcim_iranyitoszam);
+            $stmt->bindValue(':lakcim_varos', $lakcim_varos);
+            $stmt->bindValue(':lakcim_utca', $lakcim_utca);
+            $stmt->bindValue(':lakcim_hazszam', $lakcim_hazszam);
+            $stmt->bindValue(':telefonszam', $telefonszam);
+            $stmt->bindValue(':email', $email);
             $stmt->execute();
             if ($stmt->errorCode() != '00000')
                 $error = 'Sikertelen regisztráció. Hiba történt a művelet során.';
