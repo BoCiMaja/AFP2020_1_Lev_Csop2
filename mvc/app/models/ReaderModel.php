@@ -114,11 +114,20 @@ class ReaderModel {
         {
             $error = 'Adatbázis hiba: ' . $e->getMessage();
             return $error;
-        }        
+        }
         if (strlen($olvasojegy_azonosito) != 8)
-            $error .= 'Az olvasójegy azonosító pontosan 8 karakter hosszú számsor legyen.<br>';
-        if (strlen($jelszo) < 8)
-            $error .= 'A jelszó túl rövid, minimum 8 karakter hosszú legyen.<br>';        
+            $error .= 'Az olvasójegy azonosító pontosan 8 karakter hosszú számsor legyen.<br>';        
+        if (strlen($felhasznaloi_nev) < 5 || strlen($felhasznaloi_nev) > 40 || 
+                !preg_match('/^[A-ZÁ-Űa-zá-ű]+[0-9]*$/', $felhasznaloi_nev))
+            $error .= 'A felhasználói név minimum 5, maximum 40 karakter hosszú legyen és betűkből, számjegyekből álljon.<br>';        
+        if (preg_match('/^[1,2][0-9]{3}\.[0,1][0-9]\.[0-3][0-9]\.$/', $szuletesi_datum))
+            $passwd = str_replace('.', '', $szuletesi_datum);
+        else if (preg_match('/^[1,2][0-9]{3}\-[0,1][0-9]\-[0-3][0-9]$/', $szuletesi_datum))
+            $passwd = str_replace('-', '', $szuletesi_datum);        
+        else 
+            $passwd = '';
+        if ($jelszo < 8 || $jelszo != $passwd)
+            $error .= 'A jelszó a születési dátum számjegyeiből álljon év, hónap, nap sorrendben.<br>';
         if ((!empty($szuletesi_csaladi_nev) || !empty($szuletesi_utonev))
                 && (!preg_match('/^([A-ZÁ-Ű][a-zá-ű]+[ \-]?)+$/', $szuletesi_csaladi_nev) 
                 || !preg_match('/^([A-ZÁ-Ű][a-zá-ű]+[ ]?)+$/', $szuletesi_utonev)))
@@ -135,9 +144,11 @@ class ReaderModel {
                 $error .= 'A születési hely nem megfelelő formátumú vagy nincs megadva.<br>';
         if (strlen($szuletesi_hely) > 40)
                 $error .= 'A születési hely maximum 40 karakter hosszú lehet.<br>';
-        if (!preg_match('/^[1,2][0-9]{3}\.[0,1][0-9]\.[0-3][0-9]$/', $szuletesi_datum) &&
+        if (!preg_match('/^[1,2][0-9]{3}\.[0,1][0-9]\.[0-3][0-9]\.$/', $szuletesi_datum) &&
                 !preg_match('/^[1,2][0-9]{3}\-[0,1][0-9]\-[0-3][0-9]$/', $szuletesi_datum))
                 $error .= 'A születési dátum nem megfelelő formátumú vagy nincs megadva.<br>';
+        
+        
         
         return $error;
     }
@@ -304,7 +315,7 @@ class ReaderModel {
             $stmt->execute();
             if ($stmt->errorCode() != '00000')
                 $error = 'Sikertelen hosszabbítás. Hiba történt a művelet során.';
-            $db = null;            
+            $db = null;      
         }
         catch (PDOException $e)
         {
