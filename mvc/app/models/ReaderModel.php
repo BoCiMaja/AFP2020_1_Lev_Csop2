@@ -311,7 +311,7 @@ class ReaderModel {
                      . "WHERE olvasojegy_azonosito = :olvasojegy_azonosito";
             $stmt = $db->prepare($query);
             $stmt->bindValue(':olvasojegy_azonosito', $olvasojegy_azonosito);
-            $stmt->bindValue(':tagsag_ervenyesseg', $expiry->format('Y.m.d'));
+            $stmt->bindValue(':tagsag_ervenyesseg', $expiry->format('Y.m.d.'));
             $stmt->execute();
             if ($stmt->errorCode() != '00000')
                 $error = 'Sikertelen hosszabbítás. Hiba történt a művelet során.';
@@ -324,7 +324,7 @@ class ReaderModel {
         if ($error)
             return ['error' => $error];
         else 
-            return ['tagsag' => $expiry->format('Y.m.d')];          
+            return ['tagsag' => $expiry->format('Y.m.d.')];          
     }
     
     function registerReader($felhasznaloi_nev,
