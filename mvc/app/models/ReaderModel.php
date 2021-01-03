@@ -118,7 +118,7 @@ class ReaderModel {
         if (strlen($olvasojegy_azonosito) != 8)
             $error .= 'Az olvasójegy azonosító pontosan 8 karakter hosszú számsor legyen.<br>';        
         if (strlen($felhasznaloi_nev) < 5 || strlen($felhasznaloi_nev) > 40 || 
-                !preg_match('/^[A-ZÁ-Űa-zá-ű]+[0-9]*$/', $felhasznaloi_nev))
+                !preg_match('/^[A-ZÁÉÍÓÖŐÚÜŰa-záéíóöőúüű]+[0-9]*$/', $felhasznaloi_nev))
             $error .= 'A felhasználói név minimum 5, maximum 40 karakter hosszú legyen és betűkből, számjegyekből álljon.<br>';        
         if (preg_match('/^[1,2][0-9]{3}\.[0,1][0-9]\.[0-3][0-9]\.$/', $szuletesi_datum))
             $passwd = str_replace('.', '', $szuletesi_datum);
@@ -129,18 +129,18 @@ class ReaderModel {
         if ($jelszo < 8 || $jelszo != $passwd)
             $error .= 'A jelszó a születési dátum számjegyeiből álljon év, hónap, nap sorrendben.<br>';
         if ((!empty($szuletesi_csaladi_nev) || !empty($szuletesi_utonev))
-                && (!preg_match('/^([A-ZÁ-Ű][a-zá-ű]+[ \-]?)+$/', $szuletesi_csaladi_nev) 
-                || !preg_match('/^([A-ZÁ-Ű][a-zá-ű]+[ ]?)+$/', $szuletesi_utonev)))
+                && (!preg_match('/^([A-ZÁÉÍÓÖŐÚÜŰ][a-záéíóöőúüű]+[ \-]?)+$/', $szuletesi_csaladi_nev) 
+                || !preg_match('/^([A-ZÁÉÍÓÖŐÚÜŰ][a-záéíóöőúüű]+[ ]?)+$/', $szuletesi_utonev)))
                 $error .= 'A születési családnév vagy utónév nem megfelelő formátumú.<br>';        
         if ((!empty($szuletesi_csaladi_nev) || !empty($szuletesi_utonev))
                 && (strlen($szuletesi_csaladi_nev) > 40  || strlen($szuletesi_utonev)>40))
                 $error .= 'A születési családnév és utónév maximum 40 karakter hosszúak lehetnek.<br>';        
-        if (!preg_match('/^([A-ZÁ-Ű][a-zá-ű]+[ ]?)+$/', $anyja_szuletesi_csaladi_neve)
-                || !preg_match('/^([A-ZÁ-Ű][a-zá-ű]+[ \-]?)+$/', $anyja_szuletesi_utoneve))
+        if (!preg_match('/^([A-ZÁÉÍÓÖŐÚÜŰ][a-záéíóöőúüű]+[ ]?)+$/', $anyja_szuletesi_csaladi_neve)
+                || !preg_match('/^([A-ZÁÉÍÓÖŐÚÜŰ][a-záéíóöőúüű]+[ \-]?)+$/', $anyja_szuletesi_utoneve))
                 $error .= 'Anyja születési családneve és utóneve nem megfelelő formátumú vagy nincs megadva.<br>';
         if (strlen($anyja_szuletesi_csaladi_neve) > 40  || strlen($anyja_szuletesi_utoneve)>40)
                 $error .= 'Az anya születési családneve és utóneve maximum 40 karakter hosszúak lehetnek.<br>';        
-        if (!preg_match('/^[A-ZÁ-Ű][a-zá-ű]+$/', $szuletesi_hely))
+        if (!preg_match('/^[A-ZÁÉÍÓÖŐÚÜŰ][a-záéíóöőúüű]+$/', $szuletesi_hely))
                 $error .= 'A születési hely nem megfelelő formátumú vagy nincs megadva.<br>';
         if (strlen($szuletesi_hely) > 40)
                 $error .= 'A születési hely maximum 40 karakter hosszú lehet.<br>';
@@ -158,25 +158,25 @@ class ReaderModel {
             $telefonszam, $email)
     {
         $error = '';       
-        if (!preg_match('/^([A-ZÁ-Ű][a-zá-ű]+[ \-]?)+$/', $csaladi_nev)
-                || !preg_match('/^([A-ZÁ-Ű][a-zá-ű]+[ ]?)+$/', $utonev))
+        if (!preg_match('/^([A-ZÁÉÍÓÖŐÚÜŰ][a-záéíóöőúüű]+[ \-]?)+$/', $csaladi_nev)
+                || !preg_match('/^([A-ZÁÉÍÓÖŐÚÜŰ][a-záéíóöőúüű]+[ ]?)+$/', $utonev))
                 $error .= 'A családnév vagy utónév nem megfelelő formátumú vagy nincs megadva.<br>';
         if (strlen($csaladi_nev) > 40  || strlen($utonev)>40)
                 $error .= 'A családnév és az utónév maximum 40 karakter hosszúak lehetnek.<br>';        
         if (!preg_match('/^[1-9][0-9]{3}$/', $lakcim_iranyitoszam))
                 $error .= 'Az irányítószám nem megfelelő formátumú vagy nincs megadva.<br>';
-        if (!preg_match('/^[A-ZÁ-Ű][a-zá-ű]+$/', $lakcim_varos))
+        if (!preg_match('/^[A-ZÁÉÍÓÖŐÚÜŰ][a-záéíóöőúüű]+$/', $lakcim_varos))
                 $error .= 'A város nem megfelelő formátumú vagy nincs megadva.<br>';
         if (strlen($lakcim_varos) > 40)
                 $error .= 'A lakcím város megnevezése maximum 40 karakter hosszú lehet.<br>';        
-        if (!preg_match('/^([A-ZÁ-Ű][a-zá-ű\-]+\s)([A-ZÁ-Űa-zá-ű\-\.]*\s?)+$/', $lakcim_utca)
+        if (!preg_match('/^([A-ZÁÉÍÓÖŐÚÜŰ][a-záéíóöőúüű]+\s)([A-ZÁÉÍÓÖŐÚÜŰŐa-záéíóöőúüű\-\.]*\s?)+$/', $lakcim_utca)
                 || !(substr($lakcim_utca, -4) == "utca"  
                 || substr($lakcim_utca, -2) == "út" 
                 || substr($lakcim_utca, -2) == "u."  
                 || substr($lakcim_utca, -3) == "tér"  
                 || substr($lakcim_utca, -5) == "körút"  
                 || substr($lakcim_utca, -4) == "krt."))
-            $error .= 'Az utca mező nem megfelelő formátumú vagy nincs megadva.<br>';        
+            $error .= 'Az közterület neve nem megfelelő formátumú vagy nincs megadva.<br>';        
         if (strlen($lakcim_utca) > 40)
                 $error .= 'A lakcím utca megnevezése maximum 40 karakter hosszú lehet.<br>';
         if (strlen($lakcim_hazszam) > 40)
