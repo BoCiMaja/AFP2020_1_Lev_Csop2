@@ -1,3 +1,8 @@
+<?php
+    $tagsag_ervenyes = new DateTime(date('Y-m-d'));
+    $tagsag_ervenyes->modify('+1 year');
+    $tagsag_ervenyes = $tagsag_ervenyes->format('Y-m-d');
+?>
         <article>
             <form method="POST" action="<?=BASEURL?>/reader/register">
                 <div class="container">          
@@ -39,7 +44,8 @@
                             <label for="email">E-mail cím:</label>
                             <input type="email" id="email" name="email" tabindex="16"><br/>
                             <label for="tagsag_datum">Tagság érvényes:</label>
-                            <input type="text" id="tagsag_datum" name="tagsag_ervenyesseg" tabindex="18"><br/>
+                            <input type="text" id="tagsag_datum" name="tagsag_ervenyesseg" tabindex="18"
+                                   value="<?=$tagsag_ervenyes?>" disabled><br/>
                     </div>
                     <input type="submit" name="submit" value="Olvasó felvétele nyilvántartásba" tabindex="19">
                 </div>
