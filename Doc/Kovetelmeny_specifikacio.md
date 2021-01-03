@@ -179,8 +179,9 @@ K10|V1.0|Rendszer migrálásának lehetősége|Amennyiben szükséges a rendszer
 
 - **ETO jelzet**: nemzetközi könyvtári osztályozórendszer, amely az ismeretterjesztő és szakdokumentumokat 
 	a tartalmuk szerint csoportosítja, és osztályokba rendezi.
-- **cutter**: a könyvtár polcain, illetve a raktárban található helyére utaló azonosító, amely a szerző vezetéknevének 
-	kezdőbetűjéből, és egy számból áll, mely a szerző és a cím ábécé sorrend szerinti helyére vonatkozik ezen belül.
+- **cutter**: a könyvtár polcain, illetve a raktárban található helyére utaló azonosító, amely szakirodalom esetén tartalmazza
+a szakjelzetet valamint mind szakirodalom, mind szépirodalom esetén a szerző vezetéknevének kezdőbetűjéből, és egy számból álló jelzetet, 
+mely a szerző és a cím ábécé sorrend szerinti helyére vonatkozik ezen belül.  
 - **raktári szám**: minden, a könyvtárban található könyvhöz tartozó egyedi 6 számjegyű azonosító.
 - **ISBN szám**: International Standard Book Number, 13 jegyű (a 2007. január 1. előtt kiadott könyveknél 10 jegyű) 
 	azonosítószám, a könyvek és egyéb monografikus jellegű művek nyilvántartására szolgáló nemzetközi 

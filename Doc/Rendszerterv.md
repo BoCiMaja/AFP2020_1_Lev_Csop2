@@ -578,7 +578,8 @@ Az űrlap mezői és a bevitt adatokkal szemben támasztott követelmények:
 ||Adminisztrátori jogosultság|1. Opcionális, checkbox ||    
 
 További követelmény, hogy azonos személyes adatokkal (Családi név, Utónév, Születési hely, Születési dátum, Anyja születési családi neve,
-Anyja születési utóneve) már regisztrált felhasználót ne lehessen újra regisztrálni.  
+Anyja születési utóneve) már regisztrált felhasználót ne lehessen újra regisztrálni. Valamint, hogy a szöveg jellegű mezőkbe bevitt adatok 
+hossza nem haladhatja meg az adatbázisban felvett maximális hossz értékét.  
 
 **Tesztesetek:**  
 1. Bevitt adatok helyesek, megfelelnek a követelményeknek.  
@@ -683,6 +684,8 @@ mezőjébe belekattint, és a vonalkód olvasóval beolvassa az olvasójegyen l�
 ||E-mail cím|1. Opcionális 2. Kötött formátumú: fióknév@domainnév, domainnév létező domainnév legyen||
 ||Olvasójegy azonosító|1. Kötelező 2. Vonalkód olvasó esetén automatikus 3. Kötött formátumú: 13 számjegy||    
 ||Tagság érvényessége|1. Automatikus, az regisztrációtól számított 1 év 2. Dátum formátumú: éééé.hh.nn||
+  
+További követelmény, hogy a szöveg jellegű mezőkbe bevitt adatok hossza nem haladhatja meg az adatbázisban felvett maximális hossz értékét.  
 
 **Tesztesetek:**  
 1. Bevitt adatok helyesek, megfelelnek a követelményeknek.  
@@ -778,9 +781,8 @@ táblázatban szereplő adatait felviszi. Ha befejezte az adatok felvitelét az 
 ||ETO jelzet|1. Kötelező 2. Kötött formátum: 3jegyű szám.szám ||
 ||Tárgyszavak|1. Kötelező 2. Kötött formátum: kisbetűs szavak, szóösszetételek vesszővel elválasztva||
 ||Azonosító|1. Kötelező 2. Kötött formátum: 13 jegyű vonalkód azonosító 3. Egyedi minden példány esetén||
-
-Mivel az adatbázisban külön tároljuk a Könyv egyed adatait és a Példány egyed adatait, új könyv felvétele során az adatbázis mindkét 
-tábláját kell ellenőrizni.  
+  
+További követelmény, hogy a szöveg jellegű mezőkbe bevitt adatok hossza nem haladhatja meg az adatbázisban felvett maximális hossz értékét.  
 
 **Tesztesetek:**  
 1. Teljesen új könyv (nem másodpéldány) felvétele katalógusba a fenti táblázatban szereplő követelményeknek megfelelő adatokkal. 
@@ -790,7 +792,9 @@ ha megfelelő keresési feltételeket adunk meg.
 2. Másodpéldány felvétele katalógusba a fenti táblázatban szereplő követelményeknek megfelelő adatokkal. Elvárt eredmény: új rekord 
 az adatbázis Példány táblájában, megfelelő külső kulccsal a megadott ISBN számú Könyv rekordra. Az *Egyszerű keresés* és *Részletes keresés* 
 művelet során kilistázza az új könyvet, ha megfelelő keresési feltételeket adunk meg.  
-3. A követelményeknek nem megfelelően kitöltött űrlap. Elvárt eredmény: a rendszer hibaüzenetben jelzi ezt a könyvtáros felhasználó számára. 
+3. Új könyv felvétele során az adatbázisba már felvett könyv ISBN száma megadása úgy, hogy a szerző vagy a cím nem mutat egyezést. 
+Elvárt eredmény: a rendszer hibaüzenetben jelzi, hogy az ISBN számhoz másik könyv tartozik.
+4. A követelményeknek nem megfelelően kitöltött űrlap. Elvárt eredmény: a rendszer hibaüzenetben jelzi ezt a könyvtáros felhasználó számára. 
 Nem jelenik meg új rekord az adatbázisban. Keresés eredménytelen.   
 
 
