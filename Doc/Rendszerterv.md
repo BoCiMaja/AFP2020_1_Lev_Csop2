@@ -674,11 +674,7 @@ hossza nem haladhatja meg az adatbázisban felvett maximális hossz értékét.
 **Tesztesetek:**  
 1. Bevitt adatok helyesek, megfelelnek a követelményeknek.  
 Elvárt eredmény:  
-<<<<<<< HEAD
-a) A Könyvtáros táblában megjelenik a regisztrált felhasználó rekordja az űrlapban megadott értékekkel. Ellenőrzés a Könyvtáros/Adatok módosítása menüponton keresztül történik.  
-=======
-a) A Könyvtáros táblában megjelenik a regisztrált felhasználó rekordja az űrlapban megadott értékekkel. Ellenőrzés a Könyvtáros/Adatmódosítás almenüponton keresztül.
->>>>>>> 4b8142314f0961e3c5d72ea3888f42d9c969b78e
+a) A Könyvtáros táblában megjelenik a regisztrált felhasználó rekordja az űrlapban megadott értékekkel. Ellenőrzés a Könyvtáros/Adatmódosítás almenüponton keresztül.  
 b) A regisztrált könyvtáros be tud lépni a rendszerbe a weboldal kezdőoldalán található Belépés menüponton keresztül a megadott 
 felhasználónévvel és jelszóval, és a jogosultságának megfelelő navigációs sáv elérhető számára.  
 c) A könyvtáros a rendszerbe való belépést követően a *Személyes adatok* menüpontra kattintva tudja ellenőrizni a felvett adatokat.  
