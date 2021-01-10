@@ -15,8 +15,8 @@
                     <ul class="subnav">
 			<li><a href="konyvkeresesesz.html">Egyszerű keresés</a></li>
                         <li><a href="konyvkereses.html">Részletes keresés</a></li>
-			<li><a href="konyvfelvetel.html">Új könyv felvétele</a></li>
-                        <li><a href="konyvtorles.html">Könyv leselejtezése</a></li>                        
+			<li><a href="<?=BASEURL?>/book/register">Új könyv felvétele</a></li>
+                        <li><a href="<?=BASEURL?>/book/delete">Könyv leselejtezése</a></li>                        
                         <li><a href="leltarinditas.html">Teljes leltár indítása</a></li>
                         <li><a href="leltarbavetel.html">Teljes leltár folytatása</a></li>
                         <li><a href="leltarvege.html">Teljes leltár vége</a></li>
