@@ -106,7 +106,11 @@ class LibrarianModel {
         {
             $error = 'Adatbázis hiba: ' . $e->getMessage();
             return $error;
-        }        
+        }
+        if (strlen($felhasznaloi_nev) < 5 || strlen($felhasznaloi_nev) > 40 || 
+                !preg_match('/^[A-ZÁ-Űa-zá-ű]+[0-9]*$/u', $felhasznaloi_nev))
+            $error .= 'A felhasználói név minimum 5, maximum 40 karakter hosszú legyen és betűkből, számjegyekből álljon.<br>';        
+                
         if (strlen($jelszo) < 8)
             $error .= 'A jelszó túl rövid, minimum 8 karakter hosszú legyen.<br>';
         if ((!empty($szuletesi_csaladi_nev) || !empty($szuletesi_utonev))
@@ -162,7 +166,7 @@ class LibrarianModel {
         if (strlen($lakcim_hazszam) > 40)
                 $error .= 'A lakcím házszám megnevezése maximum 40 karakter hosszú lehet.<br>';
         if (!empty($telefonszam) && !preg_match('/^[0-9]{11}$/', $telefonszam))
-            $error .= 'A telefonszamnak 11 számjegyből kell állnia. <br>';
+            $error .= 'A telefonszámnak 11 számjegyből kell állnia. <br>';
         if (!empty($email))
         {
             if(!preg_match('/^[a-zA-Z0-9]+[a-zA-Z0-9\_\-\.]*@([a-zA-Z0-9]+\.)+[a-z]{2,3}$/', $email))
@@ -231,14 +235,24 @@ class LibrarianModel {
     }
        
    
-    public function registerLibrarian($data) 
+    public function registerLibrarian($felhasznaloi_nev,
+                            $jelszo,
+                            $csaladi_nev,
+                            $utonev,
+                            $szuletesi_csaladi_nev,
+                            $szuletesi_utonev,
+                            $szuletesi_hely,
+                            $szuletesi_datum,
+                            $anyja_szuletesi_csaladi_neve,
+                            $anyja_szuletesi_utoneve,            
+                            $lakcim_iranyitoszam,
+                            $lakcim_varos,
+                            $lakcim_utca,
+                            $lakcim_hazszam,
+                            $telefonszam,
+                            $email,
+                            $librarianAdminRights) 
     {
-        if (array_key_exists('admin', $data) && $data['admin']='on'){
-            $librarianAdminRights = '1';
-        }
-        else{
-            $librarianAdminRights = '0';
-        }
         
         $error = '';
         try
@@ -254,22 +268,22 @@ class LibrarianModel {
                     . ":telefonszam, :email, :admin)";       
                     
             $stmt = $db->prepare($query);
-            $stmt->bindValue(':felhasznaloi_nev', $data['felhasznaloi_nev']);
-            $stmt->bindValue(':jelszo', $data['jelszo']);
-            $stmt->bindValue(':csaladi_nev', $data['csaladi_nev']);
-            $stmt->bindValue(':utonev', $data['utonev']);
-            $stmt->bindValue(':szuletesi_csaladi_nev', $data['szuletesi_csaladi_nev']);
-            $stmt->bindValue(':szuletesi_utonev', $data['szuletesi_utonev']);
-            $stmt->bindValue(':szuletesi_hely', $data['szuletesi_hely']);
-            $stmt->bindValue(':szuletesi_datum', $data['szuletesi_datum']);
-            $stmt->bindValue(':anyja_szuletesi_csaladi_neve', $data['anyja_szuletesi_csaladi_neve']);
-            $stmt->bindValue(':anyja_szuletesi_utoneve', $data['anyja_szuletesi_utoneve']);
-            $stmt->bindValue(':lakcim_iranyitoszam', $data['lakcim_iranyitoszam']);
-            $stmt->bindValue(':lakcim_varos', $data['lakcim_varos']);
-            $stmt->bindValue(':lakcim_utca', $data['lakcim_utca']);
-            $stmt->bindValue(':lakcim_hazszam', $data['lakcim_hazszam']);
-            $stmt->bindValue(':telefonszam', $data['telefonszam']);
-            $stmt->bindValue(':email', $data['email']);
+            $stmt->bindValue(':felhasznaloi_nev', $felhasznaloi_nev);
+            $stmt->bindValue(':jelszo', $jelszo);
+            $stmt->bindValue(':csaladi_nev', $csaladi_nev);
+            $stmt->bindValue(':utonev', $utonev);
+            $stmt->bindValue(':szuletesi_csaladi_nev', $szuletesi_csaladi_nev);
+            $stmt->bindValue(':szuletesi_utonev', $szuletesi_utonev);
+            $stmt->bindValue(':szuletesi_hely', $szuletesi_hely);
+            $stmt->bindValue(':szuletesi_datum', $szuletesi_datum);
+            $stmt->bindValue(':anyja_szuletesi_csaladi_neve', $anyja_szuletesi_csaladi_neve);
+            $stmt->bindValue(':anyja_szuletesi_utoneve', $anyja_szuletesi_utoneve);
+            $stmt->bindValue(':lakcim_iranyitoszam', $lakcim_iranyitoszam);
+            $stmt->bindValue(':lakcim_varos', $lakcim_varos);
+            $stmt->bindValue(':lakcim_utca', $lakcim_utca);
+            $stmt->bindValue(':lakcim_hazszam', $lakcim_hazszam);
+            $stmt->bindValue(':telefonszam', $telefonszam);
+            $stmt->bindValue(':email', $email);
             $stmt->bindValue(':admin', $librarianAdminRights);
             $stmt->execute();
             if ($stmt->errorCode() != '00000')

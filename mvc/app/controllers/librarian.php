@@ -29,9 +29,15 @@ class Librarian extends Controller {
             $lakcim_hazszam = trim($_POST['lakcim_hazszam']);
             $telefonszam = trim($_POST['telefonszam']);
             $email = trim($_POST['email']);
+            if (array_key_exists('admin', $_POST) && $_POST['admin']='on'){
+                $librarianAdminRights = '1';
+            }
+            else{
+                $librarianAdminRights = '0';
+            }
             
             $error = $librarianModel->validateLibrarianData1(
-                        $olvasojegy_azonosito, $felhasznaloi_nev, $jelszo,
+                        $felhasznaloi_nev, $jelszo,
                         $szuletesi_csaladi_nev, $szuletesi_utonev, 
                         $anyja_szuletesi_csaladi_neve, $anyja_szuletesi_utoneve,
                         $szuletesi_hely, $szuletesi_datum);
@@ -55,10 +61,11 @@ class Librarian extends Controller {
                                                         $lakcim_utca,
                                                         $lakcim_hazszam,
                                                         $telefonszam,
-                                                        $email);
+                                                        $email,
+                                                        $librarianAdminRights);
             
             if (!$error)
-                $message = 'Az könyvtárost sikeresen regisztrálta a nyilvántartásban.';
+                $message = 'A könyvtárost sikeresen regisztrálta a nyilvántartásban.';
             else 
                 $message = $error;
             
