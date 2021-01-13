@@ -12,18 +12,17 @@
                 </li>
 		<li class="dropdown"><a href="#">Könyvtáros</a>
                     <ul class="subnav">
-                        <li><a href="konyvtarosfelvetel.html">Regisztráció</a></li>
-			<li><a href="konyvtarosadatok.html">Adatok módosítása</a></li>
-                        <li><a href="konyvtarostorles.html">Törlés</a></li>						
+                        <li><a href="<?=BASEURL?>/librarian/register">Regisztráció</a></li>
+			<li><a href="<?=BASEURL?>/librarian/choose/update">Adatok módosítása</a></li>
+                        <li><a href="<?=BASEURL?>/librarian/choose/delete">Törlés</a></li>						
                     </ul>
                 </li>
 		<li class="dropdown"><a href="#">Katalógus</a>
                     <ul class="subnav">
 			<li><a href="konyvkeresesesz.html">Egyszerű keresés</a></li>
                         <li><a href="konyvkereses.html">Részletes keresés</a></li>
-                        <li><a href="konyvfelvetel.html">Új könyv felvétele</a></li>
-                        <li><a href="konyvtorles.html">Könyv leselejtezése</a></li>
-                        <li><a href="lejartkonyvek.html">Lejárt határidős könyvek</a></li>
+                        <li><a href="<?=BASEURL?>/book/register">Új könyv felvétele</a></li>
+                        <li><a href="<?=BASEURL?>/book/delete">Könyv leselejtezése</a></li>                        
 			<li><a href="leltarinditas.html">Teljes leltár indítása</a></li>
 			<li><a href="leltarbavetel.html">Teljes leltár folytatása</a></li>
 			<li><a href="leltarvege.html">Teljes leltár vége</a></li>
@@ -34,6 +33,7 @@
                         <li><a href="konyvkiadas.html">Könyv kiadása</a></li>
                         <li><a href="konyvvisszavet.html">Könyv visszavétele</a></li>						                        
 			<li><a href="hosszabbitas.html">Hosszabbítás</a></li>
+                        <li><a href="lejartkonyvek.html">Lejárt határidős könyvek</a></li>
                     </ul>
                 </li>
                 <li class="dropdown" id="user"><a href="#">Belépve: <?php echo $_SESSION['username']?></a>

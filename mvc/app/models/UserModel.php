@@ -179,7 +179,7 @@ class UserModel {
         
         if (!$error)
         {
-            if (strlen($newpwd1) >= 4 && $newpwd1 == $newpwd2)
+            if (strlen($newpwd1) >= 8 && $newpwd1 == $newpwd2)
             {
                 try {                                                  
                     if ($rights == 'olvaso')
@@ -207,7 +207,7 @@ class UserModel {
             }
             else
             {
-                $error .= 'Az új jelszó nem elég hosszú vagy nem egyezik meg a megerősítő mezőben levővel.';
+                $error .= 'Az új jelszó nincs min. 8 karakter hosszú, vagy nem egyezik meg a megerősítő mezőben levővel.';
             }
         }
         
