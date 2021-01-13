@@ -50,7 +50,7 @@ A szoftverekben meglévő hibák felderítése még az üzembehelyezés előtt.
 ||Honlap|Kezdőlap funkciók elkészítése|      2 |       8 |                8 |         0 |             8 ||
 ||Honlap|Login funkció megvalósítás|         2 |       8 |                8 |         0 |             8 ||
 ||Website|Katalógus funkció|                 2 |       8 |                8 |         0 |             8 ||
-||Website|Olvasókhoz tartozó funkció|        2 |       8 |                8 |         0 |             8 ||
+||Website|Olvasókhoz tartozó funkciók|       2 |       8 |                8 |         0 |             8 ||
 ||Website|Könyvtáros funkciók kezelése|      2 |       8 |                8 |         0 |             8 ||
 ||Website|Tesztelés|                         2 |      16 |               16 |         0 |            16 ||
 
@@ -300,8 +300,8 @@ Nincsenek vásárolt szoftverkomponensek.
 
 ### 6.2 Hardver és hálózati topológia
 
-- Az alkalmazás web platformra készűl.
-- Internet böngészőn keresztűl érhető el a felhasználó felület.
+- Az alkalmazás web platformra készül.
+- Internet böngészőn keresztül érhető el a felhasználó felület.
 - Szerverhez kapcsolódnak:
 -- kliens gépek a helyi hálózaton 
 -- interneten bárki számára elérhető honlap  
