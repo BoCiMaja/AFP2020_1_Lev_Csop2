@@ -12,7 +12,7 @@ Product owner: Szűcs János
 A prioritással és üzleti értékkel ellátott felhasználói sztorikat tartalmazó Product Backlog létrehozása és felügyelete.
 
 Üzleti szereplők (Stakeholders):
-- Megrendelő:  
+- Megrendelő: Az önkormányzat városi könyvtára.  
 
 ### 2.2 Projektmunkások és felelősségeik
 
@@ -32,7 +32,7 @@ Tesztelés:
 - Jakab Zsolt
 - Németh Richárd
 - Szűcs János
-A szoftverekben meglévő hibák felderítése még az üzembehelyezés előtt. 
+A szoftverekben meglévő hibák felderítése még az üzembe helyezés előtt. 
   
 ### 2.3 Ütemterv
 
@@ -310,7 +310,7 @@ Nincsenek vásárolt szoftverkomponensek.
 
 - Webszerver: 80-as porton elérhető HTTP szolgáltatás 
 - Mysql adatbázis szerver
-- Kliens gépek: a követelményeknek megfelelő internet böngésző futtatására alklamas PC-k.
+- Kliens gépek: a követelményeknek megfelelő internet böngésző futtatására alkalmas PC-k.
 
 ### 6.4 Fejlesztő eszközök
 
@@ -321,8 +321,8 @@ Nincsenek vásárolt szoftverkomponensek.
 
 ## 8. Architekturális terv
 
-Az Apache http szerveren futó alkalmazás szolgálja ki webes felületen keresztűl a rendszer felhasználóit.
-A felhasználó felület böngészőben megjelenő html oldalak formájában érhető el, ezen keresztűl tudják a felhasználók a rendszert használni.
+Az Apache http szerveren futó alkalmazás szolgálja ki webes felületen keresztül a rendszer felhasználóit.
+A felhasználó felület böngészőben megjelenő html oldalak formájában érhető el, ezen keresztül tudják a felhasználók a rendszert használni.
 Az adatok tárolása a MySql adatbázis szerveren történik.
 
 
@@ -337,7 +337,7 @@ Adatbázis szerver (Adatbázis) <-------> Webszerver (Üzleti logika) <-------> 
 
 ### 8.3 Változások kezelése
 
-Minden változás lekezelése szerver oldalon történik, a kliens oldalon nincs szükség új komonensek telepítésére.  
+Minden változás lekezelése szerver oldalon történik, a kliens oldalon nincs szükség új komponensek telepítésére.  
 
 
 ## 9. Adatbázisterv  
