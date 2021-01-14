@@ -318,6 +318,249 @@ class BookModel {
         }
         return $rows;
     }
+	
+	/*** KERESÉSEK ***/     
+    public function simpleSearch($text) {
+        $rows = null; 
+        $text = trim($text);
+        
+        //egész keresősztring szópermutációinak (szerző miatt szükséges) keresése vagy kapcsolattal
+        try {            
+            
+            if (!empty($text))
+            {
+                $text_arr = explode(' ', $text);
+                for ($i = 0;$i<count($text_arr); $i++)
+                    $text_arr[$i] = trim($text_arr[$i],", ");
+                $n = count($text_arr);  
+                $this->search_strings = null;
+                $this->heapPermutation($text_arr, $n, $n);            
+            }
+            
+            if (count($this->search_strings) > 0)
+            {
+                $db = new PDO(DB_DSN, DB_USR_LIB, DB_PWD_LIB);            
+                $query = "SELECT k.szerzok, k.cim, k.kiadasi_ev, count(p.isbn) AS peldany, k.isbn "
+                        . "FROM Konyvek k JOIN Peldanyok p ON k.isbn=p.isbn "                    
+                        . "WHERE ";                                
+                foreach ($this->search_strings as $string)
+                    $query .= "k.szerzok LIKE '%$string%' OR ";                
+                foreach ($this->search_strings as $string)
+                    $query .= "k.cim LIKE '%$string%' OR ";
+                foreach ($this->search_strings as $string)
+                    $query .= "k.targyszavak LIKE '%$string%' OR ";               
+                $query = rtrim($query, "OR ");           
+                $query .= " GROUP BY p.isbn ORDER BY k.szerzok, k.cim";                
+                $stmt = $db->prepare($query);                 
+                $stmt->execute();
+                while ($row = $stmt->fetch(PDO::FETCH_OBJ))                            
+                    $rows[] = $row;                            
+                if ($rows != null)        
+                    return $rows; 
+            }
+        }
+        catch (PDOException $e)
+        {
+            die('Adatbázis hiba: ' . $e->getMessage());                                   
+        }        
+         
+        //a keresősztring szavainak külön-külön keresése vagy kapcsolattal
+        try {            
+            $words = null;
+            if (!empty($text) && count(explode(' ', $text)) > 1)
+            {                
+                $words = explode(' ', $text);
+                for ($i = 0;$i<count($words); $i++)
+                    $words[$i] = trim($words[$i],", ");                
+            }            
+            
+            if ($words != null)
+            {
+                $query = "SELECT k.szerzok, k.cim, k.kiadasi_ev, k.isbn, count(p.isbn) as peldany "
+                        . "FROM Konyvek k JOIN Peldanyok p ON k.isbn=p.isbn "                    
+                        . "WHERE ";
+                foreach ($words as $word)
+                    $query .= "k.szerzok LIKE '%".$word."%' OR ";                
+                foreach ($words as $word)
+                    $query .= "k.cim LIKE '%".$word."%' OR ";
+                foreach ($words as $word)
+                    $query .= "k.targyszavak LIKE '%".$word."%' OR ";
+                $query = rtrim($query, "OR "); 
+                $query .= " GROUP BY p.isbn ORDER BY k.szerzok, k.cim";
+                $stmt = $db->prepare($query);                
+            }
+            else
+            {
+                $query = "SELECT k.szerzok, k.cim, k.kiadasi_ev, k.isbn, count(p.isbn) as peldany "
+                        . "FROM Konyvek k JOIN Peldanyok p ON k.isbn=p.isbn "                    
+                        . "WHERE k.szerzok LIKE :szerzok OR "
+                        . "k.cim LIKE :cim OR k.targyszavak LIKE :targyszavak "
+                        . "GROUP BY p.isbn ORDER BY k.szerzok, k.cim";            
+                $stmt = $db->prepare($query);
+                $stmt->bindValue(':szerzok', '%'.$text.'%' );
+                $stmt->bindValue(':cim', $text.'%');
+                $stmt->bindValue(':targyszavak', '%'.$text.'%');
+            }
+            $stmt->execute();
+            while ($row = $stmt->fetch(PDO::FETCH_OBJ))                            
+                $rows[] = $row;                  
+            return $rows;
+        }
+        catch (PDOException $e)
+        {
+            die('Adatbázis hiba: ' . $e->getMessage());                                   
+        }        
+    }
+         
+    public function detailedSearch($data) {
+        $isbn = trim($data['ISBN']);
+        if (empty($isbn)) $isbn='%';
+        $szerzok = trim($data['szerzok']);
+        if (empty($szerzok)) $szerzok='%';
+        $cim = trim($data['cim']);
+        if (empty($cim)) $cim='%';
+        $kiado = trim($data['kiado']);
+        if (empty($kiado)) $kiado='%';
+        $kiadasi_ev = trim($data['kiadasi_ev']);
+        if (empty($kiadasi_ev)) $kiadasi_ev='%';
+        $cutter = trim($data['cutter']);
+        if (empty($cutter)) $cutter='%';
+        $eto_jelzet = trim($data['ETO_jelzet']);
+        if (empty($eto_jelzet)) $eto_jelzet='%';
+        $oldalak_szama = trim($data['oldalak_szama']);
+        if (empty($oldalak_szama)) $oldalak_szama='%';
+        $targyszavak = trim($data['targyszavak']); 
+        if (empty($targyszavak)) $targyszavak='%';
+        $azonosito = trim($data['azonosito']);
+        if (empty($azonosito)) $azonosito='%';
+        
+        if (!empty($szerzok))
+        {
+            $sznevek = explode(' ', $szerzok);
+            for ($i = 0;$i<count($sznevek); $i++)
+                $sznevek[$i] = trim($sznevek[$i],", ");
+            $n = count($sznevek);
+            $this->search_strings = null;
+            $this->heapPermutation($sznevek, $n, $n);            
+        }
+        
+        $rows = null;
+        try {            
+            $db = new PDO(DB_DSN, DB_USR_LIB, DB_PWD_LIB);
+            $query = "SELECT k.szerzok, k.cim, k.kiadasi_ev, count(p.isbn) AS peldany, k.isbn "
+                    . "FROM Konyvek k JOIN Peldanyok p ON k.isbn=p.isbn "                    
+                    . "WHERE k.cim LIKE :cim ";
+            if (count($this->search_strings) > 0)
+            {
+                $query .= " AND (";
+                foreach ($this->search_strings as $string)
+                    $query .= "k.szerzok LIKE '$string' OR ";
+                $query = rtrim($query, "OR ");
+                $query .= ") ";
+            } 
+            $query .= "AND k.kiado LIKE :kiado "
+                    . "AND k.kiadasi_ev LIKE :kiadasi_ev "
+                    . "AND k.cutter LIKE :cutter "
+                    . "AND k.eto_jelzet LIKE :eto_jelzet "
+                    . "AND k.oldalak_szama LIKE :oldalak_szama "
+                    . "AND k.targyszavak LIKE :targyszavak "
+                    . "AND p.azonosito LIKE :azonosito "
+                    . "GROUP BY p.isbn ORDER BY k.szerzok, k.cim";
+            $stmt = $db->prepare($query);            
+            $stmt->bindValue(':cim', $cim.'%');
+            $stmt->bindValue(':kiado', $kiado.'%');
+            $stmt->bindValue(':kiadasi_ev', $kiadasi_ev);
+            $stmt->bindValue(':cutter', $cutter);
+            $stmt->bindValue(':eto_jelzet', $eto_jelzet);
+            $stmt->bindValue(':oldalak_szama', $oldalak_szama);
+            $stmt->bindValue(':targyszavak', '%'.$targyszavak.'%');
+            $stmt->bindValue(':azonosito', $azonosito);            
+            $stmt->execute();
+            while ($row = $stmt->fetch(PDO::FETCH_OBJ))                            
+                $rows[] = $row;            
+        }
+        catch (PDOException $e)
+        {
+            die('Adatbázis hiba: ' . $e->getMessage());                                   
+        }
+        return $rows;        
+    }
+    
+    private $search_strings;
+        
+    private function generateSearchString($arr, $n)
+    {
+        $result = $arr[0];
+        for ($i = 1; $i < $n; $i++)
+            $result .= '%' . $arr[$i];        
+        $this->search_strings[] = $result;
+    }
+    
+    // Generating permutation using Heap Algorithm for search string
+    private function heapPermutation($arr, $size, $n)
+    {
+        if ($size == 1) {
+            $this->generateSearchString($arr, $n);            
+            return;
+        }
+
+        for ($i = 0; $i < $size; $i++) {
+            $this->heapPermutation($arr, $size - 1, $n);
+            if ($size % 2 == 1)
+                $arr = $this->array_swap($arr, 0, $size - 1);
+            else
+                $arr = $this->array_swap($arr, $i, $size - 1);
+        }
+    }
+    
+    private function array_swap($arr, $i, $j)
+    {
+        $tmp = $arr[$i];
+        $arr[$i] = $arr[$j];
+        $arr[$j] = $tmp;
+        return $arr;
+    }
+       
+    public function getFreeBooksByIsbn($isbn) {
+        $rows = null;
+        try {
+            $db = new PDO(DB_DSN, DB_USR_LIB, DB_PWD_LIB);            
+            $query = "SELECT Azonosito FROM Peldanyok WHERE isbn = :isbn AND "
+                    . "Azonosito NOT IN (SELECT p.Azonosito "
+                    . "FROM Peldanyok p JOIN Kolcsonzesek k ON p.azonosito=k.peldany_id "
+                    . "WHERE p.isbn = :isbn AND k.Kolcsonzes_vege IS NULL)";
+            $stmt = $db->prepare($query);            
+            $stmt->bindValue(':isbn', $isbn);            
+            $stmt->execute();
+            while ($row = $stmt->fetch(PDO::FETCH_OBJ))                            
+                $rows[] = $row;           
+        }
+        catch (PDOException $e)
+        {
+            die('Adatbázis hiba: ' . $e->getMessage());                                   
+        }
+        return $rows;
+    }
+
+    public function getBorrowedBooksByIsbn($isbn) {
+        $rows = null;
+        try {
+            $db = new PDO(DB_DSN, DB_USR_LIB, DB_PWD_LIB);       
+            $query = "SELECT p.Azonosito, DATE_ADD(k.Kolcsonzes_kezdete, INTERVAL 1 MONTH) AS Hatarido "
+                    . "FROM Peldanyok p JOIN Kolcsonzesek k ON p.azonosito=k.peldany_id "
+                    . "WHERE p.isbn = :isbn AND k.Kolcsonzes_vege IS NULL ORDER BY Hatarido";
+            $stmt = $db->prepare($query);            
+            $stmt->bindValue(':isbn', $isbn);            
+            $stmt->execute();
+            while ($row = $stmt->fetch(PDO::FETCH_OBJ))                            
+                $rows[] = $row;                     
+        }
+        catch (PDOException $e)
+        {
+            die('Adatbázis hiba: ' . $e->getMessage());                                   
+        }
+        return $rows;
+    }
     
     /*** KÖLCSÖNZÉS ***/
     public function isBookBorrowed($peldany_id) {

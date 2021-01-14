@@ -211,6 +211,103 @@ class Book extends Controller {
         }
     }
     
+	public function simpleSearch() {
+        session_start();
+        if (isset($_SESSION['rights']))
+            $rights = $_SESSION['rights'];
+        else 
+            $rights = '';
+        
+        if (array_key_exists('submit', $_POST) && !empty($_POST['szoveg'])) {
+            $bookModel = $this->model('BookModel');            
+            $books = $bookModel->simpleSearch($_POST['szoveg']);            
+            if ($books != null)
+            {
+                $this->view('header/header_lista_1');
+                $this->viewNavigation($rights);
+                $this->view('book/kereses_talalatok', $books);
+            }
+            else {
+                $this->view('header/header_urlap_1');
+                $this->viewNavigation($rights);
+                $this->view('book/uzenet', ["Nincs a keresési feltételeknek megfelelő könyv."]);
+            }
+            
+        }
+        else {
+            $this->view('header/header_urlap_1');
+            $this->viewNavigation($rights);
+            $this->view('book/kereses_egyszeru');
+        }        
+    }
+    
+    private function isEmptyPost($data) {
+        if (empty(trim($data['ISBN'])) && 
+            empty(trim($data['szerzok'])) &&
+            empty(trim($data['cim'])) &&
+            empty(trim($data['kiado'])) &&
+            empty(trim($data['kiadasi_ev'])) &&
+            empty(trim($data['cutter'])) &&
+            empty(trim($data['ETO_jelzet'])) &&
+            empty(trim($data['oldalak_szama'])) &&
+            empty(trim($data['targyszavak'])) && 
+            empty(trim($data['azonosito'])))
+            return true;
+        else
+            return false;               
+    }
+    
+    public function detailedSearch() {
+        session_start();
+        if (isset($_SESSION['rights']))
+            $rights = $_SESSION['rights'];
+        else 
+            $rights = '';
+        
+        if (array_key_exists('submit', $_POST) && !$this->isEmptyPost($_POST)) {
+            $bookModel = $this->model('BookModel');            
+            $books = $bookModel->detailedSearch($_POST);            
+            if ($books != null)
+            {
+                $this->view('header/header_lista_1');
+                $this->viewNavigation($rights);
+                $this->view('book/kereses_talalatok', $books);
+            }
+            else {
+                $this->view('header/header_urlap_1');
+                $this->viewNavigation($rights);
+                $this->view('book/uzenet', ["Nincs a keresési feltételeknek megfelelő könyv."]);
+            }             
+        }
+        else {
+            $this->view('header/header_urlap_2');
+            $this->viewNavigation($rights);
+            $this->view('book/kereses_reszletes');
+        }        
+    }
+    
+    public function details($isbn) {
+        session_start();
+        if (isset($_SESSION['rights']))
+            $rights = $_SESSION['rights'];
+        else 
+            $rights = '';
+        
+        $bookModel = $this->model('BookModel');
+        $resultBook = $bookModel->getBookDataByIsbn($isbn);                
+        $freeList = $bookModel->getFreeBooksByIsbn($isbn);
+        $borrowedList = $bookModel->getBorrowedBooksByIsbn($isbn);
+        
+        if (isset($resultBook['data']) && ($freeList != null || $borrowedList != null))
+        {                           
+            $this->view('header/header_urlap_2_4');
+            $this->viewNavigation($rights);
+            $this->view('book/reszletes_adatok',['book' => $resultBook['data'], 
+                                                 'freelist' => $freeList,
+                                                 'borrowedlist' => $borrowedList ]);
+        }
+    }
+	
 	public function choose($param) 
     {                
         session_start();
