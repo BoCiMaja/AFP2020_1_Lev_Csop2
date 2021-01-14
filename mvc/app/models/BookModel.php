@@ -246,7 +246,162 @@ class BookModel {
         }        
         return $error;
     }
+    
+    /*** KÖLCSÖNZÉS ***/
+    public function isBookBorrowed($peldany_id) {
+        try {
+            $db = new PDO(DB_DSN, DB_USR_LIB, DB_PWD_LIB);
+            $query = "SELECT * FROM Kolcsonzesek WHERE peldany_id = :peldany_id "
+                    . "AND kolcsonzes_vege IS NULL";
+            $stmt = $db->prepare($query);
+            $stmt->bindValue(':peldany_id', $peldany_id);
+            $stmt->execute();            
+            if ($stmt->rowCount() > 0)
+                return true;
+            else 
+                return false;            
+        } 
+        catch (PDOException $ex) {
+            die('Adatbázis hiba: ' . $e->getMessage());                                   
+        }        
+    }
+    
+    public function borrowBook($olvasojegy_azonosito, $peldany_azonosito, $kiadta) {        
+        try {
+            $db = new PDO(DB_DSN, DB_USR_LIB, DB_PWD_LIB);
+            $query = "INSERT INTO Kolcsonzesek (Peldany_id, Olvaso, Kolcsonzes_kezdete, Kiadta, Hosszabbitva) "
+                    . "VALUES (:peldany_azonosito, :olvasojegy_azonosito, :datum, :kiadta, 0)";
+            $stmt = $db->prepare($query);
+            $stmt->bindValue(':peldany_azonosito', $peldany_azonosito);
+            $stmt->bindValue(':olvasojegy_azonosito', $olvasojegy_azonosito);
+            $stmt->bindValue(':kiadta', $kiadta);
+            $datum = new DateTime(date('Y-m-d'));
+            $datum = $datum->format('Y-m-d');
+            $stmt->bindValue(':datum', $datum);
+            $stmt->execute();            
+        }
+        catch (PDOException $e)
+        {
+            die('Adatbázis hiba: ' . $e->getMessage());                                   
+        }
+    }
+      
+    public function returnBook($olvasojegy_azonosito, $peldany_azonosito, $visszavetelezte) {
+        try {
+            $db = new PDO(DB_DSN, DB_USR_LIB, DB_PWD_LIB);
+            $query = "UPDATE Kolcsonzesek SET kolcsonzes_vege = :datum, "
+                    . "visszavetelezte = :visszavetelezte "
+                    . "WHERE peldany_id = :peldany_azonosito AND "
+                    . "olvaso = :olvasojegy_azonosito AND "
+                    . "kolcsonzes_vege IS NULL";
+            $stmt = $db->prepare($query);
+            $stmt->bindValue(':peldany_azonosito', $peldany_azonosito);
+            $stmt->bindValue(':olvasojegy_azonosito', $olvasojegy_azonosito);
+            $stmt->bindValue(':visszavetelezte', $visszavetelezte);
+            $datum = new DateTime(date('Y-m-d'));
+            $datum = $datum->format('Y-m-d');
+            $stmt->bindValue(':datum', $datum);                        
+            $stmt->execute();
+            
+            if ($stmt->rowCount() == 1)
+                return true;
+            else 
+                return false;
+        }
+        catch (PDOException $e)
+        {
+            die('Adatbázis hiba: ' . $e->getMessage());                                   
+        }        
+    }
 
+    public function delayInDays($olvasojegy_azonosito, $peldany_azonosito) {
+        try {
+            $db = new PDO(DB_DSN, DB_USR_LIB, DB_PWD_LIB);
+            $query = "SELECT DATEDIFF(NOW(), DATE_ADD(kolcsonzes_kezdete, INTERVAL 1 MONTH)) AS Days "
+                    . "FROM Kolcsonzesek "                    
+                    . "WHERE peldany_id = :peldany_azonosito AND "
+                    . "olvaso = :olvasojegy_azonosito AND "
+                    . "kolcsonzes_vege IS NULL";
+            $stmt = $db->prepare($query);
+            $stmt->bindValue(':peldany_azonosito', $peldany_azonosito);
+            $stmt->bindValue(':olvasojegy_azonosito', $olvasojegy_azonosito);            
+            $stmt->execute();            
+            $data = $stmt->fetch(PDO::FETCH_OBJ);
+            return $data;            
+        }
+        catch (PDOException $e)
+        {
+            die('Adatbázis hiba: ' . $e->getMessage());                                   
+        }        
+    }    
+    
+    public function isBookProlongable($olvasojegy_azonosito, $peldany_azonosito) {
+        try {
+            $db = new PDO(DB_DSN, DB_USR_LIB, DB_PWD_LIB);       
+            $query = "SELECT DATE_ADD(Kolcsonzes_kezdete, INTERVAL 2 MONTH) AS MaxHatarido, "
+                    . "Hosszabbitva FROM Kolcsonzesek "                    
+                    . "WHERE Olvaso = :olvasojegy_azonosito AND Peldany_id = :peldany_azonosito "
+                    . "AND Kolcsonzes_vege IS NULL";
+            $stmt = $db->prepare($query);            
+            $stmt->bindValue(':olvasojegy_azonosito', $olvasojegy_azonosito);            
+            $stmt->bindValue(':peldany_azonosito', $peldany_azonosito);
+            $stmt->execute();
+            $row = $stmt->fetch(PDO::FETCH_OBJ);
+            $db = null;
+            return $row;
+        }
+        catch (PDOException $e)
+        {
+            die('Adatbázis hiba: ' . $e->getMessage());                                   
+        }        
+    }
+    
+    public function prolongBorrow($olvasojegy_azonosito, $peldany_azonosito, $kiadta) {
+        try {
+            $db = new PDO(DB_DSN, DB_USR_LIB, DB_PWD_LIB);
+            $query = "UPDATE Kolcsonzesek SET kolcsonzes_kezdete = DATE_ADD(kolcsonzes_kezdete, INTERVAL 1 MONTH), "
+                    . "kiadta = :kiadta, hosszabbitva = hosszabbitva + 1 "
+                    . "WHERE peldany_id = :peldany_azonosito AND "
+                    . "olvaso = :olvasojegy_azonosito AND "
+                    . "kolcsonzes_vege IS NULL";
+            $stmt = $db->prepare($query);
+            $stmt->bindValue(':peldany_azonosito', $peldany_azonosito);
+            $stmt->bindValue(':olvasojegy_azonosito', $olvasojegy_azonosito);
+            $stmt->bindValue(':kiadta', $kiadta);
+            $stmt->execute();
+            
+            if ($stmt->rowCount() == 1)
+                return true;
+            else 
+                return false;
+        }
+        catch (PDOException $e)
+        {
+            die('Adatbázis hiba: ' . $e->getMessage());                                   
+        }    
+    }
+    
+        public function getBorrowedBooksbyReader($olvasojegy_azonosito) {
+        $rows = null;
+        try {
+            $db = new PDO(DB_DSN, DB_USR_LIB, DB_PWD_LIB);       
+            $query = "SELECT kv.Szerzok, kv.Cim, p.Azonosito, DATE_ADD(ks.Kolcsonzes_kezdete, INTERVAL 1 MONTH) AS Hatarido "
+                    . "FROM Kolcsonzesek ks JOIN Peldanyok p ON ks.peldany_id=p.azonosito "
+                    . "JOIN Konyvek kv ON p.isbn=kv.isbn "
+                    . "WHERE ks.olvaso = :olvasojegy_azonosito AND ks.Kolcsonzes_vege IS NULL";
+            $stmt = $db->prepare($query);            
+            $stmt->bindValue(':olvasojegy_azonosito', $olvasojegy_azonosito);            
+            $stmt->execute();
+            while ($row = $stmt->fetch(PDO::FETCH_OBJ))                            
+                $rows[] = $row;                                 
+            $db = null;
+        }
+        catch (PDOException $e)
+        {
+            die('Adatbázis hiba: ' . $e->getMessage());                                   
+        }
+        return $rows;
+    }      
 }
 
 ?>

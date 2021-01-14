@@ -30,10 +30,10 @@
                 </li>
 		<li class="dropdown"><a href="#">Kölcsönzés</a>
                     <ul class="subnav">
-                        <li><a href="konyvkiadas.html">Könyv kiadása</a></li>
-                        <li><a href="konyvvisszavet.html">Könyv visszavétele</a></li>						                        
-			<li><a href="hosszabbitas.html">Hosszabbítás</a></li>
-                        <li><a href="lejartkonyvek.html">Lejárt határidős könyvek</a></li>
+                        <li><a href="<?=BASEURL?>/book/choose/toborrow">Könyv kiadása</a></li>
+                        <li><a href="<?=BASEURL?>/book/choose/toreturn">Könyv visszavétele</a></li>						                        
+                        <li><a href="<?=BASEURL?>/book/choose/toprolong">Hosszabbítás</a></li>	                        
+                        <li><a href="lejartkonyvek.html">Lejárt határidős könyvek</a></li>	                        			
                     </ul>
                 </li>
                 <li class="dropdown" id="user"><a href="#">Belépve: <?php echo $_SESSION['username']?></a>
