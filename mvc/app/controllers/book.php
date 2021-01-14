@@ -125,7 +125,93 @@ class Book extends Controller {
         }
     }
     
-        public function choose($param) 
+	public function expired() {
+        session_start();
+        if (!isset($_SESSION['rights']) || 
+           ($_SESSION['rights']!='admin' && $_SESSION['rights']!='konyvtaros'))        
+            return;
+        else
+            $rights = $_SESSION['rights'];
+
+        
+        if (array_key_exists('warn', $_POST) && count($_POST) > 1)
+        {
+            $bookModel = $this->model('BookModel');
+            $rows = $bookModel->expiredBookList();
+            
+            $tobewarned = [];
+            foreach ($rows as $row)
+            {
+                if (array_key_exists($row->peldany_id, $_POST))
+                {
+                    $reader = $bookModel->getBorrowerData($row->peldany_id);                    
+                    if ($reader != null && !in_array($reader, $tobewarned))
+                            $tobewarned[] = $reader;                        
+                }
+            }
+                        
+            $warnings = '';            
+            foreach ($tobewarned as $reader)
+            {                
+                $expired = $bookModel->getExpiredListByBorrower($reader->olvasojegy_azonosito);
+                $warning = "$reader->csaladi_nev $reader->utonev, (Olvasójegy száma: $reader->olvasojegy_azonosito) "
+                            ." figyelmeztetendő:<br>";
+                foreach ($expired as $book)
+                {
+                    $warning .= $book->szerzok . " : " . $book->cim  . ", <br>lejárt: ". $book->expired . "<br>";                    
+                }                    
+                $warning .= " könyve(i) kölcsönzési határideje lejáratára. <br>";
+                if ($reader->email)
+                    $warning .= " E-mail címe: $reader->email. <br><br>";
+                else 
+                    $warning .= " Postai címe: $reader->lakcim_iranyitoszam "
+                        . "$reader->lakcim_varos, $reader->lakcim_utca $reader->lakcim_hazszam. <br><br>";                            
+                $warnings .= $warning;        
+            }                            
+            if (strlen($warnings) > 0)
+            {                
+                $this->view('header/header_urlap_1');
+                $this->viewNavigation($rights);
+                $this->view('book/uzenet', [$warnings]);
+            }            
+        }
+        else if (array_key_exists('delete', $_POST))
+        {
+            $bookModel = $this->model('BookModel');
+            $rows = $bookModel->expiredBookList();
+            $deleted = 0;
+            foreach ($rows as $row)
+            {
+                if (array_key_exists($row->peldany_id, $_POST))
+                {
+                    $bookModel->deleteBookById($row->peldany_id);
+                    $deleted += 1;
+                }
+            }
+            $this->view('header/header_urlap_1');
+            $this->viewNavigation($rights);
+            $this->view('book/uzenet', ["$deleted darab lejárt határidejű könyvet törölt a katalógusból."]);            
+        }
+        else 
+        {
+            $bookModel = $this->model('BookModel');
+            $rows = $bookModel->expiredBookList();
+            if ($rows != null)
+            {
+                $this->view('header/header_lista_1');
+                $this->viewNavigation($rights);
+                $this->view('book/lejartkonyvek', $rows);
+            }
+            else
+            {
+                $this->view('header/header_urlap_1');
+                $this->viewNavigation($rights);
+                $this->view('book/uzenet', ["Jelenleg nincs lejárt határidejű kikölcsönzött könyv."]);            
+            }
+        }
+    }
+    
+	public function choose($param) 
     {                
         session_start();
         if (!isset($_SESSION['rights']) || 

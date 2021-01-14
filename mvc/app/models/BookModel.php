@@ -246,6 +246,78 @@ class BookModel {
         }        
         return $error;
     }
+	
+	/*** LEJÁRT HATÁRIDŐS KÖNYVEK ***/    
+    public function expiredBookList() {
+        $rows = null;
+        $duedate = new DateTime(date('Y-m-d'));
+        $duedate->modify('-1 month');
+        $duedate = $duedate->format('Y-m-d');        
+        try {
+            $db = new PDO(DB_DSN, DB_USR_LIB, DB_PWD_LIB);
+            $query = "SELECT ks.peldany_id, DATE_ADD(ks.kolcsonzes_kezdete, INTERVAL +1 MONTH) as expired,"
+                    . " ks.olvaso, kv.szerzok, kv.cim "
+                    . "FROM Kolcsonzesek ks JOIN Peldanyok p ON ks.peldany_id=p.azonosito "
+                    . "JOIN Konyvek kv ON p.isbn=kv.isbn "
+                    . "WHERE ks.kolcsonzes_kezdete < :duedate AND ks.kolcsonzes_vege IS NULL";
+            $stmt = $db->prepare($query);
+            $stmt->bindValue(':duedate', $duedate);
+            $stmt->execute();
+            while ($row = $stmt->fetch(PDO::FETCH_OBJ))                            
+                $rows[] = $row;
+            
+        }
+        catch (PDOException $e)
+        {
+            die('Adatbázis hiba: ' . $e->getMessage());                                   
+        }
+        return $rows;
+    }
+    
+    public function getBorrowerData($peldany_id) {
+        try {
+            $db = new PDO(DB_DSN, DB_USR_LIB, DB_PWD_LIB);
+            $query = "SELECT o.csaladi_nev, o.utonev, o.email, o.olvasojegy_azonosito, "
+                    . "o.lakcim_iranyitoszam, o.lakcim_varos, o.lakcim_utca, o.lakcim_hazszam "
+                    . "FROM Olvasok o JOIN Kolcsonzesek ks ON ks.olvaso=o.olvasojegy_azonosito "                    
+                    . "WHERE ks.peldany_id = :peldany_id";
+            $stmt = $db->prepare($query);
+            $stmt->bindValue(':peldany_id', $peldany_id);
+            $stmt->execute();
+            $row = $stmt->fetch(PDO::FETCH_OBJ);            
+        }
+        catch (PDOException $e)
+        {
+            die('Adatbázis hiba: ' . $e->getMessage());                                   
+        }
+        return $row;
+    }
+    
+    public function getExpiredListByBorrower($olvasojegy_azonosito) {
+        $rows = null;
+        $duedate = new DateTime(date('Y-m-d'));
+        $duedate->modify('-1 month');
+        $duedate = $duedate->format('Y-m-d');        
+        try {
+            $db = new PDO(DB_DSN, DB_USR_LIB, DB_PWD_LIB);
+            $query = "SELECT kv.szerzok, kv.cim, DATE_ADD(ks.kolcsonzes_kezdete, INTERVAL 1 MONTH) as expired "
+                    . "FROM Kolcsonzesek ks JOIN Peldanyok p ON ks.peldany_id=p.azonosito "
+                    . "JOIN Konyvek kv ON p.isbn=kv.isbn "
+                    . "WHERE ks.kolcsonzes_kezdete < :duedate AND ks.kolcsonzes_vege IS NULL "
+                    . "AND ks.olvaso=:olvasojegy_azonosito";
+            $stmt = $db->prepare($query);
+            $stmt->bindValue(':duedate', $duedate);
+            $stmt->bindValue(':olvasojegy_azonosito', $olvasojegy_azonosito);            
+            $stmt->execute();
+            while ($row = $stmt->fetch(PDO::FETCH_OBJ))                            
+                $rows[] = $row;            
+        }
+        catch (PDOException $e)
+        {
+            die('Adatbázis hiba: ' . $e->getMessage());                                   
+        }
+        return $rows;
+    }
     
     /*** KÖLCSÖNZÉS ***/
     public function isBookBorrowed($peldany_id) {
