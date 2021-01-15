@@ -19,8 +19,8 @@
                 </li>
 		<li class="dropdown"><a href="#">Katalógus</a>
                     <ul class="subnav">
-			<li><a href="konyvkeresesesz.html">Egyszerű keresés</a></li>
-                        <li><a href="konyvkereses.html">Részletes keresés</a></li>
+			<li><a href="<?=BASEURL?>/book/simplesearch">Egyszerű keresés</a></li>
+                        <li><a href="<?=BASEURL?>/book/detailedsearch">Részletes keresés</a></li>
                         <li><a href="<?=BASEURL?>/book/register">Új könyv felvétele</a></li>
                         <li><a href="<?=BASEURL?>/book/delete">Könyv leselejtezése</a></li>                        
 			<li><a href="leltarinditas.html">Teljes leltár indítása</a></li>
@@ -33,7 +33,7 @@
                         <li><a href="<?=BASEURL?>/book/choose/toborrow">Könyv kiadása</a></li>
                         <li><a href="<?=BASEURL?>/book/choose/toreturn">Könyv visszavétele</a></li>						                        
                         <li><a href="<?=BASEURL?>/book/choose/toprolong">Hosszabbítás</a></li>	                        
-                        <li><a href="lejartkonyvek.html">Lejárt határidős könyvek</a></li>	                        			
+                        <li><a href="<?=BASEURL?>/book/expired">Lejárt határidős könyvek</a></li>	                        			
                     </ul>
                 </li>
                 <li class="dropdown" id="user"><a href="#">Belépve: <?php echo $_SESSION['username']?></a>
