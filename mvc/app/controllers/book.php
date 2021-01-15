@@ -659,6 +659,27 @@ class Book extends Controller {
         
     }
 
-    
+    public function listMyBooks() {        
+        session_start();                
+        if (!isset($_SESSION['rights']) || $_SESSION['rights']!='olvaso')
+            return;
+        else
+            $rights = $_SESSION['rights'];
+        
+        $bookModel = $this->model('BookModel');
+        $books = $bookModel->getMyBorrowedBooks($_SESSION['username']);
+        
+        if ($books != null) 
+        {            
+            $this->view('header/header_lista_1');
+            $this->viewNavigation($rights);
+            $this->view('book/konyveim', ['books' => $books]);
+        }        
+        else {
+            $this->view('header/header_urlap_1');
+            $this->viewNavigation($rights);
+            $this->view('book/uzenet', ["Önnek jelenleg nincsenek kikölcsönzött könyvei."]);
+        }
+    }
 }
 

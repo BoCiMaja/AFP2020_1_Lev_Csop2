@@ -717,6 +717,28 @@ class BookModel {
         }
         return $rows;
     }      
+    
+    public function getMyBorrowedBooks($username) {
+        $rows = null;
+        try {
+            $db = new PDO(DB_DSN, DB_USR_LIB, DB_PWD_LIB);                  
+            $query = "SELECT kv.Szerzok, kv.Cim, p.Azonosito, DATE_ADD(ks.Kolcsonzes_kezdete, INTERVAL 1 MONTH) AS Hatarido "
+                    . "FROM Kolcsonzesek ks JOIN Peldanyok p ON ks.peldany_id=p.azonosito "
+                    . "JOIN Konyvek kv ON p.isbn=kv.isbn JOIN Olvasok o ON ks.Olvaso=o.Olvasojegy_azonosito "
+                    . "WHERE o.Felhasznaloi_nev= :username AND ks.Kolcsonzes_vege IS NULL";
+            $stmt = $db->prepare($query);            
+            $stmt->bindValue(':username', $username);            
+            $stmt->execute();
+            while ($row = $stmt->fetch(PDO::FETCH_OBJ))                            
+                $rows[] = $row;                                 
+            $db = null;
+        }
+        catch (PDOException $e)
+        {
+            die('Adatbázis hiba: ' . $e->getMessage());                                   
+        }
+        return $rows;
+    }
 }
 
 ?>
