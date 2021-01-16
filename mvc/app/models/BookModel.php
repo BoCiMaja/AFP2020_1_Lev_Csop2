@@ -464,6 +464,7 @@ class BookModel {
                     . "AND k.eto_jelzet LIKE :eto_jelzet "
                     . "AND k.oldalak_szama LIKE :oldalak_szama "
                     . "AND k.targyszavak LIKE :targyszavak "
+                    . "AND k.isbn LIKE :isbn "
                     . "AND p.azonosito LIKE :azonosito "
                     . "GROUP BY p.isbn ORDER BY k.szerzok, k.cim";
             $stmt = $db->prepare($query);            
@@ -474,6 +475,7 @@ class BookModel {
             $stmt->bindValue(':eto_jelzet', $eto_jelzet);
             $stmt->bindValue(':oldalak_szama', $oldalak_szama);
             $stmt->bindValue(':targyszavak', '%'.$targyszavak.'%');
+            $stmt->bindValue(':isbn', $isbn);
             $stmt->bindValue(':azonosito', $azonosito);            
             $stmt->execute();
             while ($row = $stmt->fetch(PDO::FETCH_OBJ))                            
