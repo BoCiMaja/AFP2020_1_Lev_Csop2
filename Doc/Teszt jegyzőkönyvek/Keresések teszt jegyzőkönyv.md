@@ -24,8 +24,8 @@ Az első könyvből egy példányt kikölcsönöztem egy olvasónak, a negyedikb
 	- *Michael Chabon*: a Keresés gombra kattintva egy lista jelenik meg, melyben Michael Chabon két fenti műve jelenik meg, 
 a kiadási év és a példányok számát megjelenítve helyesen. A könyvek címe egy-egy link, melyre kattintva megjelennek a könyvek 
 részletes adatai egy űrlapon, melynek nem módosíthatóak a mezői, valamint egy lista, mely a könyvpéldányok azonosítóját 
-és kölcsönzési információt tartalmaz. Az első könyv esetén helyesen az egyik példány esetén kölcsönözhető, míg a másik esetén 
-Kiadva: 2021-02-15-ig jelenik meg.  
+és kölcsönzési információt tartalmaz. Az első könyv esetén helyesen az egyik példány esetén "kölcsönözhető", míg a másik esetén 
+"Kiadva: 2021-02-15-ig" jelenik meg.  
 	- *Ragyog a hold* vagy *ragyog* vagy *hold*: a Keresés gombra kattintva a fenti b) könyv jelenik, meg egy listában, 
 a részletes adatok az 1. ponthoz hasonlóan lekérdezhetőek voltak.  
 	- *kortárs amerikai irodalom* vagy *amerikai irodalom* vagy *kortárs irodalom*: a Keresés gombra kattintva megjelenik mind a három a-c) fenti mű, 
