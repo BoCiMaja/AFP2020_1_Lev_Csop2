@@ -150,21 +150,23 @@ class LibrarianModel {
         if (!preg_match('/^[1-9][0-9]{3}$/', $lakcim_iranyitoszam))
                 $error .= 'Az irányítószám nem megfelelő formátumú vagy nincs megadva.<br>';
         if (!preg_match('/^[A-ZÁ-Ű][a-zá-ű]+$/', $lakcim_varos))
-                $error .= 'A város nem megfelelő formátumú vagy nincs megadva.<br>';
+                $error .= 'A lakcím, város nem megfelelő formátumú vagy nincs megadva.<br>';
         if (strlen($lakcim_varos) > 40)
                 $error .= 'A lakcím város megnevezése maximum 40 karakter hosszú lehet.<br>';        
         if (!preg_match('/^([A-ZÁ-Ű][a-zá-ű\-]+\s)([A-ZÁ-Űa-zá-ű\-\.]*\s?)+$/', $lakcim_utca)
-                || !(substr($lakcim_utca, -4) == "utca"  
-                || substr($lakcim_utca, -2) == "út" 
-                || substr($lakcim_utca, -2) == "u."  
-                || substr($lakcim_utca, -3) == "tér"  
-                || substr($lakcim_utca, -5) == "körút"  
-                || substr($lakcim_utca, -4) == "krt."))
-            $error .= 'Az utca mező nem megfelelő formátumú vagy nincs megadva.<br>';        
+                || !(preg_match('/utca$/u', $lakcim_utca)  
+                || preg_match('/u.$/u', $lakcim_utca) 
+                || preg_match('/út$/u', $lakcim_utca)  
+                || preg_match('/tér$/u', $lakcim_utca)  
+                || preg_match('/körút$/u', $lakcim_utca)  
+                || preg_match('/krt.$/u', $lakcim_utca))) 
+            $error .= 'A lakcím, közterület neve nem megfelelő formátumú vagy nincs megadva.<br>';                
         if (strlen($lakcim_utca) > 40)
-                $error .= 'A lakcím utca megnevezése maximum 40 karakter hosszú lehet.<br>';
+                $error .= 'A lakcím, közterület neve maximum 40 karakter hosszú lehet.<br>';
         if (strlen($lakcim_hazszam) > 40)
-                $error .= 'A lakcím házszám megnevezése maximum 40 karakter hosszú lehet.<br>';
+                $error .= 'A lakcím, házszám maximum 40 karakter hosszú lehet.<br>';
+		if (!preg_match('/^[0-9]+(\.)[\/0-9A-Za-z\.]*$/', $lakcim_hazszam))
+                $error .= 'A lakcím, házszám nincs megadva vagy nem megfelelő formátumú.<br>';
         if (!empty($telefonszam) && !preg_match('/^[0-9]{11}$/', $telefonszam))
             $error .= 'A telefonszámnak 11 számjegyből kell állnia. <br>';
         if (!empty($email))
