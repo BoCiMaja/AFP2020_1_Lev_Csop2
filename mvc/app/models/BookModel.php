@@ -76,8 +76,8 @@ class BookModel {
             $error .= "A cutter (3 jegyű szám.szám+szóköz)(opcionális)+nagybetű+szóköz+szám formátumú legyen!<br>";
         if (strlen($cutter) > 20)
             $error .= "A cutter maximum 20 karakter hosszú lehet!<br>";
-        if (!preg_match('/^([a-zá-ű ,\-]+)$/u', $targyszavak))
-            $error .= "A tárgyszavak szóközzel, vesszővel tagolt kisbetűs szavakból álljon!<br>";
+        if (!preg_match('/^([A-ZÁ-Űa-zá-ű0-9 ,]+)$/u', $targyszavak))
+            $error .= "A tárgyszavak szóközzel, vesszővel tagolt szavakból álljon!<br>";
         if (strlen($targyszavak) > 100)
             $error .= "A tárgyszavak hossza összesen maximum 100 karakter lehet!<br>";
         if ($azonosito < 1000000000000 || $azonosito > 9999999999999)
