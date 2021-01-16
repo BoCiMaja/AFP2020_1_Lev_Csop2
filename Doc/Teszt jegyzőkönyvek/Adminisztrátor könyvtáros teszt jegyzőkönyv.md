@@ -1,8 +1,8 @@
 # Könyvtári katalógus és nyilvántartó rendszer teszt jegyzőkönyv
-Tesztelést végezte: 	Jakab Zsolt
-Operációs rendszer:	WIN10
-Böngésző: 		Google Chrome
-Dátum: 		2021.01.13
+Tesztelést végezte: 	Jakab Zsolt  
+Operációs rendszer:	WIN10  
+Böngésző: 		Google Chrome  
+Dátum: 		2021.01.13  
 Talált hibák száma: 	2  
 ## Adminisztrátor könyvtáros funkciók tesztelése 
 ### Belépés a rendszerbe
