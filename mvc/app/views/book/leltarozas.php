@@ -27,11 +27,13 @@
     }    
 ?>
         <article>			                 
-            <form method="POST" action="<?=BASEURL?>/book/toinventory/<?php if(isset($data['book'])) echo $azonosito; else echo 0;?>">
+            <!-- form method="POST" action="<?=BASEURL?>/book/toinventory/<?php if(isset($data['book'])) echo $azonosito; else echo 0;?>" -->
+            <form method="POST" action="<?=BASEURL?>/book/toinventory">
                 <div class="container"> 
                     <div class="column">
                             <label for="azonosito">Azonosító:</label>
-                            <input type="number" id="azonosito" name="azonosito" tabindex="1" value="<?=$azonosito?>" <?php if(isset($data['book'])):?>disabled<?php endif;?>><br/>
+                            <input type="number" id="azonosito"  name="azonosito"  tabindex="1" value="<?=$azonosito?>" <?php if(isset($data['book'])):?>disabled<?php endif;?>><br/>
+                            <input type="hidden" id="azonositoh" name="azonositoh" value="<?=$azonosito?>">
                             <label for="szerzok">Szerző(k):</label>
                             <input type="text" id="szerzok" name="szerzok" tabindex="3" value="<?=$szerzok?>" disabled><br/>
                             <label for="kiado">Kiadó:</label>
