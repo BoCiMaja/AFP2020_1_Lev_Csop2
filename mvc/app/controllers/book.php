@@ -681,5 +681,88 @@ class Book extends Controller {
             $this->view('book/uzenet', ["Önnek jelenleg nincsenek kikölcsönzött könyvei."]);
         }
     }
+    
+    public function toInventory($peldany) {        
+        if (session_status() != PHP_SESSION_ACTIVE)
+            session_start();        
+        if (!isset($_SESSION['rights']) || 
+           ($_SESSION['rights']!='admin' && $_SESSION['rights']!='konyvtaros'))        
+            return;
+        else
+            $rights = $_SESSION['rights'];
+
+        if (array_key_exists('adatlekeres', $_POST))        
+        {            
+            if ((empty($peldany) || $peldany == 0) && empty($_POST['azonosito']))
+            {
+                $this->view('header/header_urlap_1');
+                $this->viewNavigation($rights);
+                $this->view('book/uzenet', ["Kérem adjon meg egy könyvpéldány azonosítót!<br><br>"
+                    . "<a href=".BASEURL."/book/toinventory/0'>Vissza</a>"]);
+                return;                
+            }            
+            $bookModel = $this->model('BookModel');
+            if ($peldany == 0)
+                $bookData = $bookModel->getBookDataById($_POST['azonosito']);
+            else
+                $bookData = $bookModel->getBookDataById($peldany);
+            if (isset($bookData['data']))
+            {            
+                $this->view('header/header_urlap_3');
+                $this->viewNavigation($rights);
+                $this->view('book/leltarozas', ['book' => $bookData['data']]);
+            }
+            else {                
+                $this->view('header/header_urlap_1');
+                $this->viewNavigation($rights);
+                $this->view('book/uzenet', [$bookData['error']
+                    ."<br><br><a href=".BASEURL."/book/toinventory/0'>Vissza</a>"]);
+                return;
+            }
+        }
+        else if (array_key_exists('leltarozas', $_POST))
+        {
+            if ((empty($peldany) || $peldany == 0) && empty($_POST['azonosito']))
+            {
+                $this->view('header/header_urlap_1');
+                $this->viewNavigation($rights);
+                $this->view('book/uzenet', ["Kérem adjon meg egy könyvpéldány azonosítót!<br><br>"
+                    . "<a href=".BASEURL."/book/toinventory/0'>Vissza</a>"]);
+                return;                
+            }        
+            
+            $bookModel = $this->model('BookModel');
+            if ($peldany == 0)
+                $bookData = $bookModel->getBookDataById($_POST['azonosito']);
+            else
+                $bookData = $bookModel->getBookDataById($peldany);
+            
+            if (isset($bookData['error'])) {                   
+                $this->view('header/header_urlap_1');
+                $this->viewNavigation($rights);
+                $this->view('book/uzenet', [$bookData['error']
+                    ."<br><br><a href=".BASEURL."/book/toinventory/0'>Vissza</a>"]);
+                return;
+            }
+                                    
+            if ($bookModel->bookToInventory($bookData['data']->Azonosito, $_SESSION['username']))                       
+            {                                                      
+                unset($_POST['leltarozas']);
+                $this->toInventory(0);
+            }
+            else {
+                $this->view('header/header_urlap_1');
+                $this->viewNavigation($rights);
+                $this->view('book/uzenet', [
+                    "A példány már szerepel ebben a leltárban!"                     
+                    ."<br><br><a href=".BASEURL."/book/toinventory/0'>Vissza</a>"]);
+                return;
+            }                                               
+        } else {
+            $this->view('header/header_urlap_3');
+            $this->viewNavigation($rights);
+            $this->view('book/leltarozas', []);        
+        }        
+    }    
 }
 

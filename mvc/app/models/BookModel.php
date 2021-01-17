@@ -741,6 +741,31 @@ class BookModel {
         }
         return $rows;
     }
+    
+    /*** LELTÁR ***/
+    public function bookToInventory($peldany_azonosito) {
+        try {
+            $db = new PDO(DB_DSN, DB_USR_LIB, DB_PWD_LIB);
+            $query = "UPDATE peldanyok SET Leltarbavetel_datuma = :datum "                    
+                    ."WHERE azonosito = :peldany_azonosito";               
+
+            $stmt = $db->prepare($query);
+            $stmt->bindValue(':peldany_azonosito', $peldany_azonosito);                        
+            $datum = new DateTime(date('Y-m-d'));
+            $datum = $datum->format('Y-m-d');
+            $stmt->bindValue(':datum', $datum);                        
+            $stmt->execute();
+            
+            if ($stmt->rowCount() == 1)
+                return true;
+            else 
+                return false;
+        }
+        catch (PDOException $e)
+        {
+            die('Adatbázis hiba: ' . $e->getMessage());                                   
+        }        
+    }    
 }
 
 ?>

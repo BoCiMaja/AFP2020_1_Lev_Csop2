@@ -23,9 +23,7 @@
                         <li><a href="<?=BASEURL?>/book/detailedsearch">Részletes keresés</a></li>
                         <li><a href="<?=BASEURL?>/book/register">Új könyv felvétele</a></li>
                         <li><a href="<?=BASEURL?>/book/delete">Könyv leselejtezése</a></li>                        
-			<li><a href="leltarinditas.html">Teljes leltár indítása</a></li>
-			<li><a href="leltarbavetel.html">Teljes leltár folytatása</a></li>
-			<li><a href="leltarvege.html">Teljes leltár vége</a></li>
+			                  <li><a href="<?=BASEURL?>/book/toinventory">Leltározás</a></li>			
                     </ul>
                 </li>
 		<li class="dropdown"><a href="#">Kölcsönzés</a>
